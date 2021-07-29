@@ -1,0 +1,11 @@
+<div>
+  <div class="cui__utils__heading">
+    <strong>Ecommerce: Product Catalog</strong>
+  </div>
+  <div class="row">
+    <div class="col-xl-4 col-lg-6" *ngFor="let product of products">
+      <kit-general-16 [isNew]="product.isNew" [isFavorite]="product.isFavorite" [image]="product.image"
+        [name]="product.name" [price]="product.price" [oldPrice]="product.oldPrice"></kit-general-16>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<h5 class="mb-3">
+  <strong>Basic</strong>
+</h5>
+<div class="mb-5">
+  <nz-list [nzDataSource]="data2" nzBordered [nzHeader]="'Header'" [nzFooter]="'Footer'" [nzRenderItem]="defaultItem">
+    <ng-template #defaultItem let-item>
+      <nz-list-item>
+        <span class="ant-typography"><code>[#]</code></span>
+        {{ item }}
+      </nz-list-item>
+    </ng-template>
+  </nz-list>
+</div>
+<h5 class="mb-3">
+  <strong>With Avatar</strong>
+</h5>
+<div class="mb-3"><button nz-button (click)="change()">Switch Data</button></div>
+<div class="mb-5">
+  <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading">
+    <ng-template #item let-item>
+      <nz-list-item>
+        <nz-list-item-meta [nzTitle]="nzTitle"
+          nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          nzDescription="Ant Design, a design language for background applications, is refined by Ant UED Team">
+          <ng-template #nzTitle>
+            <a href="https://ng.ant.design">{{ item.title }}</a>
+          </ng-template>
+        </nz-list-item-meta>
+      </nz-list-item>
+    </ng-template>
+  </nz-list>
+</div>

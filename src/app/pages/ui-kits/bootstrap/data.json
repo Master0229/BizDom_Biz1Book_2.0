@@ -1,0 +1,143 @@
+[
+  {
+    "name": "Alerts",
+    "description": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+    "link": "https://ng-bootstrap.github.io/#/components/alert/examples"
+  },
+  {
+    "name": "Badges / Pills",
+    "description": "Documentation and examples for badges, our small count and labeling component."
+  },
+  {
+    "name": "Breadcrumbs",
+    "description": "Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS."
+  },
+  {
+    "name": "Button Dropdown",
+    "description": "Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin."
+  },
+  {
+    "name": "Button Group",
+    "description": "Group a series of buttons together on a single line with the button group, and super-power them with JavaScript."
+  },
+  {
+    "name": "Buttons",
+    "description": "Use Bootstrap's custom button component for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.",
+    "link": "https://ng-bootstrap.github.io/#/components/buttons/examples"
+  },
+  {
+    "name": "Card",
+    "description": "Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options."
+  },
+  {
+    "name": "Carousel",
+    "description": "The carousel is a slideshow for cycling through a series of content, built with CSS 3D transforms. It works with a series of images, text, or custom markup. It also includes support for previous/next controls and indicators.",
+    "link": "https://ng-bootstrap.github.io/#/components/carousel/examples"
+  },
+  {
+    "name": "Collapse",
+    "description": "Easily toggle visibility of almost any content on your pages. Includes support for making accordions.",
+    "link": "https://ng-bootstrap.github.io/#/components/collapse/examples"
+  },
+  {
+    "name": "Datepicker",
+    "description": "Datepicker will help you with date selection.",
+    "link": "https://ng-bootstrap.github.io/#/components/datepicker/overview"
+  },
+  {
+    "name": "Dropdowns",
+    "description": "Dropdowns are toggleable, contextual overlays for displaying lists of links and actions in a dropdown menu format.",
+    "link": "https://ng-bootstrap.github.io/#/components/dropdown/examples"
+  },
+  {
+    "name": "Form",
+    "description": "Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms."
+  },
+  {
+    "name": "Input Group",
+    "description": "Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs, custom selects, and custom file inputs."
+  },
+  {
+    "name": "Jumbotron",
+    "description": "Lightweight, flexible component for showcasing hero unit style content."
+  },
+  {
+    "name": "Layout",
+    "description": "Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes."
+  },
+  {
+    "name": "ListGroup",
+    "description": "List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within."
+  },
+  {
+    "name": "Media object",
+    "description": "Documentation and examples for Bootstrap’s media object to construct highly repetitive components like blog comments, tweets, and the like."
+  },
+  {
+    "name": "Modals",
+    "description": "Modals are streamlined, but flexible dialog prompts powered by JavaScript and CSS. They support a number of use cases from user notification to completely custom content and feature a handful of helpful sub-components, sizes, variants, accessibility, and more.",
+    "link": "https://ng-bootstrap.github.io/#/components/modal/examples"
+  },
+  {
+    "name": "Navbar",
+    "description": "Documentation and examples for Bootstrap’s powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin."
+  },
+  {
+    "name": "Navs",
+    "description": "Documentation and examples for how to use Bootstrap’s included navigation components."
+  },
+  {
+    "name": "Pagination",
+    "description": "Quick first, previous, next, last, and page buttons for pagination control of another component.",
+    "link": "https://ng-bootstrap.github.io/#/components/pagination/overview"
+  },
+  {
+    "name": "Popover",
+    "description": "The Popover feature, which provides a tooltip-like behavior, can be easily applied to any interactive element.",
+    "link": "https://ng-bootstrap.github.io/#/components/popover/examples"
+  },
+  {
+    "name": "Progress",
+    "description": "Use our custom progress component for displaying simple or complex progress bars, featuring support for horizontally stacked bars, animated backgrounds, and text labels.",
+    "link": "https://ng-bootstrap.github.io/#/components/progressbar/examples"
+  },
+  {
+    "name": "Rating",
+    "description": "Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.",
+    "link": "https://ng-bootstrap.github.io/#/components/rating/examples"
+  },
+  {
+    "name": "Spinners",
+    "description": "Indicate the loading state of a component or page with Bootstrap spinners, built entirely with HTML, CSS, and no JavaScript."
+  },
+  {
+    "name": "Tables",
+    "description": "For displaying tabular data, supports pagination, filtering, sorting, custom rendering, various style options, events, and asynchronous data.",
+    "link": "https://ng-bootstrap.github.io/#/components/table/overview"
+  },
+  {
+    "name": "Tabs / Pills",
+    "description": "Create a widget of tabbable panes of local content. The tabs component is built upon navs and cards internally, and provides full keyboard navigation control of the tabs.",
+    "link": "https://ng-bootstrap.github.io/#/components/tabset/examples"
+  },
+  {
+    "name": "Timepicker",
+    "description": "Timepicker will help you with time selection.",
+    "link": "https://ng-bootstrap.github.io/#/components/timepicker/examples"
+  },
+  {
+    "name": "Toasts",
+    "description": "Toasts are lightweight notifications designed to mimic the push notifications that have been popularized by mobile and desktop operating systems.",
+    "link": "https://ng-bootstrap.github.io/#/components/toast/overview"
+  },
+  {
+    "name": "Tooltips",
+    "description": "Easily add tooltips to elements or components.",
+    "link": "https://ng-bootstrap.github.io/#/components/tooltip/examples"
+  },
+  {
+    "name": "Typeahead",
+    "description": "Fully-featured autocomplete",
+    "link": "https://ng-bootstrap.github.io/#/components/typeahead/examples"
+  }
+]

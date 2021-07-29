@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Checkbox Group</strong>
+    </h5>
+    <nz-checkbox-group [(ngModel)]="checkOptionsOne" (ngModelChange)="log(checkOptionsOne)"></nz-checkbox-group>
+    <br />
+    <br />
+    <nz-checkbox-group [(ngModel)]="checkOptionsTwo" (ngModelChange)="log(checkOptionsTwo)"></nz-checkbox-group>
+    <br />
+    <br />
+    <nz-checkbox-group [(ngModel)]="checkOptionsThree" (ngModelChange)="log(checkOptionsThree)"></nz-checkbox-group>
+  </div>
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Basic</strong>
+    </h5>
+    <label nz-checkbox [(ngModel)]="checked">Checkbox</label>
+  </div>
+</div>

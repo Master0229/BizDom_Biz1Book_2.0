@@ -1,0 +1,56 @@
+<div>
+  <div class="textDivider mb-2">
+    <h4 class="textDividerContent font-size-24 font-weight-bold">
+      Waiting actions
+    </h4>
+  </div>
+  <nz-table #basicTable [nzShowPagination]="false" [nzData]="listOfAllData"
+    (nzCurrentPageDataChange)="currentPageDataChange($event)" class="table mb-4">
+    <thead>
+      <tr>
+        <th nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked" [nzIndeterminate]="isIndeterminate"
+          (nzCheckedChange)="checkAll($event)"></th>
+        <th class="text-uppercase">Action Name</th>
+        <th class="text-uppercase">Location</th>
+        <th class="text-uppercase text-right">Value</th>
+        <th class="text-uppercase">Description</th>
+        <th class="text-uppercase"></th>
+        <th class="text-uppercase"></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" [nzDisabled]="data.disabled"
+          (nzCheckedChange)="refreshStatus()"></td>
+        <td>
+          {{data.actionName}}
+        </td>
+        <td>
+          <a href="javascript: void(0);" class="text-blue">
+            {{data.location}}
+          </a>
+        </td>
+        <td class="text-right font-weight-bold">
+          {{data.value}}
+        </td>
+        <td>
+          {{data.description}}
+        </td>
+        <td>
+          <div class="kit__utils__avatarGroup" [ngClass]="[data.users.length ? '' : 'd-none']">
+            <div class="kit__utils__avatar kit__utils__avatar--rounded" *ngFor="let user of data.users">
+              <img [src]="user" alt="User" />
+            </div>
+            <button type="button" class="kit__utils__avatarGroupAdd">
+              <i class="fe fe-plus"></i>
+            </button>
+          </div>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-success mr-2 mb-2">Accept</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

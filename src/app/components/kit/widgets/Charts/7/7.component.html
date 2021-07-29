@@ -1,0 +1,25 @@
+<div>
+  <us-map fillStateColor="#69b2f8" strokeColor="#fff"></us-map>
+  <nz-table #basicTable [nzData]="tableData" [nzShowPagination]="false" class="table mb-4">
+    <thead>
+      <tr>
+        <th class="bg-transparent text-gray-6">Action name</th>
+        <th class="bg-transparent text-gray-6">Location</th>
+        <th class="text-left text-gray-6 bg-transparent">Phone</th>
+        <th class="text-right bg-transparent text-gray-6">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.actionName}}</td>
+        <td>
+          <a href="javascript: void(0);" class="text-blue">
+            {{data.location}}
+          </a>
+        </td>
+        <td>{{data.phone}}</td>
+        <td class="text-right"><span class="font-weight-bold">{{data.value}}</span></td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

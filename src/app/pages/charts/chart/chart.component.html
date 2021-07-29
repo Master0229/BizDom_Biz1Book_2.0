@@ -1,0 +1,61 @@
+<div>
+  <div class="kit__utils__heading">
+    <h5>
+      <span class="mr-3">Chart.js</span>
+      <a href="https://github.com/emn178/angular2-chartjs" target="_blank" class="btn btn-sm btn-light">
+        Official Documentation
+        <i class="fe fe-corner-right-up"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Line Chart</strong>
+          </h5>
+          <div class="mb-5">
+            <chart [type]="'line'" [data]="lineData" [options]="lineOptions"></chart>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Bar Chart</strong>
+          </h5>
+          <div class="mb-5">
+            <chart [type]="'bar'" [data]="barData" [options]="barOptions"></chart>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Pie Chart</strong>
+          </h5>
+          <div class="mb-5">
+            <chart [type]="'pie'" [data]="pieData" [options]="pieOptions"></chart>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Doughnut Chart</strong>
+          </h5>
+          <div class="mb-5">
+            <chart [type]="'doughnut'" [data]="doughnutData" [options]="doughnutOptions"></chart>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Radar Chart</strong>
+          </h5>
+          <div class="mb-5">
+            <chart [type]="'radar'" [data]="radarData" [options]="radarOptions"></chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

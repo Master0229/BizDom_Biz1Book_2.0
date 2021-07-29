@@ -1,0 +1,153 @@
+@import 'src/app/components/mixins.scss';
+
+.head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+
+.title {
+  color: $gray-6;
+  margin-bottom: 0;
+  flex-shrink: 1;
+  margin-right: rem(15);
+}
+
+.time {
+  text-transform: uppercase;
+  margin-left: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+  font-size: rem(12);
+  color: $gray-5;
+}
+
+.content {
+  margin-bottom: 0;
+  color: $gray-4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabs {
+  ::ng-deep .ant-tabs-bar {
+    border-bottom: none;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 3px;
+      right: 0;
+      height: 1px;
+      background-color: $gray-2;
+    }
+  }
+
+  ::ng-deep .ant-tabs-nav {
+    ::ng-deep .ant-tabs-tab {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      margin-right: 25px;
+    }
+
+    ::ng-deep .ant-tabs-tab-active {
+      color: $blue;
+    }
+  }
+
+  ::ng-deep .ant-tabs-ink-bar {
+    height: 7px;
+    border-radius: 5px;
+    background-color: $blue;
+  }
+
+  ::ng-deep .ant-tabs-tabpane {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+// dark theme
+:host-context([data-kit-theme='dark']) {
+  .tabs {
+    ::ng-deep .ant-tabs-bar {
+      &::before {
+        background-color: $dark-gray-4;
+      }
+    }
+
+    ::ng-deep .ant-tabs-nav {
+      ::ng-deep .ant-tabs-tab {
+        color: $dark-gray-2;
+      }
+      ::ng-deep .ant-tabs-tab-active {
+        color: $blue;
+      }
+    }
+  }
+  .icon {
+    color: $dark-gray-2;
+  }
+}
+
+.dropdown {
+  padding-right: 15px;
+  position: relative;
+  cursor: pointer;
+  @include transition-slow;
+
+  &::after {
+    opacity: 0.5;
+    color: $gray-5;
+    position: absolute;
+    top: 45%;
+    right: 0;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: '';
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    @include transition-slow;
+  }
+
+  &:hover {
+    color: $blue;
+
+    &::after {
+      color: $gray-6;
+    }
+
+    .icon {
+      color: $primary;
+    }
+  }
+}
+
+.icon {
+  margin-right: rem(5);
+  position: relative;
+  bottom: -2px;
+  font-size: rem(17);
+  color: $gray-5;
+  @include transition-slow;
+}
+
+// dark theme
+// :host-context([data-kit-theme='dark']) {
+//   .icon {
+//     color: $dark-gray-2;
+//   }
+// }

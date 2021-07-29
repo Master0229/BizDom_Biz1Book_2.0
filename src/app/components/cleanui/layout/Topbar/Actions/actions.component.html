@@ -1,0 +1,41 @@
+<div>
+  <nz-badge [nzCount]="erroredorders.length">
+    <div nz-dropdown nzTrigger="click" class="dropdown" [nzDropdownMenu]="menu">
+      <i class="icon fe fe-bell"></i>
+    </div>
+  </nz-badge>
+
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <div class="card cui__utils__shadow width-350">
+      <div class="card-body p-0">
+        <div>
+          <nz-tabset class="tabs" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="Alerts">
+              <div *ngIf="erroredorders.length > 0" class="text-gray-6">
+                <ul class="list-unstyled">
+                  <li class="mb-3" *ngFor="let order of erroredorders">
+                    <div class="head">
+                      <p class="title">
+                        {{order.InvoiceNo}}:
+                        <strong class="text-danger">500 error</strong>
+                      </p>
+                      <time class="time">5 min ago</time>
+                    </div>
+                    <p>Please contact your service provider.</p>
+                  </li>
+                </ul>
+              </div>
+              <div *ngIf="erroredorders.length == 0" class="text-center mb-3 py-4 bg-light rounded">No Alerts</div>
+            </nz-tab>
+            <nz-tab nzTitle="Events">
+              <div class="text-center mb-3 py-4 bg-light rounded">No Events</div>
+            </nz-tab>
+            <nz-tab nzTitle="Actions">
+              <div class="text-center mb-3 py-4 bg-light rounded">No Actions</div>
+            </nz-tab>
+          </nz-tabset>
+        </div>
+      </div>
+    </div>
+  </nz-dropdown-menu>
+</div>

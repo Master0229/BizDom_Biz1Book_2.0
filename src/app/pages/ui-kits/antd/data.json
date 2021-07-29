@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Button",
+    "description": "To trigger an operation.",
+    "link": "https://ng.ant.design/components/button/en"
+  },
+  {
+    "name": "Icon",
+    "description": "Semantic vector graphics.",
+    "link": "https://ng.ant.design/components/icon/en"
+  },
+  {
+    "name": "Grid",
+    "description": "24 Grids System.",
+    "link": "https://ng.ant.design/components/grid/en"
+  },
+  {
+    "name": "Layout",
+    "description": "Handling the overall layout of a page.",
+    "link": "https://ng.ant.design/components/layout/en"
+  },
+  {
+    "name": "Avatar",
+    "description": "Avatars can be used to represent people or objects. It supports images, Icons, or letters.",
+    "link": "https://ng.ant.design/components/avatar/en"
+  },
+  {
+    "name": "Badge",
+    "description": "Small numerical value or status descriptor for UI elements.",
+    "link": "https://ng.ant.design/components/badge/en"
+  },
+  {
+    "name": "Comment",
+    "description": "A comment displays user feedback and discussion to website content.",
+    "link": "https://ng.ant.design/components/comment/en"
+  },
+  {
+    "name": "Collapse",
+    "description": "A content area which can be collapsed and expanded.",
+    "link": "https://ng.ant.design/components/collapse/en"
+  },
+  {
+    "name": "Carousel",
+    "description": "A carousel component. Scales with its container.",
+    "link": "https://ng.ant.design/components/carousel/en"
+  },
+  {
+    "name": "Card",
+    "description": "Simple rectangular container.",
+    "link": "https://ng.ant.design/components/card/en"
+  },
+  {
+    "name": "Calendar",
+    "description": "Container for displaying data in calendar form.",
+    "link": "https://ng.ant.design/components/calendar/en"
+  },
+  {
+    "name": "List",
+    "description": "Simple List.",
+    "link": "https://ng.ant.design/components/list/en"
+  },
+  {
+    "name": "Popover",
+    "description": "The floating card popped by clicking or hovering.",
+    "link": "https://ng.ant.design/components/popover/en"
+  },
+  {
+    "name": "Tree",
+    "description": "Tree structure",
+    "link": "https://ng.ant.design/components/tree/en"
+  },
+  {
+    "name": "Tooltip",
+    "description": "A simple text popup tip.",
+    "link": "https://ng.ant.design/components/tooltip/en"
+  },
+  {
+    "name": "Timeline",
+    "description": "Vertical display timeline.",
+    "link": "https://ng.ant.design/components/timeline/en"
+  },
+  {
+    "name": "Tag",
+    "description": "Tag for categorizing or markup.",
+    "link": "https://ng.ant.design/components/tag/en"
+  },
+  {
+    "name": "Tabs",
+    "description": "Tabs make it easy to switch between different views.",
+    "link": "https://ng.ant.design/components/tabs/en"
+  },
+  {
+    "name": "Table",
+    "description": "A table displays rows of data.",
+    "link": "https://ng.ant.design/components/table/en"
+  },
+  {
+    "name": "AutoComplete",
+    "description": "Autocomplete function of input field.",
+    "link": "https://ng.ant.design/components/auto-complete/en"
+  },
+  {
+    "name": "Checkbox",
+    "description": "Checkbox component.",
+    "link": "https://ng.ant.design/components/checkbox/en"
+  },
+  {
+    "name": "Cascader",
+    "description": "Cascade selection box.",
+    "link": "https://ng.ant.design/components/cascader/en"
+  },
+  {
+    "name": "DatePicker",
+    "description": "To select or input a date.",
+    "link": "https://ng.ant.design/components/date-picker/en"
+  },
+  {
+    "name": "Form",
+    "description": "Form is used to collect, validate, and submit the user input, usually contains various form items including checkbox, radio, input, select, and etc.",
+    "link": "https://ng.ant.design/components/form/en"
+  },
+  {
+    "name": "InputNumber",
+    "description": "Enter a number within certain range with the mouse or keyboard.",
+    "link": "https://ng.ant.design/components/input-number/en"
+  },
+  {
+    "name": "Input",
+    "description": "A basic widget for getting the user input is a text field. Keyboard and mouse can be used for providing or changing data.",
+    "link": "https://ng.ant.design/components/input/en"
+  },
+  {
+    "name": "Mention",
+    "description": "Mention component.",
+    "link": "https://ng.ant.design/components/mention/en"
+  },
+  {
+    "name": "Rate",
+    "description": "Rate component.",
+    "link": "https://ng.ant.design/components/rate/en"
+  },
+  {
+    "name": "Radio",
+    "description": "Radio.",
+    "link": "https://ng.ant.design/components/radio/en"
+  },
+  {
+    "name": "Switch",
+    "description": "Switching Selector.",
+    "link": "https://ng.ant.design/components/switch/en"
+  },
+  {
+    "name": "Slider",
+    "description": "A Slider component for displaying current value and intervals in range.",
+    "link": "https://ng.ant.design/components/slider/en"
+  },
+  {
+    "name": "Select",
+    "description": "Select component to select value from options.",
+    "link": "https://ng.ant.design/components/select/en"
+  },
+  {
+    "name": "TreeSelect",
+    "description": "Tree selection control.",
+    "link": "https://ng.ant.design/components/tree-select/en"
+  },
+  {
+    "name": "Transfer",
+    "description": "Double column transfer choice box.",
+    "link": "https://ng.ant.design/components/transfer/en"
+  },
+  {
+    "name": "TimePicker",
+    "description": "By clicking the input box, you can select a time from a popup panel.",
+    "link": "https://ng.ant.design/components/time-picker/en"
+  },
+  {
+    "name": "Upload",
+    "description": "Upload file by selecting or dragging.",
+    "link": "https://ng.ant.design/components/upload/en"
+  },
+  {
+    "name": "Alert",
+    "description": "Alert component for feedback.",
+    "link": "https://ng.ant.design/components/alert/en"
+  },
+  {
+    "name": "Drawer",
+    "description": "Panel slides from screen edge.",
+    "link": "https://ng.ant.design/components/drawer/en"
+  },
+  {
+    "name": "Modal",
+    "description": "Modal dialogs.",
+    "link": "https://ng.ant.design/components/modal/en"
+  },
+  {
+    "name": "Message",
+    "description": "Display global messages as feedback in response to user operations.",
+    "link": "https://ng.ant.design/components/message/en"
+  },
+  {
+    "name": "Notification",
+    "description": "Display a notification message globally.",
+    "link": "https://ng.ant.design/components/notification/en"
+  },
+  {
+    "name": "Progress",
+    "description": "Display the current progress of an operation flow.",
+    "link": "https://ng.ant.design/components/progress/en"
+  },
+  {
+    "name": "Popconfirm",
+    "description": "A simple and compact confirmation dialog of an action.",
+    "link": "https://ng.ant.design/components/popconfirm/en"
+  },
+  {
+    "name": "Spin",
+    "description": "A spinner for displaying loading state of a page or a section.",
+    "link": "https://ng.ant.design/components/spin/en"
+  },
+  {
+    "name": "Skeleton",
+    "description": "Provide a placeholder at the place which need waiting for loading.",
+    "link": "https://ng.ant.design/components/skeleton/en"
+  },
+  {
+    "name": "Affix",
+    "description": "Make an element stick to viewport.",
+    "link": "https://ng.ant.design/components/affix/en"
+  },
+  {
+    "name": "Breadcrumb",
+    "description": "A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.",
+    "link": "https://ng.ant.design/components/breadcrumb/en"
+  },
+  {
+    "name": "Dropdown",
+    "description": "A dropdown list.",
+    "link": "https://ng.ant.design/components/dropdown/en"
+  },
+  {
+    "name": "Menu",
+    "description": "Menu list of Navigation.",
+    "link": "https://ng.ant.design/components/menu/en"
+  },
+  {
+    "name": "Pagination",
+    "description": "A long list can be divided into several pages by Pagination, and only one page will be loaded at a time.",
+    "link": "https://ng.ant.design/components/pagination/en"
+  },
+  {
+    "name": "Steps",
+    "description": "Steps is a navigation bar that guides users through the steps of a task.",
+    "link": "https://ng.ant.design/components/steps/en"
+  },
+  {
+    "name": "Anchor",
+    "description": "Hyperlinks to scroll on one page.",
+    "link": "https://ng.ant.design/components/anchor/en"
+  },
+  {
+    "name": "BackTop",
+    "description": "BackTop makes it easy to go back to the top of the page.",
+    "link": "https://ng.ant.design/components/back-top/en"
+  },
+  {
+    "name": "Divider",
+    "description": "A divider line separates different content.",
+    "link": "https://ng.ant.design/components/divider/en"
+  }
+]

@@ -1,0 +1,9 @@
+<h5 class="mb-3">
+  <strong>Basic</strong>
+</h5>
+<nz-carousel [nzEffect]="effect">
+  <div nz-carousel-content *ngFor="let index of array"
+    style="height: 160px; text-align: center; line-height: 160px; background: #364d79">
+    <h3 style="line-height: 160px; color: #fff">{{ index }}</h3>
+  </div>
+</nz-carousel>

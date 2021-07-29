@@ -1,0 +1,62 @@
+<div [ngClass]="{
+  'cui__layout__grayBackground': isGrayBackground
+}">
+  <nz-layout [ngClass]="{
+  'cui__layout__contentMaxWidth': isContentMaxWidth,
+  'cui__layout__appMaxWidth': isAppMaxWidth,
+  'cui__layout__grayBackground': isGrayBackground,
+  'cui__layout__squaredBorders': isSquaredBorders,
+  'cui__layout__cardsShadow': isCardShadow,
+  'cui__layout__borderless': isBorderless
+}">
+
+    <cui-sidebar></cui-sidebar> 
+     <cui-support-chat></cui-support-chat>
+
+    <!-- left menu -->
+    <!-- FIX: nz-sider wrapper fix layout behaviour in case when cui-menu-left root tag breaks layout transformation -->
+    <nz-sider *ngIf="menuLayoutType === 'left' && !isMobileView" [nzWidth]="isMenuCollapsed ? 80 : leftMenuWidth"
+      style="transition: none !important">
+      <cui-menu-left></cui-menu-left>
+    </nz-sider>
+
+    <!-- mobile menu with drawer -->
+    <div *ngIf="isMobileView">
+      <div class="handler" (click)="toggleMobileMenu()">
+        <div class="handlerIcon"></div>
+      </div>
+      <nz-drawer [nzClosable]="false" [nzWrapClassName]="'mobileMenu'" [nzVisible]="isMobileMenuOpen" nzPlacement="left"
+        (nzOnClose)="toggleMobileMenu()">
+        <cui-menu-left></cui-menu-left>
+      </nz-drawer>
+    </div>
+
+    <!-- top menu -->
+    <div *ngIf="menuLayoutType === 'top' && !isMobileView">
+      <cui-menu-top></cui-menu-top>
+    </div>
+
+    <nz-layout>
+      <nz-header [ngClass]="{
+        'cui__layout__header': true,
+        'cui__layout__fixedHeader': isTopbarFixed,
+        'cui__layout__headerGray': isGrayTopbar
+      }">
+        <cui-topbar></cui-topbar>
+      </nz-header>
+      <nz-content style="height: 100%; position: relative;">
+        <!-- <cui-breadcrumbs></cui-breadcrumbs> -->
+        <div class="cui__utils__content">
+          <div [@slideFadeinUp]="routeAnimation(outlet, 'slideFadeinUp')"
+            [@slideFadeinRight]="routeAnimation(outlet, 'slideFadeinRight')"
+            [@zoomFadein]="routeAnimation(outlet, 'zoomFadein')" [@fadein]="routeAnimation(outlet, 'fadein')">
+            <router-outlet #outlet="outlet"></router-outlet>
+          </div>
+        </div>
+      </nz-content>
+      <nz-footer>
+        <cui-footer></cui-footer>
+      </nz-footer>
+    </nz-layout>
+  </nz-layout>
+</div>

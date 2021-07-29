@@ -1,0 +1,83 @@
+<div>
+  <div class="cui__utils__heading">
+    <strong>Ecommerce: Product Details</strong>
+  </div>
+  <div class="card overflow-hidden">
+    <div class="new">New</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <a class="favorite" [ngClass]="[isFavorite ? 'text-dark' : 'text-gray-3']" [routerLink]=""
+            (click)="setFavorite()">
+            <i class="fe fe-heart font-size-21"></i>
+          </a>
+          <div class="image height-250 mb-3">
+            <img [src]="images[activeImgIndex]" alt="Product" />
+          </div>
+          <div class="d-flex flex-wrap mb-3">
+            <a *ngFor="let image of images; let i = index" (click)="setImage(i)"
+              [ngClass]="[i === activeImgIndex ? 'border-primary' : '', 'thumb']"
+              class="width-100 height-100 border mr-2 mb-2">
+              <img [src]="image" alt="Product" />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="font-size-24 font-weight-bold text-dark mb-2">
+            $199.28
+            <del class="align-text-top font-size-14">$299.28</del>
+          </div>
+          <div class="pb-3 mb-4 border-bottom">
+            <a href="javascript:void(0);" class="text-blue font-size-18">
+              TP-Link AC1750 Smart WiFi Router - Dual
+              <br />Band Gigabit Wireless Internet Routers for
+              <br />Home
+            </a>
+          </div>
+          <div class="mb-4 width-300">
+            <nz-select style="width: 100%" [nzSize]="'small'" nzPlaceHolder="Choose color" nzAllowClear>
+              <nz-option nzValue="Red" nzLabel="Red"></nz-option>
+              <nz-option nzValue="Black" nzLabel="Black"></nz-option>
+              <nz-option nzValue="Cyan" nzLabel="Cyan"></nz-option>
+              <nz-option nzValue="Blue" nzLabel="Blue"></nz-option>
+            </nz-select>
+          </div>
+          <a href="javascript: void(0);"
+            class="width-200 btn btn-success btn-with-addon mr-auto mb-3 text-nowrap d-none d-md-block">
+            <span class="btn-addon">
+              <i class="btn-addon-icon fe fe-plus-circle"></i>
+            </span>
+            Add To Card
+          </a>
+          <nz-tabset class="kit-tabs-bordered">
+            <nz-tab nzTitle="Information"></nz-tab>
+            <nz-tab nzTitle="Description"></nz-tab>
+          </nz-tabset>
+          <div class="card-body px-0">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+              Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type
+              specimen book. It has survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+              Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cui__utils__heading">
+    <strong>Related Products</strong>
+  </div>
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let product of products">
+      <kit-general-16 [isNew]="product.isNew" [isFavorite]="product.isFavorite" [image]="product.image"
+        [name]="product.name" [price]="product.price" [oldPrice]="product.oldPrice"></kit-general-16>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div>
+  <div class="mb-4">
+    <button type="button" *ngFor="let item of kit; let i = index"
+      [ngClass]="[selectedExampleIndex === i ? 'bg-primary text-white' : 'text-primary', 'btn', 'btn-light', 'mr-2', 'mb-2']"
+      (click)="setExample(i)">
+      {{ item.name }}
+    </button>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h5>
+        <strong class="mr-3">{{ example.name }}</strong>
+        <a [href]="example.link" rel="noopener noreferrer" target="_blank" class="btn btn-sm btn-light mr-3">
+          Component Docs & Examples
+          <i class="fe fe-corner-right-up"></i>
+        </a>
+        <a href="https://ng.ant.design" rel="noopener noreferrer" target="_blank" class="btn btn-sm btn-light mr-3">
+          Ant Design Docs
+          <i class="fe fe-corner-right-up"></i>
+        </a>
+      </h5>
+      <p class="mb-0">{{ example.description }}</p>
+    </div>
+    <div class="card-body">
+      <div [ngSwitch]="selectedExampleIndex">
+        <kit-antd-button-example *ngSwitchCase="0"></kit-antd-button-example>
+        <kit-antd-icon-example *ngSwitchCase="1"></kit-antd-icon-example>
+        <kit-antd-grid-example *ngSwitchCase="2"></kit-antd-grid-example>
+        <kit-antd-layout-example *ngSwitchCase="3"></kit-antd-layout-example>
+        <kit-antd-avatar-example *ngSwitchCase="4"></kit-antd-avatar-example>
+        <kit-antd-badge-example *ngSwitchCase="5"></kit-antd-badge-example>
+        <kit-antd-comment-example *ngSwitchCase="6"></kit-antd-comment-example>
+        <kit-antd-collapse-example *ngSwitchCase="7"></kit-antd-collapse-example>
+        <kit-antd-carousel-example *ngSwitchCase="8"></kit-antd-carousel-example>
+        <kit-antd-card-example *ngSwitchCase="9"></kit-antd-card-example>
+        <kit-antd-calendar-example *ngSwitchCase="10"></kit-antd-calendar-example>
+        <kit-antd-list-example *ngSwitchCase="11"></kit-antd-list-example>
+        <kit-antd-popover-example *ngSwitchCase="12"></kit-antd-popover-example>
+        <kit-antd-tree-example *ngSwitchCase="13"></kit-antd-tree-example>
+        <kit-antd-tooltip-example *ngSwitchCase="14"></kit-antd-tooltip-example>
+        <kit-antd-timeline-example *ngSwitchCase="15"></kit-antd-timeline-example>
+        <kit-antd-tag-example *ngSwitchCase="16"></kit-antd-tag-example>
+        <kit-antd-tabs-example *ngSwitchCase="17"></kit-antd-tabs-example>
+        <kit-antd-table-example *ngSwitchCase="18"></kit-antd-table-example>
+        <kit-antd-autocomplete-example *ngSwitchCase="19"></kit-antd-autocomplete-example>
+        <kit-antd-checkbox-example *ngSwitchCase="20"></kit-antd-checkbox-example>
+        <kit-antd-cascader-example *ngSwitchCase="21"></kit-antd-cascader-example>
+        <kit-antd-datepicker-example *ngSwitchCase="22"></kit-antd-datepicker-example>
+        <kit-antd-form-example *ngSwitchCase="23"></kit-antd-form-example>
+        <kit-antd-inputnumber-example *ngSwitchCase="24"></kit-antd-inputnumber-example>
+        <kit-antd-input-example *ngSwitchCase="25"></kit-antd-input-example>
+        <kit-antd-mention-example *ngSwitchCase="26"></kit-antd-mention-example>
+        <kit-antd-rate-example *ngSwitchCase="27"></kit-antd-rate-example>
+        <kit-antd-radio-example *ngSwitchCase="28"></kit-antd-radio-example>
+        <kit-antd-switch-example *ngSwitchCase="29"></kit-antd-switch-example>
+        <kit-antd-slider-example *ngSwitchCase="30"></kit-antd-slider-example>
+        <kit-antd-select-example *ngSwitchCase="31"></kit-antd-select-example>
+        <kit-antd-treeselect-example *ngSwitchCase="32"></kit-antd-treeselect-example>
+        <kit-antd-transfer-example *ngSwitchCase="33"></kit-antd-transfer-example>
+        <kit-antd-timepicker-example *ngSwitchCase="34"></kit-antd-timepicker-example>
+        <kit-antd-upload-example *ngSwitchCase="35"></kit-antd-upload-example>
+        <kit-antd-alert-example *ngSwitchCase="36"></kit-antd-alert-example>
+        <kit-antd-drawer-example *ngSwitchCase="37"></kit-antd-drawer-example>
+        <kit-antd-modal-example *ngSwitchCase="38"></kit-antd-modal-example>
+        <kit-antd-message-example *ngSwitchCase="39"></kit-antd-message-example>
+        <kit-antd-notification-example *ngSwitchCase="40"></kit-antd-notification-example>
+        <kit-antd-progress-example *ngSwitchCase="41"></kit-antd-progress-example>
+        <kit-antd-popconfirm-example *ngSwitchCase="42"></kit-antd-popconfirm-example>
+        <kit-antd-spin-example *ngSwitchCase="43"></kit-antd-spin-example>
+        <kit-antd-skeleton-example *ngSwitchCase="44"></kit-antd-skeleton-example>
+        <kit-antd-affix-example *ngSwitchCase="45"></kit-antd-affix-example>
+        <kit-antd-breadcrumb-example *ngSwitchCase="46"></kit-antd-breadcrumb-example>
+        <kit-antd-dropdown-example *ngSwitchCase="47"></kit-antd-dropdown-example>
+        <kit-antd-menu-example *ngSwitchCase="48"></kit-antd-menu-example>
+        <kit-antd-pagination-example *ngSwitchCase="49"></kit-antd-pagination-example>
+        <kit-antd-steps-example *ngSwitchCase="50"></kit-antd-steps-example>
+        <kit-antd-anchor-example *ngSwitchCase="51"></kit-antd-anchor-example>
+        <kit-antd-backtop-example *ngSwitchCase="52"></kit-antd-backtop-example>
+        <kit-antd-divider-example *ngSwitchCase="53"></kit-antd-divider-example>
+      </div>
+    </div>
+  </div>
+</div>

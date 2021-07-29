@@ -1,0 +1,186 @@
+{
+  "chartCardData": [
+    {
+      "title": "Transactions",
+      "amount": "1240",
+      "chartData": {
+        "series": [
+          [
+            2,
+            11,
+            8,
+            14,
+            18,
+            20,
+            26
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Income",
+      "amount": "$1,152",
+      "chartData": {
+        "series": [
+          [
+            20,
+            80,
+            67,
+            120,
+            132,
+            66,
+            97
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Outcome",
+      "amount": "$240.56",
+      "chartData": {
+        "series": [
+          [
+            42,
+            40,
+            80,
+            67,
+            84,
+            74,
+            97
+          ]
+        ]
+      }
+    }
+  ],
+  "paymentAccountsData": [
+    {
+      "icon": "lnr lnr-inbox",
+      "number": "US 4658-1678-7528",
+      "footer": "Current month charged: $10,200.00",
+      "sum": "$2,156.78"
+    },
+    {
+      "icon": "lnr lnr-inbox",
+      "number": "IBAN 445646-8748-4664-1678-5416",
+      "footer": "Current month charged: $1,276.00",
+      "sum": "$560,245.35"
+    },
+    {
+      "icon": "lnr lnr-inbox",
+      "number": "US 4658-1678-7528",
+      "footer": "Current month charged: $10,200.00",
+      "sum": "$2,156.78"
+    },
+    {
+      "icon": "lnr lnr-inbox",
+      "number": "IBAN 445646-8748-4664-1678-5416",
+      "footer": "Current month charged: $1,276.00",
+      "sum": "$560,245.35"
+    }
+  ],
+  "paymentCardsData": [
+    {
+      "icon": "lnr lnr-bookmark",
+      "name": "Matt Daemon",
+      "number": "4512-XXXX-1678-7528",
+      "type": "VISA",
+      "footer": "Expires at 02/20",
+      "sum": "$2,156.78"
+    },
+    {
+      "icon": "lnr lnr-bookmark",
+      "name": "David Beckham",
+      "number": "8748-XXXX-1678-5416",
+      "type": "MASTERCARD",
+      "footer": "Expires at 03/22",
+      "sum": "$560,245.35"
+    },
+    {
+      "icon": "lnr lnr-hourglass",
+      "name": "Mrs. Angelina Jolie",
+      "number": "6546-XXXX-1678-1579",
+      "type": "VISA",
+      "footer": "Locked Temporary",
+      "sum": "$1,467,98"
+    }
+  ],
+  "paymentTransactionsData": [
+    {
+      "income": false,
+      "amount": "-$100.00",
+      "info": "US 4658-1678-7528",
+      "footer": "To AMAZON COPR, NY, 1756"
+    },
+    {
+      "income": true,
+      "amount": "+27,080.00",
+      "info": "4512-XXXX-1678-7528",
+      "footer": "To DigitalOcean Cloud Hosting, Winnetka, LA"
+    },
+    {
+      "income": false,
+      "amount": "-100,000.00",
+      "info": "6245-XXXX-1678-3256",
+      "footer": "To Tesla Cars, LA, USA"
+    }
+  ],
+  "progressCardsData": [
+    {
+      "title": "Total Profit",
+      "note": "Profit",
+      "currentValue": "$18M",
+      "percent": "78",
+      "dataColor": "#007bff"
+    },
+    {
+      "title": "Feedbacks",
+      "note": "Customer review",
+      "currentValue": "134",
+      "percent": "89",
+      "dataColor": "#46be8a"
+    },
+    {
+      "title": "New Orders",
+      "note": "Orders progress",
+      "currentValue": "160",
+      "percent": "55",
+      "dataColor": "#fb434a"
+    },
+    {
+      "title": "New Users",
+      "note": "Joined Users",
+      "currentValue": "382",
+      "percent": "77",
+      "dataColor": "#acb7bf"
+    }
+  ],
+  "referalsData": [
+    {
+      "key": "1",
+      "name": "Damon",
+      "position": "5516 Adolfo Green",
+      "office": "Littelhaven",
+      "age": 18,
+      "date": "2014/06/13",
+      "salary": 553.536
+    },
+    {
+      "key": "2",
+      "name": "Miracle",
+      "position": "176 Hirthe Squares",
+      "office": "Ryleetown",
+      "age": 35,
+      "date": "2013/09/27",
+      "salary": 784.802
+    },
+    {
+      "key": "3",
+      "name": "Torrey",
+      "position": "1995 Richie Neck",
+      "office": "West Sedrickstad",
+      "age": 15,
+      "date": "2014/09/12",
+      "salary": 344.302
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+<div class="row">
+  <div class="col-xl-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <kit-chart-12></kit-chart-12>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <kit-chart-12v1></kit-chart-12v1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-4">
+    <div class="card">
+      <kit-general-13v1></kit-general-13v1>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <kit-general-5v1></kit-general-5v1>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4">
+    <div class="card">
+      <div class="card-header border-0 pb-0">
+        <div class="cui__utils__heading mb-0">
+          <strong>RECENT INVITES</strong>
+        </div>
+      </div>
+      <div class="card-body">
+        <kit-list-10></kit-list-10>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <kit-general-2></kit-general-2>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <kit-general-2v1></kit-general-2v1>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <kit-general-2v2></kit-general-2v2>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card">
+          <div class="card-header border-0 pb-0">
+            <div class="cui__utils__heading mb-0">
+              <strong>Inbound Bandwidth</strong>
+            </div>
+          </div>
+          <div class="card-body">
+            <strong class="font-size-36 text-dark">246Gb</strong>
+          </div>
+          <x-chartist class="ct-chart height-250" [data]="inboundBandwidthData" type="Line"
+            [options]="boundChartistOptions">
+          </x-chartist>
+        </div>
+      </div>
+      <div class="col-xl-12">
+        <div class="graphCard card">
+          <div class="card-header border-0 pb-0">
+            <div class="cui__utils__heading mb-0">
+              <strong>Outbound Bandwidth</strong>
+            </div>
+          </div>
+          <div class="card-body">
+            <strong class="font-size-36 text-dark">52Gb</strong>
+          </div>
+          <x-chartist class="ct-chart height-250" [data]="outboundBandwidthData" type="Line"
+            [options]="boundChartistOptions">
+          </x-chartist>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header border-0 pb-0">
+        <div class="cui__utils__heading mb-0">
+          <strong class="text-uppercase font-size-16">Support cases</strong>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="mb-3">
+              <nz-table [nzData]="supportCasesTableData" [nzShowPagination]="false" class="kit__utils__table">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of supportCasesTableData">
+                    <td>{{item.type}}</td>
+                    <td>
+                      <span class="font-weight-bold"
+                        [ngClass]="[item.amount === 'Negative' ? 'text-danger' : 'text-primary']">{{item.amount}}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </nz-table>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+              <div class="mb-4">
+                <x-chartist class="cui-gamma-dashboard-chart-pie height-200" [data]="supportCasesPieData" type="Pie"
+                  [options]="supportCasesPieOptions">
+                </x-chartist>
+              </div>
+              <div class="text-center mb-4">
+                <span class="mr-2">
+                  <span class="kit__utils__donut kit__utils__donut--success"></span>
+                  Ready
+                </span>
+                <span class="mr-2">
+                  <span class="kit__utils__donut kit__utils__donut--primary"></span>
+                  In Progress
+                </span>
+                <span class="mr-2">
+                  <span class="kit__utils__donut kit__utils__donut--danger"></span>
+                  Defected
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header border-0 pb-0">
+        <div class="cui__utils__heading mb-0">
+          <strong class="text-uppercase font-size-16">Finance Stats</strong>
+        </div>
+      </div>
+      <div class="card-body">
+        <kit-list-11></kit-list-11>
+      </div>
+    </div>
+  </div>
+</div>

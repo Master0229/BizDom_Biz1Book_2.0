@@ -1,0 +1,2 @@
+{"hello":"world","n":5,"today":{"$$date":1608888988031},"nedbIsAwesome":true,"notthere":null,"fruits":["apple","orange","pear"],"infos":{"name":"nedb"},"_id":"VIvCHH6HO22IKKdS"}
+{"hello":"world","n":5,"today":{"$$date":1608889079862},"nedbIsAwesome":true,"notthere":null,"fruits":["apple","orange","pear"],"infos":{"name":"nedb"},"_id":"5vlLxqVUrU04RsHi"}

@@ -1,0 +1,64 @@
+<h5 class="mb-3">
+  <strong>Basic</strong>
+</h5>
+<div class="mb-5">
+  <div class="d-inline-block mr-4">
+    <nz-badge [nzCount]="5">
+      <div style="width: 30px; height: 30px; border-radius: 3px; border: 1px solid rgba(150, 150, 150, .2)">
+      </div>
+    </nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge [nzCount]="0" nzShowZero>
+      <div style="width: 30px; height: 30px; border-radius: 3px; border: 1px solid rgba(150, 150, 150, .2)">
+      </div>
+    </nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge [nzCount]="iconTemplate">
+      <div style="width: 30px; height: 30px; border-radius: 3px; border: 1px solid rgba(150, 150, 150, .2)">
+      </div>
+    </nz-badge>
+    <ng-template #iconTemplate>
+      <i nz-icon nzType="clock-circle" class="ant-scroll-number-custom-component" style="color: #f5222d"></i>
+    </ng-template>
+  </div>
+</div>
+<h5 class="mb-3">
+  <strong>Standalone</strong>
+</h5>
+<div class="mb-5">
+  <div class="d-inline-block mr-4">
+    <nz-badge [nzCount]="25"></nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge [nzCount]="4"
+      [nzStyle]="{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }"></nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge [nzCount]="109" [nzStyle]="{ backgroundColor: '#52c41a' }"></nz-badge>
+  </div>
+</div>
+<h5 class="mb-3">
+  <strong>Bagde</strong>
+</h5>
+<div class="mb-5">
+  <div class="d-inline-block mr-4">
+    <nz-badge nzStatus="success" nzText="Success"></nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge nzStatus="error" nzText="Error"></nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge nzStatus="default" nzText="Default"></nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge nzStatus="processing" nzText="Processing"></nz-badge>
+  </div>
+  <div class="d-inline-block mr-4">
+    <nz-badge nzStatus="warning" nzText="Warning"></nz-badge>
+  </div>
+</div>
+<nz-badge [nzCount]="5" class="d-none">
+  <nz-avatar nzIcon="user" [nzShape]="'square'"></nz-avatar>
+</nz-badge>

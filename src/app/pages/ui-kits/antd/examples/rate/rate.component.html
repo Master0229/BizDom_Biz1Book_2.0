@@ -1,0 +1,13 @@
+<h5 class="mb-3">
+  <strong>Basic</strong>
+</h5>
+<div class="mb-3">
+  <nz-rate [ngModel]="0"></nz-rate>
+</div>
+<div class="mb-3">
+  <nz-rate [ngModel]="2.5" nzAllowHalf></nz-rate>
+</div>
+<div class="mb-3">
+  <nz-rate [ngModel]="0" nzAllowHalf class="large" [nzCharacter]="characterEnLetter"></nz-rate>
+  <ng-template #characterEnLetter>W</ng-template>
+</div>

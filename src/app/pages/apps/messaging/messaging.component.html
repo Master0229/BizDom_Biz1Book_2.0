@@ -1,0 +1,88 @@
+<div>
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <div class="mb-4">
+        <nz-input-group [nzPrefix]="prefixTemplate">
+          <input type="text" nz-input placeholder="Search user" />
+        </nz-input-group>
+        <ng-template #prefixTemplate><i nz-icon nzType="search"></i></ng-template>
+      </div>
+      <div class="dialogs">
+        <perfect-scrollbar style="height: 100%">
+          <a *ngFor="let item of dialogs; let i = index;" [ngClass]="['item', i === activeIndex ? 'current' : '']"
+            class="d-flex flex-nowrap align-items-center" (click)="changeDialog(i)">
+            <div class="kit__utils__avatar kit__utils__avatar--size46 mr-3 flex-shrink-0">
+              <img [src]="item.avatar" [alt]="item.name" />
+            </div>
+            <div class="flex-grow-1 info">
+              <div class="text-uppercase font-size-12 text-truncate text-gray-6">
+                {{item.position}}
+              </div>
+              <div class="text-dark font-size-18 font-weight-bold text-truncate">
+                {{item.name}}
+              </div>
+            </div>
+            <div *ngIf="item.unread" class="flex-shrink-0 align-self-start unread">
+              <div class="badge badge-success">{{item.unread}}</div>
+            </div>
+          </a>
+        </perfect-scrollbar>
+      </div>
+    </div>
+    <div class="col-12 col-md-9">
+      <div class="card">
+        <div class="card-header card-header-flex align-items-center">
+          <div class="d-flex flex-column justify-content-center mr-auto">
+            <h5 class="mb-0 mr-2 font-size-18">
+              {{name}} <span class="font-size-14 text-gray-6">({{position}})</span>
+            </h5>
+          </div>
+          <div>
+            <a href="javascript: void(0);" class="btn btn-sm btn-light mr-2" nz-tooltip nzTooltipTitle="Unlock Account"
+              nzTooltipPlacement="top">
+              <i class="fe fe-unlock"></i>
+            </a>
+            <a href="javascript: void(0);" class="btn btn-sm btn-light mr-2" nz-tooltip
+              nzTooltipTitle="Mark as important" nzTooltipPlacement="top">
+              <i class="fe fe-star"></i>
+            </a>
+            <a href="javascript: void(0);" class="btn btn-sm btn-light mr-2" nz-tooltip nzTooltipTitle="Delete user"
+              nzTooltipPlacement="top">
+              <i class="fe fe-trash"></i>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="height-700">
+            <perfect-scrollbar>
+              <div class="d-flex flex-column justify-content-end pr-2 height-100p">
+                <div *ngFor="let message of dialog; let i = index"
+                  [ngClass]="['message', message.owner !== 'you' ? 'answer' : '']">
+                  <div class="messageContent">
+                    <div class="text-gray-4 font-size-12 text-uppercase">
+                      {{message.owner}}, {{message.time}}
+                    </div>
+                    <div>{{message.content}}</div>
+                  </div>
+                  <div class="kit__utils__avatar messageAvatar">
+                    <img [src]="message.owner !== 'you' ? avatar : 'assets/images/avatars/avatar-2.png'" alt="Avatar">
+                  </div>
+                </div>
+              </div>
+            </perfect-scrollbar>
+
+          </div>
+          <div class="pt-2 pb-2">{{name}} is typing...</div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Send message..." />
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                <i class="fe fe-send align-middle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

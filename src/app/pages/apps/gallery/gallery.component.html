@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex flex-wrap mb-4">
+      <label nz-checkbox>Models</label>
+      <label nz-checkbox>Fashion</label>
+      <label nz-checkbox>Cars</label>
+      <label nz-checkbox>Wallpapers</label>
+    </div>
+    <div class="items">
+      <div class="item" *ngFor="let item of data">
+        <div class="itemContent">
+          <div class="itemControl">
+            <div class="itemControlContainer">
+              <nz-button-group>
+                <button nz-button nzType="primary"><i nz-icon nzType="edit"></i></button>
+                <button nz-button nzType="primary"><i nz-icon nzType="delete"></i></button>
+              </nz-button-group>
+            </div>
+          </div>
+          <img [src]="item.path" alt="Image">
+        </div>
+        <div class="text-gray-6">
+          <div>{{item.name}}</div>
+          <div>{{item.size}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

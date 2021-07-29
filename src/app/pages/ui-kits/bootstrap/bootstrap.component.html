@@ -1,0 +1,62 @@
+<div>
+  <div class="mb-4">
+    <button type="button" *ngFor="let item of kit; let i = index"
+      [ngClass]="[selectedExampleIndex === i ? 'bg-primary text-white' : 'text-primary', 'btn', 'btn-light', 'mr-2', 'mb-2']"
+      (click)="setExample(i)">
+      {{ item.name }}
+    </button>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h5>
+        <strong class="mr-3">{{ example.name }}</strong>
+        <a *ngIf="example.link" [href]="example.link" rel="noopener noreferrer" target="_blank"
+          class="btn btn-sm btn-light mr-3">
+          Component Docs & Examples
+          <i class="fe fe-corner-right-up"></i>
+        </a>
+        <a href="https://ng-bootstrap.github.io/#/getting-started" rel="noopener noreferrer" target="_blank"
+          class="btn btn-sm btn-light mr-3">
+          Bootstrap Docs
+          <i class="fe fe-corner-right-up"></i>
+        </a>
+      </h5>
+      <p class="mb-0">{{ example.description }}</p>
+    </div>
+    <div class="card-body">
+      <div [ngSwitch]="selectedExampleIndex">
+        <kit-bootstrap-alerts-example *ngSwitchCase="0"></kit-bootstrap-alerts-example>
+        <kit-bootstrap-badges-example *ngSwitchCase="1"></kit-bootstrap-badges-example>
+        <kit-bootstrap-breadcrumbs-example *ngSwitchCase="2"></kit-bootstrap-breadcrumbs-example>
+        <kit-bootstrap-button-dropdown-example *ngSwitchCase="3"></kit-bootstrap-button-dropdown-example>
+        <kit-bootstrap-button-group-example *ngSwitchCase="4"></kit-bootstrap-button-group-example>
+        <kit-bootstrap-buttons-example *ngSwitchCase="5"></kit-bootstrap-buttons-example>
+        <kit-bootstrap-card-example *ngSwitchCase="6"></kit-bootstrap-card-example>
+        <kit-bootstrap-carousel-example *ngSwitchCase="7"></kit-bootstrap-carousel-example>
+        <kit-bootstrap-collapse-example *ngSwitchCase="8"></kit-bootstrap-collapse-example>
+        <kit-bootstrap-datepicker-example *ngSwitchCase="9"></kit-bootstrap-datepicker-example>
+        <kit-bootstrap-dropdowns-example *ngSwitchCase="10"></kit-bootstrap-dropdowns-example>
+        <kit-bootstrap-form-example *ngSwitchCase="11"></kit-bootstrap-form-example>
+        <kit-bootstrap-input-group-example *ngSwitchCase="12"></kit-bootstrap-input-group-example>
+        <kit-bootstrap-jumbotron-example *ngSwitchCase="13"></kit-bootstrap-jumbotron-example>
+        <kit-bootstrap-layout-example *ngSwitchCase="14"></kit-bootstrap-layout-example>
+        <kit-bootstrap-listgroup-example *ngSwitchCase="15"></kit-bootstrap-listgroup-example>
+        <kit-bootstrap-media-object-example *ngSwitchCase="16"></kit-bootstrap-media-object-example>
+        <kit-bootstrap-modals-example *ngSwitchCase="17"></kit-bootstrap-modals-example>
+        <kit-bootstrap-navbar-example *ngSwitchCase="18"></kit-bootstrap-navbar-example>
+        <kit-bootstrap-navs-example *ngSwitchCase="19"></kit-bootstrap-navs-example>
+        <kit-bootstrap-pagination-example *ngSwitchCase="20"></kit-bootstrap-pagination-example>
+        <kit-bootstrap-popover-example *ngSwitchCase="21"></kit-bootstrap-popover-example>
+        <kit-bootstrap-progress-example *ngSwitchCase="22"></kit-bootstrap-progress-example>
+        <kit-bootstrap-rating-example *ngSwitchCase="23"></kit-bootstrap-rating-example>
+        <kit-bootstrap-spinners-example *ngSwitchCase="24"></kit-bootstrap-spinners-example>
+        <kit-bootstrap-tables-example *ngSwitchCase="25"></kit-bootstrap-tables-example>
+        <kit-bootstrap-tabs-example *ngSwitchCase="26"></kit-bootstrap-tabs-example>
+        <kit-bootstrap-timepicker-example *ngSwitchCase="27"></kit-bootstrap-timepicker-example>
+        <kit-bootstrap-toasts-example *ngSwitchCase="28"></kit-bootstrap-toasts-example>
+        <kit-bootstrap-tooltips-example *ngSwitchCase="29"></kit-bootstrap-tooltips-example>
+        <kit-bootstrap-typeahead-example *ngSwitchCase="30"></kit-bootstrap-typeahead-example>
+      </div>
+    </div>
+  </div>
+</div>

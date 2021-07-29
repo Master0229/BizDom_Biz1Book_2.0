@@ -1,0 +1,58 @@
+<div>
+  <div class="textDivider mb-2">
+    <h4 class="textDividerContent font-size-24 font-weight-bold">
+      Active Users
+    </h4>
+  </div>
+  <nz-table
+    #basicTable
+    [nzShowPagination]="false"
+    [nzData]="listOfAllData"
+    (nzCurrentPageDataChange)="currentPageDataChange($event)"
+    class="table mb-4"
+  >
+    <thead>
+    <tr>
+      <th
+        nzShowCheckbox
+        [(nzChecked)]="isAllDisplayDataChecked"
+        [nzIndeterminate]="isIndeterminate"
+        (nzCheckedChange)="checkAll($event)"
+      ></th>
+      <th class="text-uppercase">Action Name</th>
+      <th class="text-uppercase">Location</th>
+      <th class="text-right text-gray-6">Value</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td
+        nzShowCheckbox
+        [(nzChecked)]="mapOfCheckedId[data.id]"
+        [nzDisabled]="data.disabled"
+        (nzCheckedChange)="refreshStatus()"
+      ></td>
+      <td>
+        <div>
+          <div>{{data.userName.name}}</div>
+          <div class="text-gray-4">{{data.userName.position}}</div>
+        </div>
+      </td>
+      <td>
+        <a href="javascript: void(0);" class="text-blue">
+          {{data.location}}
+        </a>
+      </td>
+      <td class="text-right text-gray-6 font-weight-bold">{{data.value}}</td>
+      <td class="text-right">
+        <div class="text-nowrap">
+          <button type="button" class="btn btn-outline-danger mr-2 mb-2">
+            Decline
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

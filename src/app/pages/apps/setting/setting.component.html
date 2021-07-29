@@ -1,0 +1,287 @@
+<ngb-tabset type="pills">
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <i class="fa fa-cog mr-1"></i>
+            POS Preferences
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="p-4 mt-4 border rounded">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <nz-form-item>
+                                <nz-form-label><label>Admin only Cancellation</label></nz-form-label>
+                                <nz-form-control style="padding-left: 29%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enable Delivery Orders</label></nz-form-label>
+                                <nz-form-control style="padding-left: 30%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enable TakeAway Orders</label></nz-form-label>
+                                <nz-form-control style="padding-left: 29%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enable FreeQuantity for Products</label></nz-form-label>
+                                <nz-form-control style="padding-left: 19%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Show Tax on receipts</label></nz-form-label>
+                                <nz-form-control style="padding-left: 33%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enable KOT in QuickOrder</label></nz-form-label>
+                                <nz-form-control style="padding-left: 27%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Show Customer Address in Bill(except delivery)</label>
+                                </nz-form-label>
+                                <nz-form-control style="padding-left: 5%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-sm">
+                            <nz-form-item>
+                                <nz-form-label><label>Enable Advance Orders</label></nz-form-label>
+                                <nz-form-control style="padding-left: 24%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enable DineIn Orders</label></nz-form-label>
+                                <nz-form-control style="padding-left: 26%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enable QuickOrder</label></nz-form-label>
+                                <nz-form-control style="padding-left: 28.5%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enforce Customer No. during Ordering</label></nz-form-label>
+                                <nz-form-control style="padding-left: 7%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Enable KOT Generation</label></nz-form-label>
+                                <nz-form-control style="padding-left: 24%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Show Upcategory Products</label></nz-form-label>
+                                <nz-form-control style="padding-left: 20%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label><label>Show Child Category</label></nz-form-label>
+                                <nz-form-control style="padding-left: 26.5%;">
+                                    <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="container">
+                    <div class="col-xl-12 row">
+                        <div class="col-xl-6">
+                            <h3>Charge Settings</h3>
+                        </div>
+                        <div class="col-xl-6">
+                            <button type="button" class="btn btn-success pull-right"
+                                (click)="savecharges()">Save</button>
+                        </div>
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Charge Name</th>
+                                <th scope="col">Charge Type</th>
+                                <th scope="col">Charge Value</th>
+                                <th scope="col">
+                                    Is default?
+                                    <button type="button" class="btn btn-link btn-sm" placement="right"
+                                        ngbPopover="Select the charges to apply defaultly in orders"
+                                        popoverTitle="Is default?">
+                                        <i class="fe fe-help-circle"></i>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let charge of charges; index as i">
+                                <td>
+                                    {{ charge.Description }}
+                                </td>
+                                <td>{{ charge.ChargeType == 1 ? 'CASH' : 'PERCENTAGE' }}</td>
+                                <td>{{ charge.ChargeValue | number }}</td>
+                                <td>
+                                    <input type="checkbox" [(ngModel)]="charge.selected">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <i class="fa fa-print mr-1"></i>
+            Printer Settings
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="p-4 mt-4 border rounded">
+                <div class="col-xl-12 row">
+                    <div class="col-xl-6">
+                        <h3>Printer Settings</h3>
+                    </div>
+                    <div class="col-xl-6">
+                        <button type="button" class="btn btn-success pull-right"
+                            (click)="saveprintersettings()">Save</button>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <div class="tabhead">
+                        <nz-tabset class="kit-tabs" (nzSelectedIndexChange)="changeKeyps($event)">
+                            <nz-tab nzTitle="Receipt"></nz-tab>
+                            <nz-tab nzTitle="KOT"></nz-tab>
+                        </nz-tabset>
+                    </div>
+                    <div class="tabdatas">
+                        <div *ngIf="pskey === 0">
+                            <ul class="list-group">
+                                <a href="javascript:void(0);" (click)="printersettings.receiptprinter = printer.name"
+                                    *ngFor="let printer of printers"
+                                    [class.active]="printersettings.receiptprinter == printer.name"
+                                    class="list-group-item-action list-group-item">{{printer.name}}</a>
+                                <a href="javascript:void(0);" (click)="printersettings.receiptprinter = ''"
+                                    [class.active]="printersettings.receiptprinter == ''"
+                                    class="list-group-item-action list-group-item">None</a>
+                            </ul>
+                        </div>
+                        <div *ngIf="pskey === 1">
+                            <ul class="list-group">
+                                <a href="javascript:void(0);" (click)="printersettings.kotprinter = printer.name"
+                                    *ngFor="let printer of printers"
+                                    [class.active]="printersettings.kotprinter == printer.name"
+                                    class="list-group-item-action list-group-item">{{printer.name}}</a>
+                                <a href="javascript:void(0);" (click)="printersettings.kotprinter = ''"
+                                    [class.active]="printersettings.kotprinter == ''"
+                                    class="list-group-item-action list-group-item">None</a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <i class="fe fe-plus-circle mr-1"></i>
+            KOT Printer Settings
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="p-4 mt-4 border rounded">
+                <button type="button" class="btn btn-success pull-right" (click)="saveprintersettings()">Save</button>
+                <ngb-tabset type="pills">
+                    <ngb-tab *ngFor="let kotgrp of printersettings.kotgroups">
+                        <ng-template ngbTabTitle>
+                            <i class="fe fe-activity mr-1"></i>
+                            {{kotgrp.Description}}
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="p-4">
+                                <ul class="list-group">
+                                    <li *ngFor="let printer of printers" class="list-group-item">
+                                        {{printer.name}}
+                                        <input type="checkbox" class="pull-right"
+                                            [checked]="kotgrp.Printers.includes(printer.name)"
+                                            (change)="printerselect($event.target.checked,printer.name,kotgrp.Id)">
+                                    </li>
+                                </ul>
+                                <!-- <ul>
+                                    <li *ngFor="let printer of printers">
+                                        <span>{{printer.name}}</span>
+                                        <input type="checkbox" [checked]="kotgrp.Printers.includes(printer.name)">
+                                    </li>
+                                </ul> -->
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <i class="fe fe-trash mr-1"></i>
+            Order Discount/Tax Settings
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="p-4 mt-4 border rounded">
+                <label for="kot-printer"><strong class="text-light">Order Discount/Tax Settings</strong></label><label
+                    for="kot-printer"><strong class="text-light">Order Discount/Tax Settings</strong></label>
+
+
+                <nz-form-item>
+                    <nz-form-label><label>Discount Inclusive(item lvl.)</label></nz-form-label>
+                    <nz-form-control style="padding-left: 5%;">
+                        <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                    </nz-form-control>
+                </nz-form-item>
+                <br>
+                <nz-form-item>
+                    <nz-form-label><label>Discount Inclusive(order lvl.)</label></nz-form-label>
+                    <nz-form-control style="padding-left: 4.5%;">
+                        <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                    </nz-form-control>
+                </nz-form-item>
+                <br>
+                <nz-form-item>
+                    <nz-form-label><label>Display Tax On Bill</label></nz-form-label>
+                    <nz-form-control style="padding-left: 9.6%;">
+                        <nz-switch [(ngModel)]="checkbox" name="checkbox"></nz-switch>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab [disabled]="true">
+        <ng-template ngbTabTitle>
+            <i class="fe fe-plus-circle mr-1"></i>
+            Waiter / KDS App
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="p-4 mt-4 border rounded">
+                <h4>Server IP Address For Waiter / KDS App</h4>
+                <div class="col-lg-6 mb-4">
+                    <input nz-input placeholder="Server IP Address For Waiter / KDS App" [(ngModel)]="value" />
+                </div>
+                <h5>
+                    Available Network:
+                </h5>
+            </div>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

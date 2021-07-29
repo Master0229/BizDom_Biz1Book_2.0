@@ -1,0 +1,85 @@
+<h2>
+  Customers Details
+</h2>
+<div class="card">
+  <div class="card-body">
+
+    <div class="col-xl-4 text-left">
+      <input type="text" class="form-control" placeholder="Search Customer.." [(ngModel)]="term" (input)="onKeySearch()"> 
+    </div>
+    <br>
+
+    <nz-table #basicTable [nzData]="Customer" class="kit__utils__table mb-4">
+      <thead>
+        <tr>
+          <th>PhoneNo</th>
+          <th>Name</th>
+          <th>Order Count</th>
+          <th>Order Value</th>
+          <th>Last Seen</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of  basicTable.data">
+          <td>{{item.PhoneNo}}</td>
+          <td>{{(item.Name != '')?item.Name:'-'}}</td>
+          <td>{{item.OrderCount}}</td>
+          <td>{{item.Ordervalue | number: ".2"}}</td>
+          <td>{{item.LastSeen}}</td>
+          <td>
+            <button data-toggle="modal" data-backdrop="static" data-target="#customerdetails" title="edit"
+              class="btn btn-icon btn-icon-only  btn-icon-style-4 mr-25 text-primary"
+              (click)="setcustomerdetail(item.Id)" (click)="openCustomClass(vertical)">
+              <i class="fe fe-edit-2"></i> </button>
+            <button data-toggle="modal" data-backdrop="static" data-target="#deletecustomer" title="delete"
+              class="btn btn-icon btn-icon-only  btn-icon-style-4 mr-25 text-danger" (click)="deleteId = item.Id">
+              <i class="fe fe-trash-2"></i> </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+<ng-template #vertical let-modal id="customerdetails">
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">Customer Details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-5">
+      <label for="">Name</label>
+      <input nz-input placeholder="" [(ngModel)]="filteredcustomer.Name" />
+      <br>
+      <br>
+      <label for="">Phone No</label>
+      <input nz-input placeholder="" [(ngModel)]="filteredcustomer.PhoneNo" />
+      <br>
+      <br>
+      <label for="">Email</label>
+      <input nz-input placeholder="" [(ngModel)]="filteredcustomer.Email" />
+      <br>
+      <br>
+      <label for="">Adress</label>
+      <input nz-input placeholder="" [(ngModel)]="filteredcustomer.Address" />
+      <br>
+      <br>
+      <label for="">City</label>
+      <input nz-input placeholder="" [(ngModel)]="filteredcustomer.City" />
+      <br>
+      <br>
+      <label for="">PostalCode</label>
+      <input nz-input placeholder="" [(ngModel)]="filteredcustomer.PostalCode" />
+      <br>
+
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Save click')">Back</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-danger">Delete</button>
+  </div>
+</ng-template>

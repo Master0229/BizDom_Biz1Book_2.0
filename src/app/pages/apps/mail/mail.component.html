@@ -1,0 +1,87 @@
+<div>
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <div class="mb-4">
+        <nz-input-group [nzPrefix]="prefixTemplate">
+          <input type="text" nz-input placeholder="Search mail" />
+        </nz-input-group>
+        <ng-template #prefixTemplate><i nz-icon nzType="search"></i></ng-template>
+      </div>
+      <div class="categories">
+        <perfect-scrollbar>
+          <div class="d-flex flex-column"><a href="javascript: void(0);"
+              class="category current text-dark font-size-18 font-weight-bold">
+              <span class="text-truncate">Inbox</span>
+              <span>(2)</span>
+            </a>
+            <a href="javascript: void(0);" class="category text-dark font-size-18">
+              <span class="text-truncate">Snoozed</span>
+            </a>
+            <a href="javascript: void(0);" class="category text-dark font-size-18">
+              <span class="text-truncate">Sent</span>
+            </a>
+            <a href="javascript: void(0);" class="category text-dark font-size-18 font-weight-bold">
+              <span class="text-truncate">Drafts</span>
+              <span>(1)</span>
+            </a>
+            <a href="javascript: void(0);" class="category text-dark font-size-18">
+              <span class="text-truncate">Spam</span>
+            </a></div>
+        </perfect-scrollbar>
+      </div>
+    </div>
+    <div class="col-12 col-md-9">
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <nz-tabset class="kit-tabs-bold" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="History"></nz-tab>
+            <nz-tab nzTitle="Social" [nzTitle]="titleTemplate">
+              <ng-template #titleTemplate>
+                Social
+                <span class="ml-2 badge badge-primary text-uppercase">4 new</span>
+              </ng-template>
+            </nz-tab>
+            <nz-tab nzTitle="Actions"></nz-tab>
+          </nz-tabset>
+        </div>
+        <div class="card-body">
+          <nz-table #mailTable [nzShowPagination]="false" [nzData]="listOfAllData"
+            (nzCurrentPageDataChange)="currentPageDataChange($event)" class="kit__utils__table mb-4">
+            <thead>
+              <tr>
+                <th nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked" [nzIndeterminate]="isIndeterminate"
+                  (nzCheckedChange)="checkAll($event)"></th>
+                <th></th>
+                <th>From</th>
+                <th>Message</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of mailTable.data">
+                <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" [nzDisabled]="data.disabled"
+                  (nzCheckedChange)="refreshStatus()"></td>
+                <td>
+                  <i [ngClass]="[data.favorites ? 'icmn-star-full text-warning' : 'icmn-star-full text-default']"></i>
+                </td>
+                <td>
+                  <a href="javascript: void(0);">{{data.from}}</a>
+                </td>
+                <td>
+                  {{data.message}}
+                </td>
+                <td>
+                  <i *ngIf="data.attachments" class="icmn-attachment text-default"></i>
+                </td>
+                <td>
+                  {{data.time}}
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

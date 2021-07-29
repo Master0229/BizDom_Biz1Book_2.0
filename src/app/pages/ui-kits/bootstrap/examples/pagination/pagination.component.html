@@ -1,0 +1,20 @@
+<div>
+  <h5 class="mb-4">
+    <strong>Default pagination</strong>
+  </h5>
+  <div class="mb-5">
+    <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+  </div>
+  <h5 class="mb-4">
+    <strong>No direction links</strong>
+  </h5>
+  <div class="mb-5">
+    <ngb-pagination [collectionSize]="70" [(page)]="page" [directionLinks]="false"></ngb-pagination>
+  </div>
+  <h5 class="mb-4">
+    <strong>With boundary links</strong>
+  </h5>
+  <div class="mb-5">
+    <ngb-pagination [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+  </div>
+</div>

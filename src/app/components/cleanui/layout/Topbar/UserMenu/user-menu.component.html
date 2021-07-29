@@ -1,0 +1,73 @@
+<div>
+  <div nz-dropdown nzTrigger="click" class="dropdown" [nzDropdownMenu]="menu">
+    <nz-badge nzDot [nzShowDot]="isOnline">
+      <nz-avatar nzIcon="user" [nzShape]="'square'" [nzSize]="'large'" class="avatar"></nz-avatar>
+    </nz-badge>
+  </div>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item>
+        <strong>{{ 'topBar.profileMenu.hello' | translate }}, {{name || 'Anonymous'}}</strong>
+        <div>
+          <strong class="mr-1">
+            {{ 'topBar.profileMenu.billingPlan' | translate }}:
+          </strong>
+          Test Account
+        </div>
+        <div>
+          <strong>
+            {{ 'topBar.profileMenu.role' | translate }}:
+          </strong>
+          {{role || '—'}}
+        </div>
+      </li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item>
+        <div>
+          <strong>{{ 'topBar.profileMenu.email' | translate }}: </strong>
+          {{email || '—'}}
+          <br />
+          <strong>{{ 'topBar.profileMenu.phone' | translate }}: </strong>
+          {{phone || '—'}}
+          <br />
+          <strong>Store: </strong>
+          {{storename || '—'}}
+        </div>
+      </li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item>
+        <a href="javascript: void(0);">
+          <i class="fe fe-user mr-2"></i>
+          {{ 'topBar.profileMenu.editProfile' | translate }}:
+        </a>
+      </li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item>
+        <a href="javascript: void(0);" (click)="syncorders()">
+          <i class="fa fa-refresh mr-2"></i>
+          Sync orders
+        </a>
+      </li>
+      <li nz-menu-item>
+        <a href="javascript: void(0);" (click)="syncdata()">
+          <i class="fa fa-refresh mr-2"></i>
+          Sync Data
+        </a>
+      </li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item>
+
+        <a href="javascript: void(0);" (click)="logout()">
+          <i class="fe fe-log-out mr-2"></i>
+          {{ 'topBar.profileMenu.logout' | translate }}:
+        </a>
+      </li>
+      <li nz-menu-item>
+        <div>
+          <strong>Version: </strong>
+          1.0.24-t
+        </div>
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>

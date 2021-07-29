@@ -1,0 +1,15 @@
+// Import mixins
+@import 'src/app/components/mixins.scss';
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// DARK THEME STYLES
+[data-kit-theme='dark'] {
+  .ant-table-column-has-sorters {
+    &:hover {
+      background: $dark-gray-5 !important;
+    }
+  }
+  .ant-table-column-sort {
+    background: $dark-gray-5 !important;
+  }
+}

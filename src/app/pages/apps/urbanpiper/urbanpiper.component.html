@@ -1,0 +1,362 @@
+<h2>
+  UrbanPiper Hub
+</h2>
+
+
+
+
+<div class="hk-pg-wrapper">
+  <div *ngIf="!show">
+    <div class="hk-pg-wrapper hk-auth-wrapper">
+      <header class="d-flex justify-content-end align-items-center">
+        <div class="btn-group btn-group-sm">
+          <a href="#" class="btn btn-outline-secondary">Help</a>
+          <a href="#" class="btn btn-outline-secondary">About Us</a>
+        </div>
+      </header>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-12 pa-0">
+            <div class="auth-form-wrap pt-xl-0 pt-70">
+              <div class="auth-form w-xl-25 w-sm-50 w-100">
+                <a class="auth-brand text-center d-block mb-45 w-110" href="https://biz1app.azurewebsites.net/">
+                  <img class="brand-img" src="./assets/images/biz1book2.png" alt="Biz1Book 2.0" />
+                </a>
+                <form>
+                  <h1 class="display-4 mb-10 text-center">Register this store in Urbanpiper and come
+                    back.</h1>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="show" class="container">
+
+
+    <div class="modal-body" *ngIf="tempstore">
+      <strong class="font-18">{{(tempstore.BrandId!=0)?tempstore.Brand.Name:'No Brand'}}</strong>
+      <br> <br>
+      <div class="d-flex">
+        <span>Swiggy</span> &nbsp;&nbsp;&nbsp;
+        <input class="switch" type="checkbox" id="swiggy-{{tempstore.BrandId}}"
+          [ngStyle]="tempstore.IsSwiggy?{'background-color':'green'} : {'background-color': 'red'}"
+          [(ngModel)]="tempstore.Swiggy" (change)="storeaction(tempstore.BrandId, 'swiggy', $event.target.checked)" />
+        <label class="switch" for="swiggy-{{tempstore.BrandId}}">
+        </label>
+        &nbsp;&nbsp;&nbsp;
+        <span>Zomato</span> &nbsp;&nbsp;&nbsp;
+        <input class="switch" type="checkbox" id="zomato-{{tempstore.BrandId}}"
+          [ngStyle]="tempstore.IsZomato?{'background-color':'green'} : {'background-color': 'red'}"
+          [(ngModel)]="tempstore.Zomato" (change)="storeaction(tempstore.BrandId, 'zomato', $event.target.checked)" />
+        <label class="switch" for="zomato-{{tempstore.BrandId}}">
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div *ngFor="let error of errors">
+        <i class="fa fa-check-circle" *ngIf="error.status == 'success'" style="color: green;"></i><i
+          class="fa fa-warning" *ngIf="error.status == 'error'" style="color: orange;"></i>
+        {{error.message}}
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-body">
+
+
+        <nz-tabset [(selectedIndex)]="selectedTabIndex" (nzSelectedIndexChange)="console($event);">
+          <nz-tab *ngFor="let brand of BrandProducts" nzTitle="{{brand.BrandName}}">
+            <br />
+            <div class="d-flex">
+              <div class="form-group col-xl-6" style="vertical-align: middle;">
+                <div class="input-group">
+                  <input type="text" [(ngModel)]="searchterm" class="form-control" placeholder="Search...">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-light" (click)="searchterm=''" type="button">X</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-right col-xl-6">
+                <button class="btn btn-link" (click)="GetUPProducts()"><i class="fa fa-refresh"></i></button>
+                <button class="btn btn-success " (click)="enabledisable('enable',brand.BrandId)">In
+                  Stock</button>
+
+                <button class="btn btn-danger  " style="margin-left: 5%;"
+                  (click)="enabledisable('disable',brand.BrandId)">Out
+                  of
+                  Stock</button>
+              </div>
+            </div>
+            <br>
+            <div *ngIf="searchterm=='' || searchterm==undefined || searchterm==null">
+              <div *ngFor="let category of brand.categories" [hidden]="parentcatvisibility(category, brand.BrandId)==0">
+                <div class="list-group-item col-xl-12 d-flex"
+                  style="background: none; border: none; border-radius: none; font-size: large;">
+                  <div class="col-xl-6">
+                    <span class="rotate font-20 pointer" [ngClass]="{'down': category.show}"
+                      (click)="toggle(category)">&#9656;</span>
+                    <span *ngIf="category.show" class="py-1 px-10">
+                      <input type="checkbox" (change)="Headselect($event.target.checked, category.Id, brand.BrandId)">
+                    </span>
+                    <span class="font-18  pointer btn-link" style="text-decoration: none;  color: #5a5d8a;"
+                      (click)="toggle(category)"> {{category.Description}}</span>
+                  </div>
+                  <div class="col-xl-6 text-right">
+                    <span class="text-light ">
+                      <h5 style="color: rgb(92, 92, 92);"> {{category.subcategories.length}} sub</h5>
+                    </span>
+                  </div>
+                </div>
+                <div *ngIf="category.show">
+                  <div *ngFor="let subcat of category.subcategories"
+                    [hidden]="getproducts(subcat.Id, brand.BrandId).length==0">
+                    <div class="list-group-item d-flex col-xl-12 pointer"
+                      style="background: none; border: none; border-radius: none; font-size: larger;">
+                      <span class="col-xl-6 ">
+                        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="rotate font-20 pointer"
+                          [ngClass]="{'down': subcat.show}" (click)="toggleSubcat(subcat)">&#9656;</span>
+                        <span *ngIf="subcat.show" class="py-1 px-10">
+                          <input id="sub-{{subcat.Id}}-{{brand.BrandId}}" type="checkbox" [(ngModel)]="subcat.selected"
+                            (change)="selectdeselect($event.target.checked, subcat.Id, brand.BrandId)">
+                        </span>
+                        <span class=" pointer btn-link" style="text-decoration: none; color: #5a5d8a;"
+                          (click)="toggleSubcat(subcat)"> {{subcat.Description}}</span>
+                      </span>
+                      <span class=" text-right col-xl-6">
+                        <span class="text-light ">
+                          <h5 style="color: rgb(92, 92, 92);">{{getproducts(subcat.Id, brand.BrandId).length}}
+                            items
+                          </h5>
+                        </span>
+                      </span>
+                    </div>
+                    <div *ngIf="subcat.show">
+                      <div>
+                        <div class="list-group-item text-left d-flex pl-50 px-100 col-xl-12 h-50p"
+                          style="background: none; border: none; border-radius: none; margin-left: 7%; font-size: larger;"
+                          *ngFor="let product of getproducts(subcat.Id, brand.BrandId)">
+                          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span class="py-1">
+                            <input type="checkbox" [(ngModel)]="product.selected"
+                              (change)="indeterminate(subcat.Id, subcat.ParentCategoryId, brand.BrandId)">
+                          </span>
+                          <span class="col-xl-6">
+                            <img *ngIf="product.ProductTypeId==1" src="./assets/images/badges/veg.png" alt=""
+                              width="25px" height="auto">
+                            <img *ngIf="product.ProductTypeId==2" src="./assets/images/badges/non-veg.png" alt=""
+                              width="25px" height="auto">
+                            <img *ngIf="product.ProductTypeId==3" src="./assets/images/badges/egg.png" alt=""
+                              width="25px" height="auto">
+                            <img *ngIf="product.ProductTypeId==4" src="./assets/images/badges/none.png" alt=""
+                              width="25px" height="auto">
+
+                            &nbsp;&nbsp;{{product.Name }}
+                          </span>
+                          <div class="col-xl-3 text-light">
+
+                            <h5 style="color:  #5a5d8a;">&#8377; {{(product.UPenabled)? product.UPPrice :
+                              product.Price}}
+                            </h5>
+                          </div>
+                          <div class="inoutstock">
+                            <span *ngIf="product.Available" class="badge badge-success">In
+                              Stock</span><span *ngIf="!product.Available" class="badge badge-danger">Out Of
+                              Stock</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!(searchterm=='' || searchterm==undefined || searchterm==null)">
+              <div class="list-group-item text-left d-flex pl-50 col-xl-12 h-50p "
+                style="background: none; border: none; border-radius: none;  font-size: larger;"
+                *ngFor="let product of getproductsbybrand(brand.BrandId) | filter:searchterm">
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="py-1">
+                  <input type="checkbox" [(ngModel)]="product.selected">
+                </span>
+                <span class="col-xl-6">
+                  <img *ngIf="product.ProductTypeId==1" src="./assets/images/badges/veg.png" alt="" width="25px"
+                    height="auto">
+                  <img *ngIf="product.ProductTypeId==2" src="./assets/images/badges/non-veg.png" alt="" width="25px"
+                    height="auto">
+                  <img *ngIf="product.ProductTypeId==3" src="./assets/images/badges/egg.png" alt="" width="25px"
+                    height="auto">
+                  <img *ngIf="product.ProductTypeId==4" src="./assets/images/badges/none.png" alt="" width="25px"
+                    height="auto">
+                  &nbsp;&nbsp;{{product.Name }}
+                </span>
+                <div class="col-xl-1">
+                  &#8377; {{(product.UPenabled)? product.UPPrice : product.Price}}
+                </div>
+                <div class="col-xl-2 text-center">
+                  <span *ngIf="product.Available" class="badge badge-success">In
+                    Stock</span><span *ngIf="!product.Available" class="badge badge-danger">Out Of
+                    Stock</span>
+                </div>
+                <div class="col-xl-3 overflow" data-toggle="tooltip" data-placement="top" title="{{product.Category}}">
+                  {{product.Category}}
+                </div>
+              </div>
+            </div>
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" *ngIf="responsecode != 200" style="color: red;">Error!1</h5>
+        <h5 class="modal-title" *ngIf="responsecode == 200" style="color: green;">Success!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <i class="fa fa-check-circle" style="color: green;"></i><i class="fa fa-warning" *ngIf="responsecode != 200"
+          style="color: orange;"></i> {{response}}
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary btn-sm" data-dismiss="modal" aria-label="Close">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="actionresponse" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Response</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{actionresponsemessage}}
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary btn-sm" id="modalclose" data-dismiss="modal"
+          aria-label="Close">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: red;">Error!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        No items are selected.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary btn-sm" data-dismiss="modal" aria-label="Close">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="errors1" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Response</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let error of errors">
+          <!-- <span style="color: red;">&#9888;</span> {{error.message}} -->
+          <i class="fa fa-check-circle" *ngIf="error.status == 'success'" style="color: green;"></i><i
+            class="fa fa-warning" *ngIf="error.status == 'error'" style="color: orange;"></i>
+          {{error.message}}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary btn-sm" data-dismiss="modal" aria-label="Close">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Platform Status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="errors=[]">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div *ngFor="let store of upstoredata" class="modal-body">
+        <strong class="font-18">{{(store.BrandId)?store.Brand.Name:'No Brand'}}</strong>
+        <br> <br>
+        <div class="d-flex">
+          <span>Swiggy</span> &nbsp;&nbsp;&nbsp;
+          <input class="switch" type="checkbox" id="swiggy-{{store.BrandId}}"
+            [ngStyle]="store.IsSwiggy?{'background-color':'green'} : {'background-color': 'red'}"
+            [(ngModel)]="store.Swiggy" (change)="storeaction(store.BrandId, 'swiggy', $event.target.checked)" />
+          <label class="switch" for="swiggy-{{store.BrandId}}">
+          </label>
+          <hr> &nbsp;&nbsp;&nbsp;
+          <span>Zomato</span> &nbsp;&nbsp;&nbsp;
+          <input class="switch" type="checkbox" id="zomato-{{store.BrandId}}"
+            [ngStyle]="store.IsZomato?{'background-color':'green'} : {'background-color': 'red'}"
+            [(ngModel)]="store.Zomato" (change)="storeaction(store.BrandId, 'zomato', $event.target.checked)" />
+          <label class="switch" for="zomato-{{store.BrandId}}">
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div *ngFor="let error of errors">
+          <!-- <span style="color: red;">&#9888;</span> {{error.message}} -->
+          <i class="fa fa-check-circle" *ngIf="error.status == 'success'" style="color: green;"></i><i
+            class="fa fa-warning" *ngIf="error.status == 'error'" style="color: orange;"></i>
+          {{error.message}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" *ngIf="responsecode != 200" style="color: red;">{{itemactionresponse.status}}</h5>
+    <h5 class="modal-title" *ngIf="responsecode == 200" style="color: green;">{{itemactionresponse.status}}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <i *ngIf="responsecode == 200" class="fa fa-check-circle" style="color: green;"></i>
+    <i *ngIf="responsecode != 200" class="fa fa-warning" style="color: orange;"></i> 
+    {{itemactionresponse.message}}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Save click')">Cancel</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-label="Close" (click)="modal.close('Save click')">Ok</button>
+    <!-- <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Do Something</button> -->
+  </div>
+</ng-template>

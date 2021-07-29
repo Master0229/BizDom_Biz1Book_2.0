@@ -1,0 +1,25 @@
+<div>
+  <div class="row">
+    <div class="col-lg-6">
+      <h5 class="mb-3"><strong>Simple</strong></h5>
+      <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+      </p>
+      <p>
+        <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <h5 class="mb-3"><strong>Alert with List</strong></h5>
+      <ngb-alert type="light">
+        <p><strong>Read documentation and check devices:</strong></p>
+        <ul>
+          <li>Connections</li>
+          <li>Cables &amp; Accessories</li>
+          <li>Display &amp; Touch</li>
+          <li>Drivers</li>
+        </ul>
+      </ngb-alert>
+    </div>
+  </div>
+</div>

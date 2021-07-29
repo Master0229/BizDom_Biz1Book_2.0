@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-6 mb-5">
+    <h5 class="mb-3">
+      <strong>Basic</strong>
+    </h5>
+    <div>
+      <input placeholder="input here" nz-input [(ngModel)]="inputValue" (input)="onInput($event.target?.value)"
+        [nzAutocomplete]="auto" />
+      <nz-autocomplete nzBackfill #auto>
+        <nz-auto-option *ngFor="let option of options" [nzValue]="option">
+          {{ option }}
+        </nz-auto-option>
+      </nz-autocomplete>
+    </div>
+  </div>
+  <div class="col-lg-6 mb-5">
+    <h5 class="mb-3">
+      <strong>Customized</strong>
+    </h5>
+    <div>
+      <input placeholder="input here" nz-input [(ngModel)]="inputValueCustom" (input)="onInputCustom($event)"
+        [nzAutocomplete]="autoCustom" />
+      <nz-autocomplete #autoCustom>
+        <nz-auto-option *ngFor="let option of optionsCustom" [nzValue]="option">{{ option }}
+        </nz-auto-option>
+      </nz-autocomplete>
+    </div>
+  </div>
+</div>

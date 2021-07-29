@@ -1,0 +1,29 @@
+<div class="card overflow-hidden">
+  <div *ngIf="isNew" class="new">
+    New
+  </div>
+  <div class="card-body">
+    <a
+      class="favorite"
+      [ngClass]="[isFavorite ? 'text-dark' : 'text-gray-3']"
+      [routerLink]=""
+      (click)="setFavorite()"
+    >
+      <i class="fe fe-heart font-size-21"></i>
+    </a>
+    <div class="image border-bottom height-250 mb-3">
+      <img class="img-fluid" [src]="image" [alt]="name" />
+    </div>
+    <div class="font-size-24 font-weight-bold text-dark mb-2">
+      {{price}}{{' '}}
+      <del *ngIf="oldPrice" class="align-text-top font-size-14">
+        {{oldPrice}}
+      </del>
+    </div>
+    <div>
+      <a href="javascript:void(0);" class="text-blue font-size-18">
+        {{name}}
+      </a>
+    </div>
+  </div>
+</div>

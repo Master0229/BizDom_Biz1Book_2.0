@@ -1,0 +1,214 @@
+<div class="col-xl-12 row">
+    <div class="col-xl-3">
+        <h5 class="mb-4">
+            <strong>Select Date</strong>
+        </h5>
+        <div class="mb-5">
+            <ngb-datepicker #dp [(ngModel)]="model" (dateSelect)="onDateSelect($event)" (navigate)="date = $event.next">
+            </ngb-datepicker>
+        </div>
+    </div>
+    <div class="col-xl-9">
+        <h5 class="mb-4 pull-left">
+            <strong>Denomination Entries</strong>
+        </h5>
+        <button class="btn btn-success mb-4 pull-right" (click)="open()">Add Entry</button>
+        <div class="mb-5">
+            <div class="accordion">
+                <div class="card w-100" *ngFor="let denomentry of denomEntries; let i = index;">
+                    <div class="card-header" [class.edited]="denomentry.edited" id="headingOne"
+                        (click)="denomentry.isCollapsed = !denomentry.isCollapsed"
+                        [attr.aria-expanded]="denomentry.isCollapsed" aria-controls="collapseExample">
+                        <div class="card-title ant-typography"><span class="accordion-indicator pull-right"><i
+                                    class="plus fe fe-plus"></i><i class="minus fe fe-minus"></i></span>
+                            <i *ngIf="denomentry.edited" class="text-warning pull-right">This entry is edited. See
+                                <code>#{{denomentry.editid}}</code> for updated data.</i>
+                            <code>#{{denomentry.Id}}</code><a>{{denomentry.EntryDateTime | date: 'MMM d,
+                                y, h:mm a'}}
+                                by {{denomentry.UserName}}
+                            </a> <br>
+                            <span><i>{{denomentry.EntryTypeId == 1 ? 'Sent to Store' : denomentry.EntryTypeId == 2 ? 'Closing' : 'Regular'}}</i></span>
+                        </div>
+                    </div>
+                    <div toggler="#headingOne" class="collapse" [ngbCollapse]="!denomentry.isCollapsed">
+                        <div class="card-body col-xl-12 row">
+                            <div class="mb-5 col-xl-6">
+                                <ul class="list-group mb-4">
+                                    <li class="list-group-item" *ngFor="let entry of denomentry.Entries">
+                                        Rs.{{entry.DenomName}} x {{entry.Count}}
+                                        <span class="float-right">{{entry.Amount}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-6">
+                                <i class="text-warning">Contact your admin for more information</i>
+                                <!-- <strong>Opening Balance: </strong> {{denomentry.OpeningBalance}} <br>
+                                <strong>Sales Cash: </strong> {{denomentry.SalesCash}}
+                                <button *ngIf="!denomentry.showSalesTrnx"
+                                    (click)="denomentry.showSalesTrnx = !denomentry.showSalesTrnx"
+                                    class="btn btn-link text-success"><i class="fa fa-plus"></i></button>
+                                <button *ngIf="denomentry.showSalesTrnx"
+                                    (click)="denomentry.showSalesTrnx = !denomentry.showSalesTrnx"
+                                    class="btn btn-link text-danger"><i class="fa fa-minus"></i></button>
+                                <br>
+                                <div *ngIf="denomentry.showSalesTrnx">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Transaction Date Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let transaxn of denomentry.SalesTransactions">
+                                                <td scope="row"><code>#{{ transaxn.InvoiceNo }}</code></td>
+                                                <td>{{ transaxn.Amount | number }}</td>
+                                                <td>{{ transaxn.TransDateTime | date: 'MMM d, y, h:mm a' }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <strong>CashIn:
+                                </strong> {{denomentry.CashIn}}
+                                <button *ngIf="!denomentry.showCashIn"
+                                    (click)="denomentry.showCashIn = !denomentry.showCashIn"
+                                    class="btn btn-link text-success"><i class="fa fa-plus"></i></button>
+                                <button *ngIf="denomentry.showCashIn"
+                                    (click)="denomentry.showCashIn = !denomentry.showCashIn"
+                                    class="btn btn-link text-danger"><i class="fa fa-minus"></i></button>
+                                <br>
+                                <div *ngIf="denomentry.showCashIn">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Transaction Date Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let transaxn of denomentry.CashInTransaxns">
+                                                <td scope="row"><code>#{{ transaxn.TransactionId }}</code></td>
+                                                <td>{{ transaxn.Name }}</td>
+                                                <td>{{ transaxn.Amount | number }}</td>
+                                                <td>{{ transaxn.TransDateTime | date: 'MMM d, y, h:mm a' }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <strong>CashOut: </strong>
+                                {{denomentry.CashOut}}
+                                <button *ngIf="!denomentry.showCashOut"
+                                    (click)="denomentry.showCashOut = !denomentry.showCashOut"
+                                    class="btn btn-link text-success"><i class="fa fa-plus"></i></button>
+                                <button *ngIf="denomentry.showCashOut"
+                                    (click)="denomentry.showCashOut = !denomentry.showCashOut"
+                                    class="btn btn-link text-danger"><i class="fa fa-minus"></i></button>
+                                <br>
+                                <div *ngIf="denomentry.showCashOut">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Transaction Date Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let transaxn of denomentry.CashOutTransaxns">
+                                                <td scope="row"><code>#{{ transaxn.TransactionId }}</code></td>
+                                                <td>{{ transaxn.Name }}</td>
+                                                <td>{{ transaxn.Amount | number }}</td>
+                                                <td>{{ transaxn.TransDateTime | date: "LLLL" }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <strong>Expected Balance: </strong> {{denomentry.ExpectedBalance}} <br>
+                                <strong>Actual Balance: </strong> {{denomentry.TotalAmount}} <br>
+                                <strong>Remarks: </strong> {{denomentry.diff}}
+                                <span
+                                    [ngClass]="{'text-warning': denomentry.diff > 0, 'text-success': denomentry.diff == 0, 'text-danger': denomentry.diff < 0}">{{denomentry.Remarks}}</span>
+                               --> <br>
+
+                                <button *ngIf="i == 0 && selectedDate == today" class="btn btn-warning"
+                                    (click)="edit(denomentry.Id)">Edit</button> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nz-drawer [nzClosable]="true" [nzVisible]="visible" nzPlacement="right" nzTitle="Denomination Entry"
+    (nzOnClose)="close()" [nzWidth]="720">
+    <!-- <div class="mb-5">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let entry of denomEntry.Entries">
+                Rs.{{entry.DenomName}} x {{entry.Count}}
+                <span class="float-right">{{entry.Amount}}</span>
+            </li>
+            <li class="list-group-item">
+                <Strong>Total</Strong>
+                <span class="float-right">{{denomEntry.TotalAmount}}</span>
+            </li>
+        </ul>
+    </div> -->
+    <div class="col-xl-12 row" *ngIf="denomEntry">
+        <div class="col-xl-6 row">
+            <label for="cars">Choose an Entry Type: </label>{{denomEntry.EntryTypeId}}
+
+            <select name="cars" id="cars" class="form-control" [(ngModel)]="denomEntry.EntryTypeId">
+                <option value=null>Regular</option>
+                <option value=1>Send to Store</option>
+                <option value=2>Closing</option>
+            </select>
+
+            <strong class="col-sm pl-1">Denomination</strong>
+            <strong class="col-sm">Count</strong>
+            <strong class="col-sm text-white">Add</strong>
+        </div>
+    </div>
+    <div class="col-xl-12 row">
+        <div class="col-xl-6 row">
+            <div class="row mb-2" *ngFor="let entry of denomEntry?.Entries">
+                <input type="text" [(ngModel)]="'₹'+entry.DenomName" #denomination class="form-control col-sm mx-1"
+                    name="denomination" disabled>
+                <input type="number" [(ngModel)]="entry.Count" #count class="form-control col-sm mx-1" name="count"
+                    (keyup.enter)="addEntry()&&denomination.focus()" (input)="calculate()">
+                <div>
+                    <button *ngIf="entry.Count > 0" class="btn btn-link text-danger mx-1"
+                        (click)="entry.Count = null;calculate()"><i class="fa fa-times"></i></button>
+                    <button *ngIf="!entry.Count || entry.Count <= 0" disabled class="btn btn-link text-white mx-1"><i
+                            class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="text-right">
+                <strong>Total Amount: </strong>{{denomEntry?.TotalAmount}} <br>
+                <button class="btn btn-success" (click)="save()">Save</button>
+            </div>
+            <!-- <ul class="list-group mb-4">
+                <li class="list-group-item" *ngFor="let entry of denomEntry.Entries; let i = index">
+                    Rs.{{entry.DenomName}} x {{entry.Count}}
+                    <button class="btn btn-link text-danger float-right py-0" (click)="deleteEntry(i)"><i
+                            class="fe fe-trash"></i></button>
+                    <span class="float-right">{{entry.Amount}}</span>
+                </li>
+                <li class="list-group-item" *ngIf="denomEntry.Entries.length">
+                    <Strong>Total</Strong>
+                    <button disabled class="btn btn-link text-white float-right py-0"><i
+                            class="fa fa-times"></i></button>
+                    <span class="float-right">{{denomEntry.TotalAmount}}</span>
+                </li>
+            </ul>
+            <button class="btn btn-success pull-right" *ngIf="denomEntry.Entries.length">Save</button> -->
+        </div>
+    </div>
+</nz-drawer>

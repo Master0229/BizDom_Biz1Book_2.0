@@ -1,0 +1,12 @@
+@import 'src/app/components/mixins.scss';
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/* LOGIN */
+
+.boxContainer {
+  padding: rem(50) rem(30);
+}
+.modal-body{
+  height: 75vh;
+  overflow: auto;
+}

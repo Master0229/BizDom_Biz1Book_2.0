@@ -1,0 +1,103 @@
+<div *ngIf="roleid == 1">
+    <input type="text" class="form-control" [(ngModel)]="invoiceno"
+        placeholder="Enter the invoiceno and press enter key" (keyup.enter)="transactionsbyinvoiceno()">
+    <span *ngIf="invoiceno != ''" (click)="last10transactions()" class="clear-input"><i class="fa fa-times"></i></span>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center" scope="col">#</th>
+            <!-- <th class="text-center" scope="col">InvoiceNo</th> -->
+            <th class="text-center" scope="col">Amount</th>
+            <th class="text-center" scope="col">Payment Type</th>
+            <th class="text-center" scope="col">Transaction Type</th>
+            <th class="text-center" scope="col">Transaction Time</th>
+            <th class="text-center" scope="col">Orderd Time</th>
+            <th class="text-center" scope="col"> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tr of transactions; index as i">
+            <!-- <th class="text-center" scope="row">{{ tr.Id }}</th> -->
+            <th class="text-center">{{ tr.InvoiceNo }}</th>
+            <td class="text-center">{{ tr.Amount}}</td>
+            <td class="text-center">{{ tr.PaymentType}}</td>
+            <td class="text-center">
+                <span *ngIf="tr.TransTypeId == 1" class="text-success">Recieved</span>
+                <span *ngIf="tr.TransTypeId == 2" class="text-danger">Refunded</span>
+            </td>
+            <td class="text-center">{{ tr.TransDateTime | date: 'MMM d, y, h:mm a' }}</td>
+            <td class="text-center">{{ tr.OrderedDateTime | date: 'MMM d, y, h:mm a' }}</td>
+            <td class="text-center">
+                <button class="btn btn-link" (click)="openmodal(tr)">
+                    <i class="fe fe-edit"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #editmodal let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">{{transaction.InvoiceNo}}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Amount</th>
+                    <th class="text-center" scope="col">Transaction Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">{{ transaction.Amount}}</td>
+                    <td class="text-center">
+                        <span *ngIf="transaction.TransTypeId == 1" class="text-success">Recieved</span>
+                        <span *ngIf="transaction.TransTypeId == 2" class="text-danger">Refunded</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <select class="form-control" [(ngModel)]="transaction.StorePaymentTypeId">
+            <option *ngFor="let ptype of paymenttypes" value="{{ptype.Id}}">{{ptype.Name}}</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Back</button>
+        <button type="button" class="btn btn-warning" (click)="splitpayment()">Split</button>
+        <button type="button" class="btn btn-success" (click)="savetransaction()">Save</button>
+    </div>
+</ng-template>
+
+<ng-template #splittransaction let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">{{transaction.InvoiceNo}}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="card card-body" style="background-color: rgb(235, 246, 249, 1); border-color: rgb(72, 166, 182);">
+            <div class="card-body">
+                <div *ngFor="let transaxn of transaxns">
+                    <span>
+                        {{transaxn.PaymentTypeName}}
+                    </span>
+                    <span>
+                        <input type="number" class="form-control" [(ngModel)]="transaxn.Amount">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="card card-body" style="background-color: rgb(243, 220, 220);">
+            {{errormessage}}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Back</button>
+        <button type="button" class="btn btn-success" (click)="makesplitpayment()">Save</button>
+    </div>
+</ng-template>

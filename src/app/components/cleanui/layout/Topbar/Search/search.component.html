@@ -1,0 +1,98 @@
+<div class="d-inline-block mr-4">
+  <nz-input-group class="extInput" [nzPrefix]="prefixIconSearch">
+    <input nz-input (focus)="setVisible()" placeholder="{{ 'topBar.typeToSearch' | translate }}" style="width: 200px" />
+  </nz-input-group>
+  <ng-template #prefixIconSearch>
+    <i nz-icon nzType="search" class="extInputIcon" style="color: rgba(0,0,0,.25)"></i>
+  </ng-template>
+  <div class="livesearch" [ngClass]="{'livesearchVisible': showSearch}">
+    <button class="close" type="button" (click)="setHidden()">
+      <i class="icmn-cross"></i>
+    </button>
+    <div class="container-fluid">
+      <div class="wrapper">
+        <input #liveSearchInput [(ngModel)]="searchText" class="searchInput"
+          placeholder="{{ 'topBar.typeToSearch' | translate }}" />
+        <ul class="options">
+          <li class="option optionCheckbox">
+            <label nz-checkbox>Search within page</label>
+          </li>
+          <li class="option">Press enter to search</li>
+        </ul>
+        <div *ngIf="!searchText" class="results">
+          <div class="resultsTitle">
+            <span>No Results Found</span>
+          </div>
+        </div>
+        <div *ngIf="searchText" class="results">
+          <div class="resultsTitle">
+            <span>Pages Search Results</span>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="resultContent">
+                <div class="resultThumb" style="background-image: url(assets/images/content/photos/1.jpeg)">
+                  #1
+                </div>
+                <div class="result">
+                  <div class="resultText">Samsung Galaxy A50 4GB/64GB</div>
+                  <div class="resultSource">In some partition</div>
+                </div>
+              </div>
+              <div class="resultContent">
+                <div class="resultThumb" style="background-image:url(assets/images/content/photos/2.jpeg)">
+                  KF
+                </div>
+                <div class="result">
+                  <div class="resultText">Apple iPhone 11 64GB</div>
+                  <div class="resultSource">In some partition</div>
+                </div>
+              </div>
+              <div class="resultContent">
+                <div class="resultThumb" style="background-image:url(assets/images/content/photos/3.jpeg)">
+                  GF
+                </div>
+                <div class="result">
+                  <div class="resultText">Samsung Galaxy A51 SM-A515F/DS 4GB/64GB</div>
+                  <div class="resultSource">In some partition</div>
+                </div>
+              </div>
+              <div class="resultContent">
+                <div class="resultThumb" style="background-image:url(assets/images/content/photos/4.jpeg)">
+                  GF
+                </div>
+                <div class="result">
+                  <div class="resultText">Xiaomi Redmi 8 4GB/64GB</div>
+                  <div class="resultSource">In some partition</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="resultContent">
+                <div class="resultThumb">01</div>
+                <div class="result">
+                  <div class="resultText">White Case</div>
+                  <div class="resultSource">In some partition</div>
+                </div>
+              </div>
+              <div class="resultContent">
+                <div class="resultThumb">02</div>
+                <div class="result">
+                  <div class="resultText">Blue Case</div>
+                  <div class="resultSource">In some partition</div>
+                </div>
+              </div>
+              <div class="resultContent">
+                <div class="resultThumb">03</div>
+                <div class="result">
+                  <div class="resultText">Green Case</div>
+                  <div class="resultSource">In some partition</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<h5 class="mb-3">
+  <strong>Basic</strong>
+</h5>
+<div class="mb-5">
+  <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/">
+    <button nz-button><i nz-icon nzType="upload"></i><span>Click to Upload</span></button>
+  </nz-upload>
+</div>
+<h5 class="mb-3">
+  <strong>Drag & Drop</strong>
+</h5>
+<div class="mb-5">
+  <nz-upload nzType="drag" [nzMultiple]="true" [nzLimit]="2" nzAction="https://jsonplaceholder.typicode.com/posts/">
+    <p class="ant-upload-drag-icon">
+      <i nz-icon nzType="inbox"></i>
+    </p>
+    <p class="ant-upload-text">Click or drag file to this area to upload</p>
+    <p class="ant-upload-hint">
+      Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files
+    </p>
+  </nz-upload>
+</div>

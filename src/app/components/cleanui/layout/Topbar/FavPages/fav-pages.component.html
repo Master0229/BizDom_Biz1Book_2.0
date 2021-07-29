@@ -1,0 +1,43 @@
+<div>
+  <ng-container *ngFor="let item of favs">
+    <a [routerLink]="item.url" class="mr-3 item">
+      <i class="fe icon" [ngClass]="[item.icon]" nz-tooltip [nzTooltipTitle]="item.title"
+        nzTooltipPlacement="bottom"></i>
+    </a>
+  </ng-container>
+  <span class="dropdown">
+    <a nz-dropdown nzTrigger="click" class="dropdown" [nzDropdownMenu]="menu">
+      <i class="icon fe fe-star" nz-tooltip nzTooltipTitle="Bookmarks" nzTooltipPlacement="bottom"></i>
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <div class="card cui__utils__shadow width-350">
+        <div class="card-body p-1">
+          <div class="p-2">
+            <input nz-input [(ngModel)]="searchText" (ngModelChange)="filterPagesList()" allowClear
+              placeholder="{{ 'topBar.findPages' | translate }}" />
+          </div>
+          <div class="height-200">
+            <perfect-scrollbar>
+              <div class="px-2 pb-2">
+                <ng-container *ngFor="let item of filteredPagesList">
+                  <a [routerLink]="item.url" class="link">
+                    <div (click)="setFav($event, item)" [ngClass]="{
+                        setIcon: true,
+                        setIconActive: item.isActive
+                      }">
+                      <i class="fe fe-star"></i>
+                    </div>
+                    <span>
+                      <i class="mr-2 fe" [ngClass]="[item.icon]"></i>
+                      {{ item.title }}
+                    </span>
+                  </a>
+                </ng-container>
+              </div>
+            </perfect-scrollbar>
+          </div>
+        </div>
+      </div>
+    </nz-dropdown-menu>
+  </span>
+</div>

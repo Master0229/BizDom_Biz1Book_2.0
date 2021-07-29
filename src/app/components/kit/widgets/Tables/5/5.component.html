@@ -1,0 +1,40 @@
+<div>
+  <div class="text-nowrap text-dark font-size-50 font-weight-bold">
+    $29,931 <sup class="text-uppercase text-gray-6 font-size-30">paid</sup>
+  </div>
+  <nz-table #basicTable [nzData]="tableData" [nzShowPagination]="false" class="table mb-4">
+    <thead>
+      <tr>
+        <th class="bg-transparent width-50"></th>
+        <th class="bg-transparent">User Name</th>
+        <th class="bg-transparent">Location</th>
+        <th class="bg-transparent text-right"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>
+          <div class="kit__utils__avatar">
+            <img [src]="data.avatar" alt="User" />
+          </div>
+        </td>
+        <td>
+          <div>{{data.userName.name}}</div>
+          <div class="text-gray-4">{{data.userName.position}}</div>
+        </td>
+        <td>
+          <a href="javascript: void(0);" class="text-blue">
+            {{data.location}}
+          </a>
+        </td>
+        <td class="text-right">
+          <div class="text-nowrap">
+            <button type="button" class="btn btn-light">
+              <span class="text-blue">Add</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

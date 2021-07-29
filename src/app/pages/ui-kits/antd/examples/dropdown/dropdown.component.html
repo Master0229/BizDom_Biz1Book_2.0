@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Basic</strong>
+    </h5>
+    <div class="mb-5">
+      <a nz-dropdown [nzDropdownMenu]="menu">
+        Hover me
+        <i nz-icon nzType="down"></i>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>1st menu item</li>
+          <li nz-menu-item>2nd menu item</li>
+          <li nz-menu-item>3rd menu item</li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+    <h5 class="mb-3">
+      <strong>Placement</strong>
+    </h5>
+    <div class="mb-5">
+      <ng-container *ngFor="let position of listOfPosition">
+        <button nz-button nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="position"
+          class="mr-3 mb-3">{{ position }}</button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item>1st menu item length</li>
+            <li nz-menu-item>2nd menu item length</li>
+            <li nz-menu-item>3rd menu item length</li>
+          </ul>
+        </nz-dropdown-menu>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Context Menu</strong>
+    </h5>
+    <div class="mb-5">
+      <div class="bg-light" style="text-align: center; height: 200px; line-height: 200px;"
+        (contextmenu)="contextMenu($event, menu2)">
+        <span class="context-intro">Right Click on Me</span>
+      </div>
+      <nz-dropdown-menu #menu2="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item>1st menu item</li>
+          <li nz-menu-item>2nd menu item</li>
+          <li nz-menu-item nzDisabled>disabled menu item</li>
+          <li nz-submenu nzTitle="sub menu">
+            <ul>
+              <li nz-menu-item>3rd menu item</li>
+              <li nz-menu-item>4th menu item</li>
+            </ul>
+          </li>
+          <li nz-submenu nzDisabled nzTitle="disabled sub menu">
+            <ul>
+              <li nz-menu-item>3rd menu item</li>
+              <li nz-menu-item>4th menu item</li>
+            </ul>
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,202 @@
+<!-- <div>
+  <div class="cui__sidebar" [ngClass]="isSidebarOpen ? 'cui__sidebar__toggled' : ''">
+    <perfect-scrollbar>
+      <div class="cui__sidebar__inner">
+        <a href="javascript: void(0);" class="fe fe-x-circle cui__sidebar__close" (click)="toggle()"></a>
+        <h5>
+          <strong>Theme Settings</strong>
+        </h5>
+        <div class="cui__utils__line" style="margin-top: 25px; margin-bottom: 30px"></div>
+        <div class="cui__sidebar__type">
+          <div class="cui__sidebar__type__title">
+            <span>Application Name</span>
+          </div>
+          <div class="cui__sidebar__type__items">
+            <input nz-input [ngModel]="logo" (ngModelChange)="settingChange($event, 'logo')" />
+          </div>
+        </div>
+        <div class="cui__sidebar__type">
+          <div class="cui__sidebar__type__title">
+            <span>Menu Layout</span>
+          </div>
+          <div class="cui__sidebar__type__items">
+            <nz-radio-group [(ngModel)]="menuLayoutType" (ngModelChange)="settingChange($event, 'menuLayoutType')">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-2">
+                    <label nz-radio nzValue="left">Left Menu</label>
+                  </div>
+                  <div class="mb-2">
+                    <label nz-radio nzValue="top">Top Menu</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-2">
+                    <label nz-radio nzValue="nomenu">No menu</label>
+                  </div>
+                </div>
+              </div>
+            </nz-radio-group>
+          </div>
+        </div>
+        <div class="cui__sidebar__type mb-4">
+          <div class="cui__sidebar__type__title">
+            <span>Router Animation</span>
+          </div>
+          <div class="cui__sidebar__type__items">
+            <nz-select style="width: 100%;" [(ngModel)]="routerAnimation"
+              (ngModelChange)="settingChange($event, 'routerAnimation')">
+              <nz-option nzLabel="None" nzValue="none"></nz-option>
+              <nz-option nzLabel="Slide Up" nzValue="slideFadeinUp"></nz-option>
+              <nz-option nzLabel="Slide Right" nzValue="slideFadeinRight"></nz-option>
+              <nz-option nzLabel="Fade In" nzValue="fadein"></nz-option>
+              <nz-option nzLabel="Zoom" nzValue="zoomFadein"></nz-option>
+            </nz-select>
+          </div>
+        </div>
+        <div class="cui__sidebar__type mb-4">
+          <div class="cui__sidebar__type__title">
+            <span>Internationalization</span>
+          </div>
+          <div class="cui__sidebar__type__items">
+            <nz-select style="width: 100%;" [(ngModel)]="locale" (ngModelChange)="settingChange($event, 'locale')">
+              <nz-option nzLabel="English (en-US)" nzValue="en-US"></nz-option>
+              <nz-option nzLabel="French (fr-FR)" nzValue="fr-FR"></nz-option>
+              <nz-option nzLabel="Русский (ru-RU)" nzValue="ru-RU"></nz-option>
+              <nz-option nzLabel="简体中文 (zh-CN)" nzValue="zh-CN"></nz-option>
+            </nz-select>
+          </div>
+        </div>
+        <div class="cui__sidebar__type mb-2">
+          <div class="cui__sidebar__type__title">
+            <span>Left Menu Width</span>
+          </div>
+          <div class="cui__sidebar__type__items">
+            <nz-slider [ngModel]="leftMenuWidth" (ngModelChange)="setWidth($event)" [nzMin]="256" [nzMax]="330">
+            </nz-slider>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Left Menu: Collapsed</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isMenuCollapsed" (ngModelChange)="settingChange($event, 'isMenuCollapsed')"
+              [nzDisabled]="menuLayoutType !== 'left'"></nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Left Menu: Unfixed</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isMenuUnfixed" (ngModelChange)="settingChange($event, 'isMenuUnfixed')"
+              [nzDisabled]="menuLayoutType !== 'left'"></nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Left Menu: Shadow</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isMenuShadow" (ngModelChange)="settingChange($event, 'isMenuShadow')"
+              [nzDisabled]="menuLayoutType !== 'left'"></nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Menu: Color</div>
+          <div class="cui__sidebar__container">
+            <ng-container
+              *ngTemplateOutlet="colorTpl; context: {$implicit: 'menuColor', colors: ['white', 'gray', 'dark'], active: menuColor}">
+            </ng-container>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Auth: Background</div>
+          <div class="cui__sidebar__container">
+            <ng-container
+              *ngTemplateOutlet="colorTpl; context: {$implicit: 'authPagesColor', colors: ['white', 'gray', 'image'], active: authPagesColor}">
+            </ng-container>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Topbar: Fixed</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isTopbarFixed" (ngModelChange)="settingChange($event, 'isTopbarFixed')"></nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Topbar: Gray Background</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isGrayTopbar" (ngModelChange)="settingChange($event, 'isGrayTopbar')"></nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">App: Content Max-Width</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isContentMaxWidth" (ngModelChange)="settingChange($event, 'isContentMaxWidth')">
+            </nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">App: Max-Width</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isAppMaxWidth" (ngModelChange)="settingChange($event, 'isAppMaxWidth')"></nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">App: Gray Background</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isGrayBackground" (ngModelChange)="settingChange($event, 'isGrayBackground')">
+            </nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Cards: Squared Borders</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isSquaredBorders" (ngModelChange)="settingChange($event, 'isSquaredBorders')">
+            </nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Cards: Shadow</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isCardShadow" (ngModelChange)="settingChange($event, 'isCardShadow')"></nz-switch>
+          </div>
+        </div>
+        <div class="cui__sidebar__item">
+          <div class="cui__sidebar__label">Cards: Borderless</div>
+          <div class="cui__sidebar__container">
+            <nz-switch [(ngModel)]="isBorderless" (ngModelChange)="settingChange($event, 'isBorderless')"></nz-switch>
+          </div>
+        </div>
+      </div>
+    </perfect-scrollbar>
+  </div>
+  <a href="javascript: void(0);" style="bottom: calc(50% + 120px)" (click)="toggle()" nzTooltipTitle="Settings"
+    nzTooltipPlacement="left" nz-tooltip class="cui__sidebar__toggleButton">
+    <i class="fe fe-settings"></i>
+  </a>
+  <a href="javascript: void(0);" style="bottom: calc(50% + 60px)"
+    (click)="setTheme(theme === 'default' ? 'dark' : 'default')" nzTooltipTitle="Switch Dark / Light Theme"
+    nzTooltipPlacement="left" nz-tooltip class="cui__sidebar__toggleButton">
+    <i *ngIf="theme === 'default'" class="fe fe-moon"></i>
+    <i *ngIf="theme !== 'default'" class="fe fe-sun"></i>
+  </a>
+  <a href="javascript: void(0);" style="bottom: calc(50%)" nzTooltipTitle="Set Primary Color" nzTooltipPlacement="left"
+    nz-tooltip class="cui__sidebar__toggleButton color" [ngClass]="{
+      reset: primaryColor === defaultColor}">
+    <button type="button" tabindex="0" (click)="resetColor()">
+      <i class="fe fe-x-circle"></i>
+    </button>
+    <input type="color" id="colorPicker" (change)="setPrimaryColor($event)" [ngModel]="primaryColor" />
+    <i class="fe fe-package"></i>
+  </a>
+  <a href="https://docs.cleanuitemplate.com" target="_blank" rel="noopener noreferrer" style="bottom: calc(50% - 60px)"
+    nzTooltipTitle="Documentation" nzTooltipPlacement="left" nz-tooltip class="cui__sidebar__toggleButton">
+    <i class="fe fe-book-open"></i>
+  </a>
+</div>
+
+<ng-template #colorTpl let-setting let-colors="colors" let-active="active">
+  <ng-container *ngFor="let item of colors">
+    <a href="javascript: void(0);" (click)="settingChange(item, setting)" class="cui__sidebar__select__item" [ngClass]="{
+        cui__sidebar__select__item__active: active === item, cui__sidebar__select__item__black: item === 'dark',
+        cui__sidebar__select__item__white: item === 'white', cui__sidebar__select__item__gray: item === 'gray',
+        cui__sidebar__select__item__blue: item === 'blue', cui__sidebar__select__item__img: item === 'image'}"></a>
+  </ng-container>
+</ng-template> -->

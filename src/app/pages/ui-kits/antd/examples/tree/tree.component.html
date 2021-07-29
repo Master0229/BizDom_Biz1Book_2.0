@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-4">
+    <h5 class="mb-3">
+      <strong>Checkable</strong>
+    </h5>
+    <nz-tree #nzTreeComponent [nzData]="nodes" nzCheckable [nzCheckedKeys]="defaultCheckedKeys"
+      [nzExpandedKeys]="defaultExpandedKeys" [nzSelectedKeys]="defaultSelectedKeys" (nzClick)="nzClick($event)"
+      (nzCheckBoxChange)="nzCheck($event)" (nzExpandChange)="nzCheck($event)">
+    </nz-tree>
+  </div>
+  <div class="col-lg-4">
+    <h5 class="mb-3">
+      <strong>Basic</strong>
+    </h5>
+    <nz-tree [nzData]="nodesDef" nzDraggable nzBlockNode></nz-tree>
+  </div>
+  <div class="col-lg-4">
+    <h5 class="mb-3">
+      <strong>With Lines</strong>
+    </h5>
+    <nz-tree [nzData]="nodesFiles" nzShowLine (nzClick)="nzClick($event)"></nz-tree>
+  </div>
+</div>

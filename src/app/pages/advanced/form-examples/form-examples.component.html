@@ -1,0 +1,246 @@
+<div>
+  <div class="kit__utils__heading">
+    <h5>Form Examples</h5>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="mb-4">
+        <strong>Basic Form</strong>
+      </h5>
+      <form nz-form [formGroup]="validateForm1" (ngSubmit)="submitForm1()">
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="full-name" class="text-left">Full Name</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="24" nzErrorTip="Please input your full name!">
+            <input nz-input id="full-name" formControlName="fullName" placeholder="Your Fullname..." />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="email" class="text-left">Email Address</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="24" nzErrorTip="Please input your email adress!">
+            <input nz-input id="email" formControlName="email" placeholder="Your Email Address..." />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" class="text-left">Budget</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <nz-slider [nzTooltipVisible]="'always'" formControlName="budget" [nzMarks]="marks"></nz-slider>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button type="submit" class="btn btn-success px-5">
+              Send Data
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="mb-4">
+        <strong>Inline Form</strong>
+      </h5>
+      <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm2" (ngSubmit)="submitForm2()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your coins amount!">
+            <nz-input-group nzAddOnBefore="$" nzAddOnAfter=".00">
+              <input nz-input formControlName="amount" placeholder="Coins Amount" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your pin!">
+            <nz-input-group nzAddOnBefore="*">
+              <input nz-input formControlName="pin" placeholder="8 Digit Pin" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button type="submit" class="btn btn-success mt-1 mb-1">
+              Confirm Transaction
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="mb-4">
+        <strong>Two Columns</strong>
+      </h5>
+      <form nz-form [nzLayout]="'vertical'">
+        <div class="row">
+          <div class="col-md-6">
+            <nz-form-item>
+              <nz-form-label nzFor="email3">Email</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="Email" id="email3" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-6">
+            <nz-form-item>
+              <nz-form-label nzFor="password3">Password</nz-form-label>
+              <nz-form-control>
+                <input nz-input [type]="'password'" placeholder="Password" id="password3" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-6">
+            <nz-form-item>
+              <nz-form-label nzFor="address31">Address</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="1234 Main St." id="address31" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-6">
+            <nz-form-item>
+              <nz-form-label nzFor="address32">Address 2</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="Apartment, studio, or floor" id="address32" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-6">
+            <nz-form-item>
+              <nz-form-label nzFor="city3">City</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="City" id="city3" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-2">
+            <nz-form-item>
+              <nz-form-label nzFor="state3">State</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="State" id="state3" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-4">
+            <nz-form-item>
+              <nz-form-label nzFor="zip3">ZIP</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="State" id="zip3" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-12">
+            <nz-form-item>
+              <nz-upload nzType="drag" [nzMultiple]="true" [nzLimit]="2"
+                nzAction="https://jsonplaceholder.typicode.com/posts/">
+                <p class="ant-upload-drag-icon">
+                  <i nz-icon nzType="inbox"></i>
+                </p>
+                <p class="ant-upload-text">Click or drag file to this area to upload</p>
+                <p class="ant-upload-hint">
+                  Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files
+                </p>
+              </nz-upload>
+            </nz-form-item>
+            <nz-form-item>
+              <button type="button" class="btn btn-light px-5">
+                Sign in
+              </button>
+            </nz-form-item>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="mb-4">
+        <strong>Validation & Background</strong>
+      </h5>
+      <div class="bg-light rounded-lg p-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <form nz-form>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Fail</nz-form-label>
+                <nz-form-control nzValidateStatus="error" [nzSpan]="12"
+                  nzErrorTip="Should be combination of numbers & alphabets">
+                  <input nz-input [ngModel]="'unavailable choice'" name="errorValid" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Warning</nz-form-label>
+                <nz-form-control nzValidateStatus="warning" [nzSpan]="12">
+                  <input nz-input [ngModel]="'Warning'" name="warningValid" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Validating</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="validating" nzHasFeedback
+                  nzValidatingTip="I'm validating the content">
+                  <input nz-input [ngModel]="'The content is being validated'" name="validating" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Success</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="success" nzHasFeedback>
+                  <input nz-input [ngModel]="'The content'" name="successValid" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Warning</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="warning" nzHasFeedback
+                  nzWarningTip="Should be combination of numbers & alphabets">
+                  <input nz-input [ngModel]="'Warning'" name="warningHighValid" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Fail</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="error" nzHasFeedback
+                  nzErrorTip="Should be combination of numbers & alphabets">
+                  <input nz-input [ngModel]="'unavailable choice'" name="invalidValid" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Success</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="success" nzHasFeedback>
+                  <nz-date-picker name="date-picker-success"></nz-date-picker>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Warning</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="warning" nzHasFeedback>
+                  <nz-time-picker name="time-picker-warning"></nz-time-picker>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Error</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="error" nzHasFeedback>
+                  <nz-select name="select-error" [ngModel]="'Option 1'">
+                    <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+                    <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Validating</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="validating" nzHasFeedback>
+                  <nz-select name="select-validate" [ngModel]="'Option 2'">
+                    <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+                    <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="5">Success</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzValidateStatus="success" nzHasFeedback>
+                  <nz-input-number name="inputnumber-success" style="width:100%"></nz-input-number>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

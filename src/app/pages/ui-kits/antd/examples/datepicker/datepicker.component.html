@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>DatePicker</strong>
+    </h5>
+    <div class="mb-5">
+      <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+    </div>
+    <h5 class="mb-3">
+      <strong>Month Picker</strong>
+    </h5>
+    <div class="mb-5">
+      <nz-month-picker [(ngModel)]="date" (ngModelChange)="onChange($event)" nzPlaceHolder="Select month">
+      </nz-month-picker>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Range Picker</strong>
+    </h5>
+    <div class="mb-5">
+      <nz-range-picker [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+    </div>
+    <h5 class="mb-3">
+      <strong>Week Picker</strong>
+    </h5>
+    <div class="mb-5">
+      <nz-week-picker [(ngModel)]="date" (ngModelChange)="getWeek($event)" nzPlaceHolder="Select week"></nz-week-picker>
+    </div>
+  </div>
+</div>

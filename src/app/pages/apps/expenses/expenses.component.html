@@ -1,0 +1,97 @@
+<h2>
+  Expenses
+</h2>
+<br>
+
+<div *ngIf="!show">
+
+
+  <input placeholder="Search Expenses..." nz-input [(ngModel)]="inputValue" (input)="onInput($event.target?.value)"
+    [nzAutocomplete]="auto" style="width: 70%;" />
+  <nz-autocomplete nzBackfill #auto>
+    <nz-auto-option *ngFor="let option of options" [nzValue]="option">
+      {{ option }}
+    </nz-auto-option>
+  </nz-autocomplete>
+
+  <div class="mr-3" style="float: right;">
+    <button nz-button nzType="primary" (click)="show = !show">Add Expenses</button>
+  </div>
+  <br>
+  <br>
+  <div class="card">
+    <div class="card-body">
+
+
+      <nz-table #basicTable [nzData]="transactions" class="kit__utils__table mb-4">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>PaymentType</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of basicTable.data ">
+            <td>{{item.Notes}}</td>
+            <td>{{item.Amount}}</td>
+            <td>{{item.Payment}}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>
+
+<!--  Add Expenses Show   -->
+<div *ngIf="show">
+
+  <div class="card">
+    <div class="card-body">
+      <label for="">Add Expenses</label>
+      <button class="btn btn-primary mr-2 mb-2" type="submit" (click)="toggle()" id="bt" style="float: right;">
+        {{buttonName}}
+      </button>
+
+
+      <br>
+      <br>
+
+
+
+      <div>
+
+        <div class="col-lg-6">
+          <div class="mb-5">
+            <input nz-input placeholder="Description" [(ngModel)]="value" />
+
+            <br>
+            <br>
+            <input nz-input placeholder="Amount" [(ngModel)]="value" />
+          </div>
+          <label for="">
+            Payment Type:
+          </label>
+          <div class="mb-5">
+            <nz-radio-group [(ngModel)]="radioValue">
+              <label nz-radio nzValue="A">Cash</label>
+              <label nz-radio nzValue="B">Credit/Debit</label>
+              <label nz-radio nzValue="C">Others</label>
+              <label nz-radio nzValue="D">Online Payment</label>
+            </nz-radio-group>
+          </div>
+
+          <button class="btn btn-primary mr-2 mb-2" type="submit" id="bt" >
+           Save
+          </button>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

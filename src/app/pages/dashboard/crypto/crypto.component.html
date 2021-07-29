@@ -1,0 +1,480 @@
+<div class="cui-crypto-dashboard-container">
+  <div class="cui-crypto-dashboard-list-mobile">
+    <div class="cui__utils__heading mb-3">
+      <strong>Markets</strong>
+    </div>
+    <nz-select nzShowSearch style="width: 100%" [(ngModel)]="selectedItem">
+      <nz-option nzValue="btc" nzLabel="BTC" nzCustomContent>
+        BTC (Bitcoin)
+        <nz-tag [nzColor]="'blue'" class="ml-3">+11.7%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="snt" nzLabel="SNT" nzCustomContent>
+        SNT (Status Network Token)
+        <nz-tag [nzColor]="'red'" class="ml-3">-2.3%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="rads" nzLabel="RADS" nzCustomContent>
+        SNT (Status Network Token)
+        <nz-tag [nzColor]="'red'" class="ml-3">-7.2%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="meme" nzLabel="MEME" nzCustomContent>
+        MEME (Memetic)
+        <nz-tag [nzColor]="'red'" class="ml-3">-11.7%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="xmr" nzLabel="XMR" nzCustomContent>
+        XMR (Monero)
+        <nz-tag [nzColor]="'blue'" class="ml-3">67.5%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="gld" nzLabel="GLD" nzCustomContent>
+        GLD (GoldCoin)
+        <nz-tag [nzColor]="'red'" class="ml-3">-22.9%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="neo" nzLabel="NEO" nzCustomContent>
+        NEO (Neo)
+        <nz-tag [nzColor]="'red'" class="ml-3">-12.3%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="btg" nzLabel="BTG" nzCustomContent>
+        BTG (Bitcoin Gold)
+        <nz-tag [nzColor]="'blue'" class="ml-3">+4.3%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="xrp" nzLabel="XRP" nzCustomContent>
+        XRP (Ripple)
+        <nz-tag [nzColor]="'red'" class="ml-3">-4.2%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="zec" nzLabel="ZEC" nzCustomContent>
+        ZEC (ZCash)
+        <nz-tag [nzColor]="'red'" class="ml-3">-1.7%</nz-tag>
+      </nz-option>
+      <nz-option nzValue="zcl" nzLabel="ZCL" nzCustomContent>
+        ZCL (ZClassic)
+        <nz-tag [nzColor]="'red'" class="ml-3">-2.8%</nz-tag>
+      </nz-option>
+    </nz-select>
+  </div>
+  <div class="cui-crypto-dashboard-list">
+    <nz-affix [nzOffsetTop]="20">
+      <div class="cui__utils__heading mb-3">
+        <strong>Markets</strong>
+      </div>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>+11.7%</span>
+          0.00016985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>BTC</span>
+          97.20
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item cui-crypto-dashboard-list-item-negative">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>-2.3%</span>
+          0.00016985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>SNT</span>
+          44.90
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>+7.2%</span>
+          0.00016985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>RADS</span>
+          32.78
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item cui-crypto-dashboard-list-item-negative">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>-11.7%</span>
+          0.00016985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>MEME</span>
+          12.25
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>+67.5%</span>
+          0.00016985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>XMR</span>
+          8.26
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item cui-crypto-dashboard-list-item-negative">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>-22.9%</span>
+          0.00016985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>GLD</span>
+          5.20
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item cui-crypto-dashboard-list-item-negative">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>-12.3%</span>
+          0.00016985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>NEO</span>
+          3.20
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>+4.3%</span>
+          0.00036234
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>BTG</span>
+          5.64
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item cui-crypto-dashboard-list-item-negative">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>-4.2%</span>
+          0.00035685
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>XRP</span>
+          6.36
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item cui-crypto-dashboard-list-item-negative">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>-1.7%</span>
+          0.00000985
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>ZEC</span>
+          6.35
+        </span>
+      </a>
+      <a href="javascript: void(0);" class="cui-crypto-dashboard-list-item cui-crypto-dashboard-list-item-negative">
+        <span class="cui-crypto-dashboard-list-percents">
+          <span>-2.8%</span>
+          0.00000152
+        </span>
+        <span class="cui-crypto-dashboard-list-currency">
+          <span>ZCL</span>
+          1.03
+        </span>
+      </a>
+    </nz-affix>
+  </div>
+  <div class="cui-crypto-dashboard-content">
+    <div class="cui__utils__heading mb-3">
+      <strong>Bittrex Live Market</strong>
+    </div>
+    <div class="card bg-white">
+      <div class="card-body">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+          [yaxis]="chartOptions.yaxis" [title]="chartOptions.title"></apx-chart>
+      </div>
+    </div>
+    <div class="cui__utils__heading mb-3">
+      <strong>Order Book</strong>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="cui-crypto-dashboard-order">
+          <div class="cui-crypto-dashboard-order-left">
+            <div class="cui-crypto-dashboard-table text-nowrap">
+              <nz-table #orderBookSellTable nzSize="small" [nzData]="orderBookSell" class="kit__utils__table">
+                <thead>
+                  <tr>
+                    <th class="text-right">SUM</th>
+                    <th class="text-right">Total</th>
+                    <th class="text-right">Size</th>
+                    <th class="text-right">BID</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of orderBookSellTable.data" class="text-right">
+                    <td>{{item.sum}}</td>
+                    <td>{{item.total}}</td>
+                    <td>{{item.size}}</td>
+                    <td [ngStyle]="{'color': '#00a45b'}">{{item.bid}}</td>
+                    <td>
+                      <a href="javascript: void(0);" class="utils__link--blue mr-2">
+                        <strong>SELL</strong>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </nz-table>
+            </div>
+          </div>
+          <div class="cui-crypto-dashboard-order-middle">
+            <div class="cui-crypto-dashboard-form">
+              <form nz-form nzLayout="vertical" class="cui-crypto-dashboard-form">
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-radio-group [(ngModel)]="actionType" [ngStyle]="{'width': '100%', 'text-align': 'center'}"
+                      [ngModelOptions]="{standalone: true}">
+                      <label nz-radio-button nzValue="buy"
+                        [ngStyle]="{'width': '50%', 'text-align': 'center'}">BUY</label>
+                      <label nz-radio-button nzValue="sell"
+                        [ngStyle]="{'width': '50%', 'text-align': 'center'}">SELL</label>
+                    </nz-radio-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <div *ngIf="actionType === 'buy'">
+                  <span class="cui-crypto-dashboard-form-label">ORDER TYPE</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <nz-select [(ngModel)]="orderType" [ngModelOptions]="{standalone: true}">
+                        <nz-option nzValue="limit" nzLabel="Limit (Default)"></nz-option>
+                        <nz-option nzValue="conditional" nzLabel="Conditional"></nz-option>
+                      </nz-select>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">QUANTITY (BTC)</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <input type="text" nz-input [ngModel]="'0.00000000'" [ngModelOptions]="{standalone: true}">
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">BID PRICE</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <input type="text" nz-input [ngModel]="'0.00645198'" [ngModelOptions]="{standalone: true}">
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">TOTAL</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <input type="text" nz-input [ngModel]="'0.00000000'" [ngModelOptions]="{standalone: true}">
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">TIME IN FORCE</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <nz-select [(ngModel)]="timeInForce" [ngModelOptions]="{standalone: true}">
+                        <nz-option nzValue="good" nzLabel="Good &#39;Til Cancelled (Default)"></nz-option>
+                        <nz-option nzValue="immediate" nzLabel="Immediate or Cancel"></nz-option>
+                      </nz-select>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <button class="btn btn-success" style="width: 100%;">
+                    <strong>BUY BTC</strong>
+                  </button>
+                  <div class="my-3 text-center">
+                    <div>
+                      <strong>Available Balance</strong>
+                    </div>
+                    <div>12.92520000 BTC</div>
+                    <div>1450.00 USD</div>
+                    <div>
+                      <a href="javascript: void(0);" class="utils__link--blue utils__link--underlined">
+                        <strong>Max Buy</strong>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="actionType === 'sell'">
+                  <span class="cui-crypto-dashboard-form-label">ORDER TYPE</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <nz-select [(ngModel)]="orderType" [ngModelOptions]="{standalone: true}">
+                        <nz-option nzValue="limit" nzLabel="Limit (Default)"></nz-option>
+                        <nz-option nzValue="conditional" nzLabel="Conditional"></nz-option>
+                      </nz-select>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">QUANTITY (BTC)</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <input type="text" nz-input [ngModel]="'0.00000000'" [ngModelOptions]="{standalone: true}">
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">ASK PRICE</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <input type="text" nz-input [ngModel]="'0.00645198'" [ngModelOptions]="{standalone: true}">
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">TOTAL</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <input type="text" nz-input [ngModel]="'0.00000000'" [ngModelOptions]="{standalone: true}">
+                    </nz-form-control>
+                  </nz-form-item>
+                  <span class="cui-crypto-dashboard-form-label">TIME IN FORCE</span>
+                  <nz-form-item>
+                    <nz-form-control>
+                      <nz-select [(ngModel)]="timeInForce" [ngModelOptions]="{standalone: true}">
+                        <nz-option nzValue="good" nzLabel="Good &#39;Til Cancelled (Default)"></nz-option>
+                        <nz-option nzValue="immediate" nzLabel="Immediate or Cancel"></nz-option>
+                      </nz-select>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <button class="btn btn-danger" style="width: 100%;">
+                    <strong>SELL BTC</strong>
+                  </button>
+                  <div class="my-3 text-center">
+                    <div>
+                      <strong>Available Balance</strong>
+                    </div>
+                    <div>12.92520000 BTC</div>
+                    <div>1450.00 USD</div>
+                    <div>
+                      <a href="javascript: void(0);" class="utils__link--blue utils__link--underlined">
+                        <strong>Max Sell</strong>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="cui-crypto-dashboard-order-right">
+            <div class="cui-crypto-dashboard-table text-nowrap">
+              <nz-table #orderBookBuyTable [nzData]="orderBookBuy" nzSize="small" class="kit__utils__table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>ASK</th>
+                    <th>Size</th>
+                    <th>Total</th>
+                    <th>SUM</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of orderBookBuyTable.data" class="text-left">
+                    <td class="text-left">
+                      <a href="javascript: void(0);" class="utils__link--blue ml-2">
+                        <strong>BUY</strong>
+                      </a>
+                    </td>
+                    <td class="text-left" [ngStyle]="{'color': '#f75535'}">
+                      {{item.ask}}
+                    </td>
+                    <td class="text-left">{{item.size}}</td>
+                    <td class="text-left">{{item.total}}</td>
+                    <td class="text-left">{{item.sum}}</td>
+                  </tr>
+                </tbody>
+              </nz-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cui__utils__heading mb-3">
+      <strong>Market History</strong>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="cui-crypto-dashboard-table text-nowrap">
+          <nz-table #marketHistoryTable nzSize="small" [nzData]="marketHistoryData" class="kit__utils__table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>BUY/SELL</th>
+                <th>BID/ASK</th>
+                <th>Units Total</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of marketHistoryTable.data">
+                <td>{{item.orderDate}}</td>
+                <td [ngClass]="[item.type === 'SELL' ? 'text-danger' : 'text-success']">{{item.type}}</td>
+                <td>{{item.bidAsk}}</td>
+                <td>{{item.unitsTotal}}</td>
+                <td>{{item.totalCost}}</td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+      </div>
+    </div>
+    <div class="cui__utils__heading mb-3">
+      <strong>My Open Orders</strong>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <a href="javascript: void(0);" *ngIf="!openOrdersLoaded" (click)="handleLoadOpenOrders()">
+          <nz-spin [nzSpinning]="openOrdersLoading">
+            <nz-alert [nzType]="'info'" [nzDescription]="'Click to view open order details'">
+            </nz-alert>
+          </nz-spin>
+        </a>
+        <nz-table *ngIf="openOrdersLoaded" #openOrdersTable nzSize="small" [nzData]="myOpenOrdersData"
+          class="kit__utils__table">
+          <thead>
+            <tr>
+              <th>Order Date</th>
+              <th>Open Date</th>
+              <th>Type</th>
+              <th>Bid/Ask</th>
+              <th>Filled</th>
+              <th>Units Total</th>
+              <th>Actual Rate</th>
+              <th>Est. Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of openOrdersTable.data">
+              <td>{{item.orderDate}}</td>
+              <td>{{item.openDate}}</td>
+              <td [ngClass]="[item.type === 'SELL' ? 'text-danger' : 'text-success']">{{item.type}}</td>
+              <td>{{item.bidAsk}}</td>
+              <td>{{item.filled}}</td>
+              <td>{{item.unitsTotal}}</td>
+              <td>{{item.actualRate}}</td>
+              <td>{{item.estTotal}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+    <div class="cui__utils__heading mb-3">
+      <strong>My Order History</strong>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <a href="javascript: void(0);" *ngIf="!orderHistoryLoaded" (click)="handleLoadOrderHistory()">
+          <nz-spin [nzSpinning]="orderHistoryLoading">
+            <nz-alert [nzType]="'info'" [nzDescription]="'Click to view open order details'">
+            </nz-alert>
+          </nz-spin>
+        </a>
+        <nz-table *ngIf="orderHistoryLoaded" #historyOrdersTable nzSize="small" [nzData]="myOpenOrdersData"
+          class="kit__utils__table">
+          <thead>
+            <tr>
+              <th>Order Date</th>
+              <th>Open Date</th>
+              <th>Type</th>
+              <th>Bid/Ask</th>
+              <th>Filled</th>
+              <th>Units Total</th>
+              <th>Actual Rate</th>
+              <th>Est. Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of historyOrdersTable.data">
+              <td>{{item.orderDate}}</td>
+              <td>{{item.openDate}}</td>
+              <td [ngClass]="[item.type === 'SELL' ? 'text-danger' : 'text-success']">{{item.type}}</td>
+              <td>{{item.bidAsk}}</td>
+              <td>{{item.filled}}</td>
+              <td>{{item.unitsTotal}}</td>
+              <td>{{item.actualRate}}</td>
+              <td>{{item.estTotal}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+  </div>
+</div>

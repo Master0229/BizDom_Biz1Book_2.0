@@ -1,0 +1,10 @@
+<h5 class="mb-3">
+  <strong>Basic</strong>
+</h5>
+<div class="mb-5">
+  <nz-slider [(ngModel)]="value1" [nzDisabled]="disabled"></nz-slider>
+  <nz-slider nzRange [(ngModel)]="value2" [nzDisabled]="disabled"></nz-slider>
+  <br />
+  <nz-switch [(ngModel)]="disabled" nzCheckedChildren="enabled" nzUnCheckedChildren="disabled">
+  </nz-switch>
+</div>

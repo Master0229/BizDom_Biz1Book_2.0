@@ -1,0 +1,140 @@
+<div>
+  <div class="kit__utils__heading">
+    <h5>
+      <span class="mr-3">Chartist.js</span>
+      <a href="https://github.com/willsoto/ng-chartist" target="_blank" class="btn btn-sm btn-light">
+        Official Documentation
+        <i class="fe fe-corner-right-up"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>CSS Styling & Animations</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [data]="animationData" [type]="'Line'" [options]="animationOptions"
+              class="height-300 chartist-animated">
+            </x-chartist>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>SMIL Animations</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Line'" [data]="smilData" [options]="smilOptions" [events]="smilEvents"
+              class="height-300 chart-smil-animations">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Line</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [data]="lineData" [type]="'Line'" [options]="lineOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Area</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [data]="areaData" [type]="'Line'" [options]="areaOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Scatter</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Line'" [data]="scatterData" [options]="scatterOptions"
+              [responsiveOptions]="scatterResponsiveOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Horizontal Bar</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Bar'" [data]="horizontalData" [options]="horizontalOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Bi-polar Line</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Line'" [data]="biPolarLineData" [options]="biPolarLineOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Bi-polar Bar</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Bar'" [data]="biPolarBarData" [options]="biPolarBarOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Stacked Bar</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Bar'" [data]="stackedBarData" [options]="stackedBarOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Overlapping Bar</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Bar'" [data]="overlappingBarData" [options]="overlappingBarOptions"
+              [responsiveOptions]="overlappingResponsiveOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Simple Pie</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Pie'" [data]="simplePieData" [options]="simplePieOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+          <h5 class="mb-4">
+            <strong>Pie w/ Labels</strong>
+          </h5>
+          <div class="mb-5">
+            <x-chartist [type]="'Pie'" [data]="labelsPieData" [options]="labelsPieOptions"
+              [responsiveOptions]="labelsPieResponsiveOptions" class="height-300">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

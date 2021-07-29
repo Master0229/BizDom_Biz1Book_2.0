@@ -1,0 +1,289 @@
+// @import 'src/app/components/mixins.scss';
+@import '../../../components/mixins.scss';
+
+.item {
+  position: relative;
+  padding-left: rem(55);
+  padding-bottom: rem(6);
+}
+.prod-item {
+  position: relative;
+  padding-bottom: rem(6);
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: rem(36);
+  color: $gray-5;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background: $gray-2;
+}
+
+.pcat {
+  background: grey;
+  color: white;
+}
+
+.cat-active {
+  background: #4b7cf3;
+  color: white;
+}
+
+.max-h-70 {
+  max-height: 75vh;
+  overflow: auto;
+}
+// modal animation
+.cart-div {
+  min-height: 56vh;
+  max-height: 56vh;
+  overflow: auto;
+}
+.pl-50 {
+  padding-left: 50%;
+}
+
+// TakeAway CSS
+
+.btnstyle {
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 2.01px;
+  border: 1px solid transparent;
+}
+.search-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px 13px;
+  cursor: pointer;
+  z-index: 5;
+}
+#rprintelcontainer,
+#kprintelcontainer,
+#onlineorderreceipt {
+  display: none;
+}
+.errormsg {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  top: 40px;
+}
+.table-occupied {
+  box-shadow: 0 4px 8px 0 rgb(65 184 131);
+  // animation: pulse-animation1 2s infinite;
+}
+///////PULSE INDICATOR/////////
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #0000001a;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(65, 184, 131, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(65, 184, 131, 0);
+  }
+}
+.tcktbtn {
+  grid-area: ticket;
+}
+.chrgbtn {
+  grid-area: charge;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas: 'ticket charge';
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.mouseover:hover {
+  background-color: lightgrey;
+}
+
+.table-card-menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.hover:hover {
+  background-color: lightgrey;
+}
+
+.modal-holder {
+  animation-name: example;
+  animation-duration: 0.3s;
+}
+
+@keyframes example {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.swiggy-btn {
+  background-color: rgb(255, 238, 221);
+}
+
+.zomato-btn {
+  background-color: rgb(255, 229, 231);
+}
+
+.time-up {
+  text-shadow: 0 0 3px red, 0 0 5px red;
+  color: red;
+}
+.time-success {
+  text-shadow: 0 0 3px green, 0 0 5px green;
+  color: green;
+}
+.time-warning {
+  text-shadow: 0 0 3px orange, 0 0 5px orange;
+  color: orange;
+}
+.input-clear {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+// daterangepicker
+.form-group.hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.form-group.hidden input {
+  border: none;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+.warning-bg {
+  background-color: #ffd176;
+}
+.danger-bg {
+  background-color: #ffc3c3;
+}
+
+.blue-border {
+  border-color: #48a6b6 !important;
+}
+
+.f9info {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 40%;
+}
+
+
+// ANIMATION
+
+.fade-in-text {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: white;
+  background-color: grey;
+  animation: fadeIn linear 1s;
+  -webkit-animation: fadeIn linear 1s;
+  -moz-animation: fadeIn linear 1s;
+  -o-animation: fadeIn linear 1s;
+  -ms-animation: fadeIn linear 1s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  50% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  50% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  50% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  50% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.sort-header {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// LOADING

@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-wrap mb-2">
+                <div class="text-dark font-size-18 font-weight-bold mr-auto">Biz1 Mail</div>
+            </div>
+
+            <div class="mb-5">
+                <ul nz-menu [nzMode]="'vertical'" style="width: 240px;">
+                    <li nz-submenu nzTitle="Navigation One" nzIcon="mail">              
+                    </li>
+                    <li nz-submenu nzTitle="Navigation Two" nzIcon="appstore">
+                    </li>
+                    <li nz-submenu nzTitle="Navigation Three" nzIcon="setting">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="card">
+            <div class="card-body">
+                <div class="chat">
+                    <div class="chatContainer" [ngClass]="isSupportChatOpen ? 'containerToggled' : ''">
+                        <div class="d-flex flex-wrap mb-2">
+                            <div class="text-dark font-size-18 font-weight-bold mr-auto">Chats</div>
+                            <!-- <button type="button" class="btn btn-link p-0 border-0" (click)="toggle()">
+                            <i class="fe fe-x-square font-size-21 align-middle text-gray-6"></i>
+                        </button> -->
+                        </div>
+                        <kit-general-14></kit-general-14>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

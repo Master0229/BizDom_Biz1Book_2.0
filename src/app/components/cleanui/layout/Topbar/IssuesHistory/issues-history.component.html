@@ -1,0 +1,62 @@
+<a nz-dropdown class="dropdown" [nzDropdownMenu]="menu" [nzTrigger]="'click'">
+  <i class="icon fe fe-folder"></i>
+  <span class="d-none d-xl-inline">
+    {{ 'topBar.issuesHistory' | translate }}
+  </span>
+</a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item>
+      <a href="javascript: void(0);">Current search</a>
+    </li>
+    <li nz-menu-item>
+      <a href="javascript: void(0);">Search for issues</a>
+    </li>
+    <li nz-menu-divider></li>
+    <li nz-menu-group>
+      <span title>Opened</span>
+      <ul class="list-unstyled">
+        <li nz-menu-item>
+          <a href="javascript: void(0);">
+            <i class="fe fe-check-circle mr-2"></i>
+            CLNUI-253 Project implemen...
+          </a>
+        </li>
+        <li nz-menu-item>
+          <a href="javascript: void(0);">
+            <i class="fe fe-check-circle mr-2"></i>
+            CLNUI-234 Active history iss...
+          </a>
+        </li>
+        <li nz-menu-item>
+          <a href="javascript: void(0);">
+            <i class="fe fe-check-circle mr-2"></i>
+            CLNUI-424 Ionicons intergrat...
+          </a>
+        </li>
+        <li nz-menu-item>
+          <a href="javascript: void(0);">More</a>
+        </li>
+      </ul>
+    </li>
+    <li nz-menu-divider></li>
+    <li nz-menu-group>
+      <span title>Filters</span>
+      <ul class="list-unstyled">
+        <li nz-menu-item>
+          <a href="javascript: void(0);">My open issues</a>
+        </li>
+        <li nz-menu-item>
+          <a href="javascript: void(0);">Reported by me</a>
+        </li>
+      </ul>
+    </li>
+    <li nz-menu-divider></li>
+    <li nz-menu-item>
+      <a href="javascript: void(0);">
+        <i class="fe fe-settings mr-2"></i>
+        Settings
+      </a>
+    </li>
+  </ul>
+</nz-dropdown-menu>

@@ -1,0 +1,22 @@
+<h5 class="mb-3">
+  <strong>Basic & Confirm</strong>
+</h5>
+<div class="mb-5">
+  <button nz-button [nzType]="'primary'" (click)="showModal()" class="mb-3 mr-3"><span>Show Modal</span></button>
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <p>Content one</p>
+    <p>Content two</p>
+    <p>Content three</p>
+  </nz-modal>
+  <button nz-button nzType="info" (click)="showConfirm()" class="mb-3 mr-3">Confirm</button>
+  <button nz-button nzType="dashed" (click)="showDeleteConfirm()" class="mb-3 mr-3">Delete</button>
+</div>
+<h5 class="mb-3">
+  <strong>Notification Modals</strong>
+</h5>
+<div class="mb-5">
+  <button nz-button (click)="info()" class="mb-3 mr-3">Info</button>
+  <button nz-button (click)="success()" class="mb-3 mr-3">Success</button>
+  <button nz-button (click)="error()" class="mb-3 mr-3">Error</button>
+  <button nz-button (click)="warning()" class="mb-3 mr-3">Warning</button>
+</div>

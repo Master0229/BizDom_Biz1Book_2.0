@@ -1,0 +1,142 @@
+<div>
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <div class="mb-4">
+        <nz-input-group [nzPrefix]="prefixTemplate">
+          <input type="text" nz-input placeholder="Search task" />
+        </nz-input-group>
+        <ng-template #prefixTemplate><i nz-icon nzType="search"></i></ng-template>
+      </div>
+      <div class="categories">
+        <perfect-scrollbar>
+          <div class="d-flex flex-column">
+            <div class="text-dark font-size-18 font-weight-bold category title">
+              <span class="text-truncate">Overall</span>
+            </div>
+            <a href="javascript: void(0);" class="text-dark font-size-18 category">
+              <span class="text-truncate">Today</span>
+            </a>
+            <a href="javascript: void(0);" class="text-dark font-size-18 category">
+              <span class="text-truncate">Next 7 days</span>
+            </a>
+            <div class="text-dark font-size-18 font-weight-bold category title">
+              <span class="text-truncate">To Do Lists</span>
+            </div>
+            <a href="javascript: void(0);" class="text-dark font-size-18 font-weight-bold category current">
+              <span class="text-truncate">
+                Welcome
+              </span>
+            </a>
+            <a href="javascript: void(0);" class="text-dark font-size-18 category">
+              <span class="text-truncate">Homework (1)</span>
+            </a>
+            <a href="javascript: void(0);" class="text-dark font-size-18 category">
+              <span class="text-truncate">Fitness</span>
+            </a>
+          </div>
+        </perfect-scrollbar>
+      </div>
+    </div>
+    <div class="col-12 col-md-8">
+      <div class="card">
+        <div class="card-header card-header-flex align-items-center">
+          <div class="d-flex flex-column justify-content-center mr-auto">
+            <h5 class="mb-0 mr-2 font-size-18">
+              <span class="text-truncate">
+                Welcome
+              </span>
+            </h5>
+          </div>
+          <div>
+            <div>
+              <a href="javascript: void(0);" class="btn btn-sm btn-light mr-2" nz-tooltip
+                nzTooltipTitle="Unlock Account" nzTooltipPlacement="top">
+                <i class="fe fe-unlock"></i>
+              </a>
+              <a href="javascript: void(0);" class="btn btn-sm btn-light mr-2" nz-tooltip
+                nzTooltipTitle="Mark as important" nzTooltipPlacement="top">
+                <i class="fe fe-star"></i>
+              </a>
+              <a href="javascript: void(0);" class="btn btn-sm btn-light mr-2" nz-tooltip nzTooltipTitle="Delete user"
+                nzTooltipPlacement="top">
+                <i class="fe fe-trash"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h6 class="text-uppercase text-dark font-size-18 font-weight-bold mb-2">
+            Current tasks
+          </h6>
+          <p class="mb-3">
+            Welocme to Todoist! Let&apos;s get you started with a few tips
+          </p>
+          <ngx-nestable [(list)]="current" [options]="options" [template]="itemTemplate" class="dd mb-4"></ngx-nestable>
+          <ng-template #itemTemplate let-row class="dd-item">
+            <div class="dd-handle dd3-handle" [ngxNestableDragHandle]="row"></div>
+            <button *ngIf="row.item.children &amp;&amp; row.item.children.length" [ngxNestableExpandCollapse]="row"
+              [ngClass]="['dd-item-toggle', row.item.expanded ? 'collapse' : 'expand']" type="button">
+              {{row.item.expanded ? 'Collapse' : 'Expand'}}&nbsp;
+            </button>
+            <div class="dd3-content">
+              <label nz-checkbox [(ngModel)]="row.item.checked">{{row.item.name}}</label>
+            </div>
+          </ng-template>
+          <button type="button" class="btn btn-primary btn-with-addon text-nowrap" (click)="toggleInput()">
+            <span class="btn-addon">
+              <i class="btn-addon-icon fe fe-plus-circle"></i>
+            </span>
+            Add Task
+          </button>
+          <input #taskInput *ngIf="showInput" class="form-control mt-3" placeholder="Add task here and press enter..."
+            type="text" (keyup.enter)="addTask(taskInput.value)" />
+          <h6 class="text-uppercase text-dark font-size-18 font-weight-bold mb-2 mt-4">
+            Completed
+          </h6>
+          <p class="mb-3">
+            Welocme to Todoist! Let&apos;s get you started with a few tips
+          </p>
+          <ngx-nestable [(list)]="completed" [options]="options" [template]="completedTemplate"></ngx-nestable>
+          <ng-template #completedTemplate let-row class="dd-item">
+            <div class="dd-handle dd3-handle" [ngxNestableDragHandle]="row"></div>
+            <button *ngIf="row.item.children &amp;&amp; row.item.children.length" [ngxNestableExpandCollapse]="row"
+              [ngClass]="['dd-item-toggle', row.item.expanded ? 'collapse' : 'expand']" type="button">
+              {{row.item.expanded ? 'Collapse' : 'Expand'}}&nbsp;
+            </button>
+            <div class="dd3-content">
+              <label nz-checkbox [(ngModel)]="row.item.checked">{{row.item.name}}</label>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <kit-chart-4></kit-chart-4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <kit-chart-4v1></kit-chart-4v1>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <kit-chart-4v2></kit-chart-4v2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <kit-table-6></kit-table-6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

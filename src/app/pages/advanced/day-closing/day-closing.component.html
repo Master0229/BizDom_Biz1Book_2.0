@@ -1,0 +1,62 @@
+<h5 class="mb-4">
+    <strong>Day Closing Transactions</strong>
+</h5>
+<div class="mb-5 row">
+    <div>
+        <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+            outsideDays="hidden">
+        </ngb-datepicker>
+
+        <ng-template #t let-date let-focused="focused">
+            <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)"
+                [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+                (mouseleave)="hoveredDate = null">
+                {{ date.day }}
+            </span>
+        </ng-template>
+    </div>
+    <div class="px-5">
+        <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Today</button>
+        <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectnow()">Now</button>
+    </div>
+    <ngb-timepicker [(ngModel)]="time" [meridian]="true"></ngb-timepicker>
+</div>
+<div class="mb-5">
+    <button class="btn btn-success" (click)="gettransactions()">Fetch Transactions</button>
+    <!-- <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">To current month</button>
+    <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb
+        2013</button>
+    <br />
+    <br />
+    <pre>Month: {{ date.month }}.{{ date.year }}</pre>
+    <pre>Model: {{ time | json }}</pre> -->
+</div>
+<div class="row col-xl-12">
+    <div *ngIf="dayclosingdata" class="col-xl-6">
+        <h5 class="mb-4"><strong>CASH IN / CASH OUT</strong></h5>
+        <div class="mb-5">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-6">
+                            <strong class="sort-hd">Cash In</strong>
+                        </div>
+                        <div class="col-xl-6">
+                            <strong class="pull-right sort-hd">Cash Out</strong>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-6">
+                            <span class="pull-left">{{dayclosingdata.CashIn}}</span>
+                        </div>
+                        <div class="col-xl-6">
+                            <span class="pull-right">{{dayclosingdata.CashOut}}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

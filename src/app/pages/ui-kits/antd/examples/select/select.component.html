@@ -1,0 +1,25 @@
+<h5 class="mb-3">
+  <strong>Basic</strong>
+</h5>
+<div class="mb-5">
+  <div class="d-inline-block mb-3 mr-3">
+    <nz-select style="width: 120px;" [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose">
+      <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+    </nz-select>
+  </div>
+  <div class="d-inline-block mb-3 mr-3">
+    <nz-select style="width: 120px;" [ngModel]="'lucy'" nzDisabled>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<h5 class="mb-3">
+  <strong>Multiple</strong>
+</h5>
+<div class="mb-5">
+  <nz-select [(ngModel)]="tagValue" [nzSize]="size" nzMode="tags" nzPlaceHolder="Please select" style="width: 100%;">
+    <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+  </nz-select>
+</div>

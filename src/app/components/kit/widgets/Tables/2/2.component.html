@@ -1,0 +1,35 @@
+<div>
+  <nz-table #basicTable [nzData]="tableData" [nzShowPagination]="false" class="table mb-4">
+    <thead>
+    <tr>
+      <th class="bg-transparent text-uppercase">Description</th>
+      <th class="bg-transparent text-uppercase text-right">Location</th>
+      <th class="bg-transparent text-uppercase text-right">Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>
+        <div class="text-wrap width-300">
+          <div class="text-dark mb-3">{{data.description.title}}</div>
+          <div>{{data.description.content}}</div>
+        </div>
+      </td>
+      <td>
+        <a href="javascript: void(0);" class="text-blue">
+          {{data.location}}
+        </a>
+      </td>
+      <td class="font-weight-bold text-right">{{data.value}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+  <div class="mt-4 d-flex align-items-center flex-wrap">
+    <button type="button" class="btn btn-primary mr-2 mb-2">
+      Save
+    </button>
+    <a href="javascript: void(0);" class="btn btn-link mb-2">
+      Cancel
+    </a>
+  </div>
+</div>

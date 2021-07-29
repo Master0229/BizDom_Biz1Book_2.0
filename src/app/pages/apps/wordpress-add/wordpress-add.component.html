@@ -1,0 +1,50 @@
+<div>
+  <div class="card">
+    <div class="card-body">
+      <form nz-form [nzLayout]="'verical'">
+        <nz-form-item>
+          <nz-form-label>Title</nz-form-label>
+          <nz-form-control>
+            <input nz-input placeholder="Post title">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Type</nz-form-label>
+          <nz-form-control>
+            <nz-checkbox-group [(ngModel)]="contentTypes" [ngModelOptions]="{standalone: true}"></nz-checkbox-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Category</nz-form-label>
+          <nz-form-control>
+            <nz-select style="width: 100%" nzMode="tags" nzPlaceHolder="Please select post categories">
+              <nz-option *ngFor="let option of categoriesTypes" [nzLabel]="option.label" [nzValue]="option.value">
+              </nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Content</nz-form-label>
+          <div>
+            <quill-editor [style]="{height: '200px'}"></quill-editor>
+          </div>
+        </nz-form-item>
+        <nz-upload nzType="drag" [nzMultiple]="true" [nzLimit]="2"
+          nzAction="https://jsonplaceholder.typicode.com/posts/">
+          <p class="ant-upload-drag-icon">
+            <i nz-icon type="inbox"></i>
+          </p>
+          <p class="ant-upload-text">Click or drag file to this area to upload</p>
+        </nz-upload>
+        <nz-form-item>
+          <button class="btn btn-success btn-with-addon text-nowrap mt-3" type="submit">
+            <span class="btn-addon">
+              <i class="btn-addon-icon fe fe-plus-circle"></i>
+            </span>
+            Add Post
+          </button>
+        </nz-form-item>
+      </form>
+    </div>
+  </div>
+</div>

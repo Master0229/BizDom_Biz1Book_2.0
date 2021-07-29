@@ -1,0 +1,50 @@
+<div>
+  <div class="head">
+    <div class="headItem mb-3 pr-3">
+      <div class="headIcon bg-light text-dark mr-3">
+        <i class="fe fe-menu font-size-18"></i>
+      </div>
+      <div>
+        <div class="text-uppercase text-muted text-nowrap">Cross Earnings</div>
+        <div class="font-weight-bold text-dark">+125,367.36</div>
+      </div>
+    </div>
+    <div class="headItem mb-3">
+      <div class="headIcon bg-light text-dark mr-3">
+        <i class="fe fe-cloud font-size-18"></i>
+      </div>
+      <div>
+        <div class="text-uppercase text-muted text-nowrap">Tax witheld</div>
+        <div class="font-weight-bold text-dark">-$12,350.00</div>
+      </div>
+    </div>
+  </div>
+  <nz-table #basicTable [nzData]="tableData" [nzShowPagination]="false" class="table mb-4">
+    <thead>
+      <tr>
+        <th class="bg-transparent text-uppercase">Action name</th>
+        <th class="bg-transparent text-uppercase">Location</th>
+        <th class="bg-transparent text-uppercase">Phone</th>
+        <th class="bg-transparent text-uppercase text-right">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td class="text-gray-6">
+          {{data.actionName}}
+        </td>
+        <td>
+          <a href="javascript: void(0);" class="text-blue">
+            {{data.location}}
+          </a>
+        </td>
+        <td>
+          {{data.phone}}
+        </td>
+        <td class="font-weight-bold text-right">
+          {{data.value}}
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

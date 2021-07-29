@@ -1,0 +1,1 @@
+curl https://biz1app.azurewebsites.net/assets/images/database.js --output ./resources/app/database.js

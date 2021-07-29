@@ -1,0 +1,28 @@
+@import 'src/app/components/mixins.scss';
+
+.cui-gamma-dashboard-chart-pie {
+  ::ng-deep {
+    .ct-chart {
+      height: rem(200);
+    }
+
+    .ct-series-a path {
+      stroke: $success;
+    }
+
+    .ct-series-b path {
+      stroke: $primary;
+    }
+
+    .ct-series-c path {
+      stroke: $danger;
+    }
+
+    .ct-series path {
+      transition: stroke-opacity 0.2s ease-in-out;
+      &:hover {
+        stroke-opacity: 0.8;
+      }
+    }
+  }
+}

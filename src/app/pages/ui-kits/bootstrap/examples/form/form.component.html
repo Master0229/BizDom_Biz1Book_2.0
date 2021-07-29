@@ -1,0 +1,166 @@
+<div class="kit__utils__heading">
+  <h5>Form Examples</h5>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="mb-4">
+      <strong>Basic Form</strong>
+    </h5>
+    <form>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="baseFullname">Fullname</label>
+        <div class="col-md-6">
+          <input type="password" class="form-control" placeholder="Your Fullname..." id="baseFullname" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="baseEmail">Email</label>
+        <div class="col-md-6">
+          <input type="password" class="form-control" placeholder="Your Email..." id="baseEmail" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="basePrice">Budget</label>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="basePrice" />
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="formControlRange">Amount</label>
+        <div class="col-md-6 pt-2">
+          <input type="text" class="form-control" name="example_name" value="" id="formControlRange" />
+        </div>
+      </div>
+      <button type="button" class="btn btn-success px-5">Send Data</button>
+    </form>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="mb-4">
+      <strong>Inline Form</strong>
+    </h5>
+    <form class="form-inline">
+      <div class="form-group mb-2">
+        <label for="inputAmount" class="sr-only">Amount</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input type="text" id="inputAmount" placeholder="Coins Amount..." class="form-control"
+            aria-label="Amount (to the nearest dollar)" />
+          <div class="input-group-append">
+            <span class="input-group-text">.00</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="8 Digit Pin..." />
+      </div>
+      <button type="button" class="btn btn-success mb-2">Confirm Transaction</button>
+    </form>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="mb-4">
+      <strong>Two Columns</strong>
+    </h5>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity" />
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected="">Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="text" class="form-control" id="inputZip" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Upload Presentation</label>
+          <input type="file" class="dropify" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="kit__utils__control kit__utils__control__checkbox">
+          <input type="checkbox" checked="checked" />
+          <span class="kit__utils__control__indicator"></span>
+          I CONSENT TO HAVING MDTK SOFT COLLECT MY PERSONAL DETAILS.
+        </label>
+      </div>
+      <button type="button" class="btn btn-primary px-5">Sign in</button>
+    </form>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="mb-4">
+      <strong>Background</strong>
+    </h5>
+    <div class="bg-light rounded-lg p-5">
+      <form id="form-validation" name="form-validation" method="POST" class="pt-3 width-600 mx-auto">
+        <div class="form-group">
+          <label class="form-label" for="validation-username">Username</label>
+          <input id="validation-username" class="form-control" name="validation[username]" type="text" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="validation-password">Password</label>
+          <input id="validation-password" class="form-control" name="validation[password]" type="password" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="validation-password-confirm">Confirm Password</label>
+          <input id="validation-password-confirm" class="form-control" name="validation[password-confirm]"
+            type="password" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="validation-email">Email</label>
+          <input id="validation-email" class="form-control" name="validation[email]" type="text" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="validation-email-confirm">Confirm Email</label>
+          <input id="validation-email-confirm" class="form-control" name="validation[email-confirm]" type="text" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-success mr-2 px-5">Validate</button>
+          <button type="button" class="btn btn-light remove-error">Clear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

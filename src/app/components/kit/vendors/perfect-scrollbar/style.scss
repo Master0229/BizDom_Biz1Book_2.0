@@ -1,0 +1,65 @@
+@import 'src/app/components/mixins.scss';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  Perfect Scrollbar */
+
+.ps__thumb-y {
+  width: 4px !important;
+  background: #c5cdd2 !important;
+}
+
+.ps__thumb-x {
+  height: 4px !important;
+  background: #c5cdd2 !important;
+}
+
+perfect-scrollbar > .ps.ps--scrolling-y > .ps__rail-y,
+perfect-scrollbar > .ps.ps--scrolling-x > .ps__rail-x {
+  background: none !important;
+}
+
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background: none !important;
+}
+
+perfect-scrollbar > .ps.ps--active-y > .ps__rail-y:hover,
+perfect-scrollbar > .ps.ps--active-y > .ps__rail-y.ps--clicking {
+  width: 10px !important;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  width: 4px !important;
+}
+
+.ps__rail-x:hover > .ps__thumb-x,
+.ps__rail-x:focus > .ps__thumb-x,
+.ps__rail-x.ps--clicking .ps__thumb-x {
+  height: 4px !important;
+}
+
+.ps-content {
+  height: 100%;
+}
+
+perfect-scrollbar > .ps.ps--active-x > .ps__rail-x:hover,
+perfect-scrollbar > .ps.ps--active-x > .ps__rail-x.ps--clicking {
+  height: 10px !important;
+}
+
+// dark theme
+[data-kit-theme='dark'] {
+  .ps__thumb-y {
+    background: #32304b !important;
+  }
+
+  .ps__thumb-x {
+    background: #32304b !important;
+  }
+}

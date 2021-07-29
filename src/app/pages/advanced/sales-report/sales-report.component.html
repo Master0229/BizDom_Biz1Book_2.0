@@ -1,0 +1,271 @@
+<div class="row col-xl-12">
+    <div class="col-xl-6">
+        <h5 class="mb-4"><strong>POS SALES</strong></h5>
+        <div class="mb-5">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-6">
+                            <strong class="sort-hd">Payment Type</strong>
+                        </div>
+                        <div class="col-xl-5">
+                            <strong class="pull-right sort-hd">Sales</strong>
+                        </div>
+                        <div class="col-xl-1">
+                            <!-- <strong>Amount</strong> -->
+                        </div>
+                    </div>
+                </li>
+                <li *ngFor="let type of pos_sales" class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-2">
+                            <img src="{{type.icon}}" alt="" width="32">
+                        </div>
+                        <div class="col-xl-8">
+                            <strong class="vert-slign-sub">{{type.PaymentType}}</strong> <span
+                                class="pull-right vert-slign-sub">{{type.Amount}}</span>
+                        </div>
+                        <div class="col-xl-2">
+                            <button class="btn btn-link"
+                                (click)="transactionsbytype(0,type.StorePaymentTypeId, type)"><i
+                                    class="fe fe-info"></i></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <h5 class="mb-4"><strong>SWIGGY/ZOMATO SALES</strong></h5>
+        <div class="mb-5">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-2">
+                            <!-- <strong>Payment Type</strong> -->
+                        </div>
+                        <div class="col-xl-4">
+                            <strong class="sort-hd">Platform</strong>
+                        </div>
+                        <div class="col-xl-5">
+                            <strong class="pull-right sort-hd">Sales</strong>
+                        </div>
+                        <div class="col-xl-1">
+                            <!-- <strong>Amount</strong> -->
+                        </div>
+                    </div>
+                </li>
+                <li *ngFor="let type of swzm_sales" class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-2">
+                            <img src="{{type.icon}}" alt="" width="32">
+                        </div>
+                        <div class="col-xl-8">
+                            <strong class="vert-slign-sub">{{type.platform}}</strong> <span
+                                class="pull-right vert-slign-sub">{{type.Amount}}</span>
+                        </div>
+                        <div class="col-xl-2">
+                            <button class="btn btn-link" (click)="transactionsbytype(type.SourceId, 0, type)"><i
+                                    class="fe fe-info"></i></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xl">
+        <h5 class="mb-4"><strong>CASH IN / CASH OUT</strong></h5>
+        <div class="mb-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-right">Cash In</th>
+                        <th class="text-right">Cash Out</th>
+                        <th class="text-right">Opening Bal.</th>
+                        <th class="text-right">Expected Closing Bal.</th>
+                        <th class="text-right">Closing Bal.</th>
+                        <th class="text-right">Diff.</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="dayclosingdata">
+                        <td class="text-right">{{dayclosingdata.CashIn}}</td>
+                        <td class="text-right">{{dayclosingdata.CashOut}}</td>
+                        <td class="text-right">{{dayclosingdata.closingTrans.OpeningBalance}}</td>
+                        <td class="text-right">{{dayclosingdata.ExpectedClosingBal}}</td>
+                        <td class="text-right">
+                            <input type="text" class="form-control input-sm" [(ngModel)]="dayclosingdata.closingTrans.ClosingBalance">
+                        </td>
+                        <td class="text-right">{{dayclosingdata.ExpectedClosingBal - dayclosingdata.closingTrans.ClosingBalance}}</td>
+                        <td class="text-right">
+                            <button class="btn btn-link" (click)="showdayclosingdata()"><i
+                                    class="fe fe-info"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-5">
+                            <strong class="sort-hd">Cash In</strong>
+                        </div>
+                        <div class="col-xl-5">
+                            <strong class="pull-right sort-hd">Cash Out</strong>
+                        </div>
+                        <div class="col-xl-5">
+                            <strong class="sort-hd">Cash In</strong>
+                        </div>
+                        <div class="col-xl-5">
+                            <strong class="pull-right sort-hd">Cash Out</strong>
+                        </div>
+                        <div class="col-xl-2">
+
+                        </div>
+                    </div>
+                </li>
+                <li *ngIf="dayclosingdata" class="list-group-item">
+                    <div class="row col-xl-12">
+                        <div class="col-xl-5">
+                            <span class="pull-left">{{dayclosingdata.CashIn}}</span>
+                        </div>
+                        <div class="col-xl-5">
+                            <span class="pull-right">{{dayclosingdata.CashOut}}</span>
+                        </div>
+                        <div class="col-xl-2">
+                            <button class="btn btn-link" (click)="showdayclosingdata()"><i
+                                    class="fe fe-info"></i></button>
+                        </div>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+</div>
+<div class="col-xl-12" *ngIf="transactions.length">
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <div class="d-flex flex-wrap">
+                    <div class="flex-grow-1 d-flex flex-column flex-sm-row mb-4">
+                        <div class="font-size-18 font-weight-bold text-uppercase mb-4">
+                            <div class="text-dark mb-3">{{currenttype.PaymentType}}{{currenttype.platform}}</div>
+                            <img class="d-block" src="{{currenttype.icon}}" alt="Amazon logo" width="32" />
+                        </div>
+                        <!-- <div class="ml-sm-auto mr-lg-auto pr-3">
+                            795 Folsom Ave, Suite 600
+                            <br />
+                            San Francisco, CA, 94107
+                            <br />
+                            E-mail: example@amazon.com
+                            <br />
+                            Phone: (123) 456-7890
+                            <br />
+                            Fax: 800-692-7753
+                        </div> -->
+                    </div>
+                    <!-- <div class="flex-grow-1 d-flex flex-column flex-sm-row mb-4">
+                        <div class="font-size-18 font-weight-bold text-uppercase pb-4">
+                            <div>To:</div>
+                            <div class="text-dark mb-3">Invoice info</div>
+                            <div class="text-dark">W32567-2352-4756</div>
+                            <div class="text-dark">Artour Arteezy</div>
+                        </div>
+                        <div class="mt-auto mt-sm-0 ml-sm-auto pr-3 mr-lg-auto">
+                            795 Folsom Ave, Suite 600
+                            <br />
+                            San Francisco, CA, 94107
+                            <br />
+                            P: (123) 456-7890
+                            <br />
+                            Invoice Date: January 20, 2016
+                            <br />
+                            Due Date: January 22, 2016
+                        </div>
+                    </div> -->
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">#</th>
+                            <th class="text-center" scope="col">InvoiceNo</th>
+                            <th class="text-center" scope="col">Amount</th>
+                            <th class="text-center" scope="col">Transaction Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tr of transactions; index as i">
+                            <th class="text-center" scope="row">{{ tr.Id }}</th>
+                            <td class="text-center">{{ tr.InvoiceNo }}</td>
+                            <td class="text-right">{{ tr.Amount}}</td>
+                            <td class="text-center">{{ tr.TransDateTime | date: 'MMM d, y, h:mm a' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-12" *ngIf="cashintransactions.length">
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <div class="d-flex flex-wrap">
+                    <div class="flex-grow-1 d-flex flex-column flex-sm-row mb-4">
+                        <div class="font-size-18 font-weight-bold text-uppercase mb-4">
+                            <div class="text-dark mb-3">Cash In Transactions</div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">#</th>
+                            <th class="text-center" scope="col">Amount</th>
+                            <th class="text-center" scope="col">Transaction Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tr of cashintransactions; index as i">
+                            <th class="text-center" scope="row">{{ tr.TransactionId }}</th>
+                            <td class="text-right">{{ tr.Amount}}</td>
+                            <td class="text-center">{{ tr.TransDateTime | date: 'MMM d, y, h:mm a' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-12" *ngIf="cashouttransactions.length">
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <div class="d-flex flex-wrap">
+                    <div class="flex-grow-1 d-flex flex-column flex-sm-row mb-4">
+                        <div class="font-size-18 font-weight-bold text-uppercase mb-4">
+                            <div class="text-dark mb-3">Cash Out Transactions</div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">#</th>
+                            <th class="text-center" scope="col">Amount</th>
+                            <th class="text-center" scope="col">Transaction Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tr of cashouttransactions; index as i">
+                            <th class="text-center" scope="row">{{ tr.TransactionId }}</th>
+                            <td class="text-right">{{ tr.Amount}}</td>
+                            <td class="text-center">{{ tr.TransDateTime | date: 'MMM d, y, h:mm a' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <kit-general-2></kit-general-2>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <kit-general-2v1></kit-general-2v1>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <kit-general-2v2></kit-general-2v2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="text-uppercase text-dark font-weight-bold mb-3">To Do</h6>
+          <p class="mb-3">
+            Welcome to Todoist! Let&apos;s get you started with a few tips
+          </p>
+          <ngx-nestable [(list)]="checklist" [options]="options" [template]="itemTemplate" class="dd mb-4">
+          </ngx-nestable>
+          <ng-template #itemTemplate let-row class="dd-item">
+            <div class="dd-handle dd3-handle" [ngxNestableDragHandle]="row"></div>
+            <button *ngIf="row.item.children &amp;&amp; row.item.children.length" [ngxNestableExpandCollapse]="row"
+              [ngClass]="['dd-item-toggle', row.item.expanded ? 'collapse' : 'expand']" type="button">
+              {{row.item.expanded ? 'Collapse' : 'Expand'}}&nbsp;
+            </button>
+            <div class="dd3-content">
+              <label nz-checkbox [(ngModel)]="row.item.checked">{{row.item.name}}</label>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="text-uppercase text-dark font-weight-bold mb-3">
+            Recent help requests
+          </h6>
+          <div class="kit__utils__table mb-4">
+            <nz-table #basicTable [nzData]="requests" [nzShowPagination]="false" class="kit__utils__table mb-4">
+              <thead>
+                <tr>
+                  <th class="bg-transparent">Date</th>
+                  <th class="bg-transparent">Title</th>
+                  <th class="bg-transparent">Email</th>
+                  <th class="bg-transparent text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of basicTable.data">
+                  <td>{{data.date}}</td>
+                  <td>{{data.title}}</td>
+                  <td>
+                    <a href="javascript: void(0);" class="text-blue">
+                      {{data.email}}
+                    </a>
+                  </td>
+                  <td class="text-right">
+                    <button type="button" class="btn btn-outline-success">
+                      Resolve
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <kit-table-7></kit-table-7>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

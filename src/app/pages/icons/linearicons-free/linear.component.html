@@ -1,0 +1,40 @@
+<div>
+  <div class="kit__utils__heading">
+    <h5>
+      <span class="mr-3">Linear Icons Free</span>
+      <a href="https://linearicons.com/free" target="_blank" class="btn btn-sm btn-light">
+        Official Documentation
+        <i class="fe fe-corner-right-up"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-12">
+          <h5 class="text-black">
+            <strong>Ultra crisp line icons with integrity</strong>
+          </h5>
+          <p class="text-muted">
+            The complete set of 170 icons in Linearicons Free v1.0.0
+            <br />
+            License: MIT License. You can use it for commercial projects, open source
+            projects, or really just about whatever you want
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 offset-xl-3">
+          <h3 class="text-block mt-5 mb-4 text-center">
+            <strong>General Icons</strong>
+          </h3>
+          <ul class="kit__utils__iconPresent">
+            <li *ngFor="let icon of icons" nz-tooltip nzTooltipPlacement="top" [nzTooltipTitle]="'lnr ' + icon">
+              <i [class]="'lnr ' + icon"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

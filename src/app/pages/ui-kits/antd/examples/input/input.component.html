@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Basic</strong>
+    </h5>
+    <div class="mb-5">
+      <input nz-input placeholder="Basic usage" [(ngModel)]="value" />
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Search</strong>
+    </h5>
+    <div class="mb-5">
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+        <input type="text" nz-input placeholder="input search text" />
+      </nz-input-group>
+      <ng-template #suffixIconButton>
+        <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+      </ng-template>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <h5 class="mb-3">
+      <strong>Textarea</strong>
+    </h5>
+    <div class="mb-5">
+      <textarea rows="4" nz-input [(ngModel)]="value"></textarea>
+    </div>
+  </div>
+</div>

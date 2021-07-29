@@ -1,0 +1,30 @@
+@import 'src/app/components/mixins.scss';
+
+.chartContainer {
+  height: 100%;
+  width: 150px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  ::ng-deep {
+    .ct-line {
+      stroke-width: 1px;
+    }
+
+    .ct-point {
+      stroke-width: 5px;
+    }
+
+    .ct-series-a {
+      .ct-area {
+        fill: rgba(75, 124, 243, 0.1) !important;
+        fill-opacity: 1 !important;
+      }
+
+      .ct-line {
+        stroke: #4b7cf3 !important;
+      }
+    }
+  }
+}

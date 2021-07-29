@@ -1,0 +1,14 @@
+<div>
+  <h5 class="mb-3">
+    <strong>Basic</strong>
+  </h5>
+  <div class="mb-5">
+    <button nz-button nzType="primary" (click)="open()">Open</button>
+  </div>
+  <nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="right" nzTitle="Basic Drawer"
+    (nzOnClose)="close()">
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+  </nz-drawer>
+</div>

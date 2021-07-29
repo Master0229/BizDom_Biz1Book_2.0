@@ -1,0 +1,84 @@
+<div>
+  <div class="text-center mb-5">
+    <h1 class="mb-5 px-3">
+      <strong>Welcome to {{logo}}</strong>
+    </h1>
+  </div>
+  <div class="card boxContainer">
+    <div class="text-dark font-size-24 mb-3">
+      <strong>Sign in to your account</strong>
+    </div>
+    <!-- <div class="mb-4">
+      <nz-radio-group [ngModel]="authProvider" (ngModelChange)="setProvider($event)">
+        <label nz-radio nzValue="firebase">Firebase</label>
+        <label nz-radio nzValue="jwt">JWT</label>
+        <label nz-radio nzValue="auth0" nzDisabled nzTooltipTitle="Read Docs Guide" nzTooltipPlacement="top"
+          nz-tooltip>Auth0</label>
+        <label nz-radio nzValue="strapi" nzDisabled nzTooltipTitle="Read Docs Guide" nzTooltipPlacement="top"
+          nz-tooltip>Strapi</label>
+      </nz-radio-group>
+    </div> -->
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="form" (ngSubmit)="submitForm()" role="form">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your email!">
+          <input type="text" nz-input formControlName="email" nzSize="large" placeholder="Email Address" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <input type="password" nz-input nzSize="large" formControlName="password" placeholder="Password" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" [nzSize]="'large'" [nzLoading]="loading" class="text-center w-100">
+            <strong>Log In</strong>
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <!-- <button nz-button nzType="primary" (click)="oldlogin()" [nzSize]="'large'" [nzLoading]="loading"
+      class="text-center w-100">
+      <strong>Old Log In</strong>
+    </button> -->
+    <a [class.disabled]="loading" routerLink="/auth/forgot-password" class="kit__utils__link font-size-16">
+      Forgot password?
+    </a>
+  </div>
+  <!-- <div class="text-center pt-2 mb-auto">
+    <span class="mr-2">Don't have an account?</span>
+    <a routerLink="/auth/register" class="kit__utils__link font-size-16">
+      Sign up
+    </a>
+  </div> -->
+</div>
+<!-- store list pop up -->
+<ng-template #storelist let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Select a store</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <nz-list [nzDataSource]="stores" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading">
+      <ng-template #item let-item>
+        <nz-list-item>
+          <nz-list-item-meta [nzTitle]="nzTitle" nzDescription="{{item.Address}}">
+            <ng-template #nzTitle>
+              <i nz-icon nzType="shop" nzTheme="outline" class="pr-2"></i>
+              <a href="javascript:void(0);" (click)="storeselect(item.Id)"><b>{{ item.Name }}</b></a>
+            </ng-template>
+          </nz-list-item-meta>
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+  </div>
+</ng-template>
+<style>
+  a.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: grey;
+  }
+</style>

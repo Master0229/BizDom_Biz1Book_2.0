@@ -1,0 +1,356 @@
+<div class="row">
+  <div class="col-xl-6 col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Account Information</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Account information
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-12">
+            <kit-general-19></kit-general-19>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Work Progress</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Account information
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-12">
+            <div>
+              <strong>{{progressGroup.first.name}}</strong>
+              <p class="text-muted mb-1">{{progressGroup.first.description}}</p>
+              <div class="mb-3">
+                <nz-progress [nzPercent]="progressGroup.first.progress" [nzStatus]="progressGroup.first.status">
+                </nz-progress>
+              </div>
+              <strong>{{progressGroup.second.name}}</strong>
+              <p class="text-muted mb-1">{{progressGroup.second.description}}</p>
+              <div class="mb-3">
+                <nz-progress [nzPercent]="progressGroup.second.progress" [nzStatus]="progressGroup.second.status">
+                </nz-progress>
+              </div>
+              <strong>{{progressGroup.third.name}}</strong>
+              <p class="text-muted mb-1">{{progressGroup.third.description}}</p>
+              <div class="mb-3">
+                <nz-progress [nzPercent]="progressGroup.third.progress" [nzStatus]="progressGroup.third.status">
+                </nz-progress>
+              </div>
+              <strong>{{progressGroup.fourth.name}}</strong>
+              <p class="text-muted mb-1">{{progressGroup.fourth.description}}</p>
+              <div class="mb-3">
+                <nz-progress [nzPercent]="progressGroup.fourth.progress" [nzStatus]="progressGroup.fourth.status">
+                </nz-progress>
+              </div>
+              <strong>{{progressGroup.fives.name}}</strong>
+              <p class="text-muted mb-1">{{progressGroup.fives.description}}</p>
+              <div class="mb-3">
+                <nz-progress [nzPercent]="progressGroup.fives.progress" [nzStatus]="progressGroup.fives.status">
+                </nz-progress>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Employees</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Account information
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card bg-light border-0 mb-0">
+              <kit-general-23></kit-general-23>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card border-0 mb-0">
+              <kit-general-23v1></kit-general-23v1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Task table</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Account information
+        </div>
+      </div>
+      <div class="card-body">
+        <nz-table [nzData]="taskTableData" [nzShowPagination]="false">
+          <thead>
+            <tr>
+              <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate"
+                (nzCheckedChange)="checkAll($event)"></th>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of taskTableData">
+              <td nzShowCheckbox [(nzChecked)]="item.checked" [nzDisabled]="item.disabled"
+                (nzCheckedChange)="refreshStatus()"></td>
+              <td><a href="javascript: void(0);">{{item.name}}</a></td>
+              <td><a href="javascript: void(0);">{{item.username}}</a></td>
+              <td>
+                <button [nzDropdownMenu]="menu" nz-button nz-dropdown nzSize="small"><span>Action</span> <i nz-icon
+                    nzType="down"></i></button>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                  <ul nz-menu>
+                    <li nz-menu-item>
+                      <a>1st menu item</a>
+                    </li>
+                    <li nz-menu-item>
+                      <a>2nd menu item</a>
+                    </li>
+                    <li nz-menu-item>
+                      <a>3rd menu item</a>
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Information Cards</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Account information
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card bg-primary border-0 mb-4">
+          <div class="card-body">
+            <kit-general-24></kit-general-24>
+          </div>
+        </div>
+        <div class="card bg-light border-0 mb-0">
+          <div class="card-body">
+            <kit-general-24v1></kit-general-24v1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-6 col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Server Info</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Server Info informastion
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <kit-general-20></kit-general-20>
+          </div>
+          <div class="col-lg-6">
+            <kit-general-20v1></kit-general-20v1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Server Statistics</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Server Info information
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <kit-general-21></kit-general-21>
+            <kit-general-21v1></kit-general-21v1>
+          </div>
+          <div class="col-lg-6">
+            <kit-general-21v2></kit-general-21v2>
+            <kit-general-21v3></kit-general-21v3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Server Configuration</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Server Info information
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="mb-5">
+          <nz-slider [nzMarks]="rangeMarks" [nzDefaultValue]="rangeSlider.first"></nz-slider>
+        </div>
+        <div class="mb-5">
+          <nz-slider [nzMarks]="rangeMarks" nzRange [nzDefaultValue]="rangeSlider.second"></nz-slider>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Week Revenue Statistics, Billions</strong>
+        </div>
+        <span class="mr-2">
+          <span class="kit__utils__donut kit__utils__donut--primary"></span>
+          Nuts
+        </span>
+        <span class="mr-2">
+          <span class="kit__utils__donut kit__utils__donut--success"></span>
+          Apples
+        </span>
+        <span class="mr-2">
+          <span class="kit__utils__donut kit__utils__donut--yellow"></span>
+          Peaches
+        </span>
+      </div>
+      <div class="card-body">
+        <x-chartist class="ct-chart height-300" [data]="weekChartData" type="Line" [options]="weekChartOptions">
+        </x-chartist>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Month Site Visits Growth, %</strong>
+        </div>
+        <span class="mr-2">
+          <span class="kit__utils__donut kit__utils__donut--primary"></span>
+          Income
+        </span>
+        <span class="mr-2">
+          <span class="kit__utils__donut kit__utils__donut--success"></span>
+          Outcome
+        </span>
+      </div>
+      <div class="card-body">
+        <x-chartist class="ct-chart height-300" [data]="monthChartData" type="Bar" [options]="monthChartOptions">
+        </x-chartist>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Chat</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Server Info information
+        </div>
+      </div>
+      <div class="card-body">
+        <kit-general-14></kit-general-14>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-4">
+          <kit-general-22></kit-general-22>
+        </div>
+        <nz-table [nzData]="displayDatabaseData" [nzShowPagination]="false" class="kit__utils__table">
+          <thead (nzSortChange)="sort($event)">
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th nzShowSort nzColumnKey="age">Age</th>
+              <th>Date</th>
+              <th nzShowSort nzColumnKey="salary">Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of databaseData">
+              <td>{{item.name}}</td>
+              <td>{{item.position}}</td>
+              <td>{{item.office}}</td>
+              <td>{{item.age}}</td>
+              <td>{{item.date}}</td>
+              <td>{{item.salary}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="cui__utils__heading mb-0">
+          <strong>Calendar</strong>
+        </div>
+        <div class="text-muted">
+          Block with important Calendar information
+        </div>
+      </div>
+      <div class="card-body">
+        <nz-calendar>
+          <ul *nzDateCell="let date" class="events">
+            <ng-container [ngSwitch]="date.getDate()">
+              <ng-container *ngSwitchCase="8">
+                <li *ngFor="let item of calendarData.eight">
+                  <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
+                </li>
+              </ng-container>
+              <ng-container *ngSwitchCase="10">
+                <li *ngFor="let item of calendarData.ten">
+                  <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
+                </li>
+              </ng-container>
+              <ng-container *ngSwitchCase="11">
+                <li *ngFor="let item of calendarData.eleven">
+                  <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ul>
+          <ng-container *nzMonthCell="let month">
+            <div *ngIf="getMonthData(month) as monthData" class="notes-month">
+              <section>{{ monthData }}</section>
+              <span>Backlog number</span>
+            </div>
+          </ng-container>
+        </nz-calendar>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<h5 class="mb-4"><strong>Default Usage</strong></h5>
+<div class="mb-5">
+  <input placeholder="Start typing..." id="typeahead-focus" type="text" class="form-control" [(ngModel)]="model"
+    [ngbTypeahead]="search" (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)"
+    #instance="ngbTypeahead" />
+</div>

@@ -1,0 +1,69 @@
+<div>
+  <div class="cui__utils__heading">
+    <strong>Ecommerce: Dashboard</strong>
+  </div>
+  <div class="row">
+    <div class="col-xl-8 col-lg-12">
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <nz-tabset class="kit-tabs" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="Orders"></nz-tab>
+            <nz-tab nzTitle="Revenue"></nz-tab>
+          </nz-tabset>
+        </div>
+        <div class="card-body">
+          <kit-chart-3></kit-chart-3>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <nz-tabset class="kit-tabs" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="Bestsellers"></nz-tab>
+            <nz-tab nzTitle="Most Viewed"></nz-tab>
+            <nz-tab nzTitle="Highest Rated"></nz-tab>
+          </nz-tabset>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6" *ngFor="let product of products">
+              <kit-general-16 [isNew]="product.isNew" [isFavorite]="product.isFavorite" [image]="product.image"
+                [name]="product.name" [price]="product.price" [oldPrice]="product.oldPrice"></kit-general-16>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-lg-12">
+      <div class="card text-white bg-success">
+        <div class="card-body">
+          <kit-general-2v3></kit-general-2v3>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <kit-general-2></kit-general-2>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <kit-general-2v1></kit-general-2v1>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <kit-general-2v2></kit-general-2v2>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <kit-list-11></kit-list-11>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <kit-list-12></kit-list-12>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

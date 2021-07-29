@@ -1,0 +1,176 @@
+<div>
+  <div class="cui__utils__heading">
+    <strong>Ecommerce: Cart</strong>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="mb-4 text-uppercase">
+        <strong>Order items</strong>
+      </h6>
+      <nz-table #cartTable [nzShowPagination]="false" [nzData]="products" class="kit__utils__table mb-4">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th class="text-right">Unitcost</th>
+            <th class="text-right">Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartTable.data">
+            <td>{{item.number}}</td>
+            <td>
+              <a class="btn btn-sm btn-light" href="javascript: void(0);">
+                {{item.description}}
+              </a>
+            </td>
+            <td>
+              <nz-input-number [(ngModel)]="item.quantity" [nzSize]="'small'" [nzMin]="1" [nzStep]="1">
+              </nz-input-number>
+            </td>
+            <td class="text-right">{{item.unitcost}}</td>
+            <td class="text-right">{{item.total}}</td>
+            <td class="text-right">
+              <a href="javascript: void(0);" class="btn btn-sm btn-light" slot="actions">
+                <i class="fe fe-trash mr-1"></i> Remove
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <form nz-form nzLayout="vertical">
+        <h6 class="mb-4 text-uppercase">
+          <strong>Shipment details</strong>
+        </h6>
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6">
+                <nz-form-item>
+                  <nz-form-label nzFor="email" nzRequired>Email</nz-form-label>
+                  <nz-form-control>
+                    <input nz-input id="email" placeholder="Email">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-md-6">
+                <nz-form-item>
+                  <nz-form-label nzFor="phone" nzRequired>Phone Number</nz-form-label>
+                  <nz-form-control>
+                    <input nz-input id="phone" placeholder="Phone Number">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-md-6">
+                <nz-form-item>
+                  <nz-form-label nzFor="name" nzRequired>Name</nz-form-label>
+                  <nz-form-control>
+                    <input nz-input id="name" placeholder="Name">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-md-6">
+                <nz-form-item>
+                  <nz-form-label nzFor="surname" nzRequired>Surname</nz-form-label>
+                  <nz-form-control>
+                    <input nz-input id="surname" placeholder="Surname">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-md-12">
+                <nz-form-item>
+                  <nz-form-label nzFor="city" nzRequired>City</nz-form-label>
+                  <nz-form-control>
+                    <input nz-input id="city" placeholder="City">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-md-12">
+                <nz-form-item>
+                  <nz-form-label nzFor="adress" nzRequired>Adress</nz-form-label>
+                  <nz-form-control>
+                    <input nz-input id="adress" placeholder="Adress">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-black mb-3">
+              <strong>General Info</strong>
+            </h4>
+            <h2>
+              <i class="fa fa-cc-visa text-primary mr-1"></i>
+              <i class="fa fa-cc-mastercard text-default mr-1"></i>
+              <i class="fa fa-cc-amex text-default"></i>
+            </h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+        <h6 class="mb-4 text-uppercase">
+          <strong>Payment details</strong>
+        </h6>
+        <div class="row mb-4">
+          <div class="col-md-12">
+            <nz-form-item>
+              <nz-form-label nzFor="cardNum" nzRequired>Card Number</nz-form-label>
+              <nz-input-group [nzAddOnBefore]="addOnCardNum">
+                <input type="text" nz-input placeholder="Card Number">
+              </nz-input-group>
+              <ng-template #addOnCardNum>
+                <i nz-icon nzType="credit-card" theme="outline"></i>
+              </ng-template>
+            </nz-form-item>
+          </div>
+          <div class="col-md-6">
+            <nz-form-item>
+              <nz-form-label nzFor="expDate" nzRequired>Expiration Date</nz-form-label>
+              <nz-form-control>
+                <input nz-input id="expDate" placeholder="MM / YY">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-6">
+            <nz-form-item>
+              <nz-form-label nzFor="cvc" nzRequired>Card CVC</nz-form-label>
+              <nz-form-control>
+                <input nz-input id="cvc" placeholder="CVC">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-md-12">
+            <nz-form-item>
+              <nz-form-label nzFor="cardName" nzRequired>Card Holder Name</nz-form-label>
+              <nz-form-control>
+                <input nz-input id="cardName" placeholder="Name and Surname">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div class="border-top text-dark font-size-18 pt-4 text-right">
+          <p class="mb-1">
+            Sub - Total amount: <strong class="font-size-24">$5,700.00</strong>
+          </p>
+          <p class="mb-1">
+            VAT: <strong class="font-size-24">$57.00</strong>
+          </p>
+          <p class="mb-4">
+            Grand Total: <strong class="font-size-36">$5,757.00</strong>
+          </p>
+          <a href="javascript: void(0);" class="btn btn-lg btn-success width-200 mb-2">
+            Order Now
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

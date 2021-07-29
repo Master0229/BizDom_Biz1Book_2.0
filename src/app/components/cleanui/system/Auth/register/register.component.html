@@ -1,0 +1,53 @@
+<div>
+  <div class="card boxContainer">
+    <div class="text-dark font-size-24 mb-4">
+      <strong>Create your account</strong>
+    </div>
+    <div class="mb-4">
+      <p>
+        And start spending more time on your projects and less time managing your
+        infrastructure.
+      </p>
+    </div>
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="form" (ngSubmit)="submitForm()" role="form">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Full Name!">
+          <input type="text" nz-input nzSize="large" formControlName="name" placeholder="Full Name" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Email!">
+          <input type="text" nz-input nzSize="large" formControlName="email" placeholder="Email Address" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <input type="password" nz-input nzSize="large" formControlName="password" placeholder="Password" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" [nzSize]="'large'" [nzLoading]="loading" class="text-center w-100">
+            <strong>Sign Up</strong>
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <div>
+      By signing up, you agree to the
+      <a href="javascript: void(0);" class="kit__utils__link">
+        Terms of Service
+      </a>
+      and
+      <a href="javascript: void(0);" class="kit__utils__link">
+        Privacy Policy
+      </a>
+    </div>
+  </div>
+  <div class="text-center pt-2 mb-auto">
+    <span class="mr-2">Already have an account?</span>
+    <a routerLink="/auth/login" class="kit__utils__link font-size-16">
+      Sign in
+    </a>
+  </div>
+</div>

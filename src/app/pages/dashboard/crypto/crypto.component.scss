@@ -1,0 +1,188 @@
+@import 'src/app/components/mixins.scss';
+
+.cui-crypto-dashboard {
+  &-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    @media (max-width: $md-max-width) {
+      flex-direction: column;
+    }
+  }
+
+  &-list-mobile {
+    display: none;
+    margin-bottom: rem(30);
+
+    @media (max-width: $md-max-width) {
+      display: block;
+    }
+  }
+
+  &-list {
+    width: 200px;
+    flex-shrink: 0;
+    @media (max-width: $md-max-width) {
+      display: none;
+    }
+
+    .ant-affix {
+      width: 200px !important;
+    }
+  }
+
+  &-list-item {
+    display: block;
+    background: $gray-1;
+    padding: rem(10) rem(20);
+    margin-bottom: rem(10);
+    border-radius: 5px;
+    color: $black;
+    transition: all 0.1s ease-in-out;
+
+    ::ng-deep {
+      @at-root {
+        .cui__layout__grayBackground .cui-crypto-dashboard-list-item {
+          background: $white;
+        }
+      }
+    }
+
+    &:hover {
+      background: $primary;
+      color: $white;
+      .cui-crypto-dashboard-list-percents {
+        span {
+          color: $white !important;
+        }
+      }
+    }
+
+    &:after {
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+
+  &-list-item-negative {
+    .cui-crypto-dashboard-list-percents {
+      span {
+        color: #f75535;
+        &:after {
+          content: ' ↓';
+          font-family: monospace;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  &-list-percents {
+    float: right;
+    text-align: right;
+    span {
+      display: block;
+      font-weight: bold;
+      color: #00a45b;
+      transition: all 0.1s ease-in-out;
+
+      &:after {
+        content: ' ↑';
+        font-family: monospace;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-list-currency {
+    float: left;
+    span {
+      display: block;
+      font-weight: bold;
+    }
+  }
+
+  &-content {
+    margin-left: 30px;
+    flex-grow: 1;
+
+    @media (max-width: $md-max-width) {
+      margin-left: 0;
+    }
+  }
+
+  &-order {
+    display: flex;
+
+    @media (max-width: $xxl-max-width) {
+      display: block;
+    }
+  }
+
+  &-order-left {
+    flex-grow: 1;
+  }
+
+  &-order-middle {
+    width: rem(250);
+    padding: 0 rem(30);
+
+    @media (max-width: $xxl-max-width) {
+      width: auto;
+      max-width: 350px;
+      margin: rem(20) auto rem(40);
+    }
+  }
+
+  &-order-right {
+    flex-grow: 1;
+  }
+
+  &-form {
+    margin-bottom: 1px;
+
+    .ant-form-item {
+      margin-bottom: rem(5);
+    }
+  }
+
+  &-form-label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: rem(12);
+  }
+
+  &-warning {
+    padding-top: rem(20) !important;
+    padding-bottom: rem(20) !important;
+    cursor: pointer;
+  }
+
+  &-table {
+    ::ng-deep {
+      .ant-table {
+        color: $black;
+      }
+
+      .ant-pagination {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// dark theme
+[data-kit-theme='dark'] {
+  .cui-crypto-dashboard {
+    &-list-item {
+      background: $dark-gray-4 !important;
+
+      &:hover {
+        background: $primary !important;
+        color: $white !important;
+      }
+    }
+  }
+}

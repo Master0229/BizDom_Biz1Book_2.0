@@ -1,0 +1,178 @@
+<div>
+  <div class="kit__utils__heading">
+    <h5>
+      <span class="mr-3">Tabbed Cards</span>
+      <a href="https://getbootstrap.com/docs/4.3/components/card/" target="_blank" rel="noopener noreferrer"
+        class="btn btn-sm btn-light">
+        Official Documentation
+        <i class="fe fe-corner-right-up"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="row">
+    <div class="col-xl-6 col-lg-12">
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <div class="d-flex flex-column justify-content-center mr-auto">
+            <h5 class="mb-0">Basic</h5>
+          </div>
+          <nz-tabset class="kit-tabs" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="History"></nz-tab>
+            <nz-tab nzTitle="Information"></nz-tab>
+            <nz-tab nzTitle="Actions"></nz-tab>
+          </nz-tabset>
+        </div>
+        <div class="card-body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <div class="d-flex flex-column justify-content-center mr-auto">
+            <h5 class="mb-0">With Dropdown</h5>
+          </div>
+          <nz-tabset class="kit-tabs" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="Messages"></nz-tab>
+          </nz-tabset>
+          <div class="d-inline-flex align-items-center">
+            <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click" nzPlacement="bottomRight"
+              class="nav-link dropdown-toggle" href="javascript:;">
+              Dropdown
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item><a href="javascript:;">Action</a></li>
+                <li nz-menu-item><a href="javascript:;">Another action</a></li>
+                <li nz-menu-item><a href="javascript:;">Something else here</a></li>
+                <li nz-menu-divider></li>
+                <li nz-menu-item><a href="javascript:;">Separated link</a></li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+        </div>
+        <div class="card-body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <div class="d-flex flex-column justify-content-center mr-auto">
+            <h5 class="mb-0">Bold Border</h5>
+          </div>
+          <nz-tabset class="kit-tabs-bold" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="History"></nz-tab>
+            <nz-tab nzTitle="Information"></nz-tab>
+          </nz-tabset>
+          <div class="d-inline-flex align-items-center">
+            <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click" nzPlacement="bottomRight"
+              class="nav-link dropdown-toggle" href="javascript:;">
+              Dropdown
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item><a href="javascript:;">Action</a></li>
+                <li nz-menu-item><a href="javascript:;">Another action</a></li>
+                <li nz-menu-item><a href="javascript:;">Something else here</a></li>
+                <li nz-menu-divider></li>
+                <li nz-menu-item><a href="javascript:;">Separated link</a></li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+        </div>
+        <div class="card-body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </div>
+      </div>-->
+    </div>
+    <div class="col-xl-6 col-lg-12">
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <div class="d-flex flex-column justify-content-center mr-auto">
+            <h5 class="mb-0">Pills</h5>
+          </div>
+          <nz-tabset class="kit-tabs-pills" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="History"></nz-tab>
+            <nz-tab nzTitle="Information"></nz-tab>
+            <nz-tab nzTitle="Actions"></nz-tab>
+          </nz-tabset>
+        </div>
+        <div class="card-body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <div class="d-flex flex-row align-items-center mr-auto">
+            <h5 class="mb-0">
+              <i class="fe fe-activity mr-1 font-size-18 text-muted"></i>
+              With Icon
+            </h5>
+          </div>
+          <nz-tabset class="kit-tabs-bold" [nzSelectedIndex]="0">
+            <nz-tab [nzTitle]="leftTemplate">
+              <ng-template #leftTemplate><i class="fe fe-align-left mr-1"></i> Left</ng-template>
+            </nz-tab>
+            <nz-tab [nzTitle]="centerTemplate">
+              <ng-template #centerTemplate><i class="fe fe-align-center mr-1"></i> Center</ng-template>
+            </nz-tab>
+            <nz-tab [nzTitle]="rightTemplate">
+              <ng-template #rightTemplate><i class="fe fe-align-right mr-1"></i> Right</ng-template>
+            </nz-tab>
+          </nz-tabset>
+        </div>
+        <div class="card-body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-flex">
+          <nz-tabset class="kit-tabs-bold" [nzSelectedIndex]="0">
+            <nz-tab nzTitle="Notifications"></nz-tab>
+          </nz-tabset>
+          <div class="d-inline-flex align-items-center">
+            <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click" nzPlacement="bottomRight"
+              class="nav-link dropdown-toggle" href="javascript:;">
+              Dropdown
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item><a href="javascript:;">Action</a></li>
+                <li nz-menu-item><a href="javascript:;">Another action</a></li>
+                <li nz-menu-item><a href="javascript:;">Something else here</a></li>
+                <li nz-menu-divider></li>
+                <li nz-menu-item><a href="javascript:;">Separated link</a></li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+        </div>
+        <div class="card-body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

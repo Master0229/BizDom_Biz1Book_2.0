@@ -1,0 +1,20 @@
+<nz-table #basicTable [nzData]="tableData" [nzShowPagination]="false" class="table mb-4">
+  <thead>
+    <tr>
+      <th class="bg-transparent text-uppercase">Action name</th>
+      <th class="bg-transparent text-uppercase text-right">Progress</th>
+      <th class="bg-transparent text-uppercase text-right">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.actionName}}</td>
+      <td>
+        <div class="progress">
+          <div [class]="'progress-bar ' + data.progress.color" [ngStyle]="{'width': data.progress.value + '%'}"></div>
+        </div>
+      </td>
+      <td class="text-right"><span class="font-weight-bold">{{data.value}}</span></td>
+    </tr>
+  </tbody>
+</nz-table>
